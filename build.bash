@@ -2,14 +2,14 @@
 #
 #
 ##############################################
-# Copyright (c) 2023 by Manfred Rosenboom    #
+# Copyright (c) 2025 by Manfred Rosenboom    #
 #                                            #
 # This work is licensed under a MIT License. #
 # https://choosealicense.com/licenses/mit/   #
 ##############################################
 #
 declare -r SCRIPT_NAME=`basename $0`
-declare -r VERSION="${SCRIPT_NAME}  1  (09-AUG-2023)"
+declare -r VERSION="${SCRIPT_NAME}  1  (30-MAR-2025)"
 #
 ###############################################################################
 #

@@ -2,14 +2,12 @@
 #
 * text=auto
 #
-*.css text
-*.html text
-*.js text
-*.md text
-*.py text
-*.sh  text eol=lf
-*.txt text
-*.yml text
+*.bash text eol=lf
+*.md   text
+*.py   text
+*.sh   text eol=lf
+*.txt  text
+*.yml  text
 #
 *.ico binary
 *.jpg binary
