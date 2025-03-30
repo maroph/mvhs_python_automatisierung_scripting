@@ -1,0 +1,97 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+site_name: MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben
+site_url: https://maroph.github.io/mvhs_python_automatisierung_scripting/
+site_description: Daten aus dem MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben
+site_author: Manfred Rosenboom (maroph)
+
+repo_name: maroph/mvhs_python_automatisierung_scripting
+repo_url: https://github.com/maroph/mvhs_python_automatisierung_scripting/
+edit_uri: edit/main/docs
+
+theme:
+    name: material
+    logo: assets/python-logo-only2.png
+    palette:
+        - scheme: default
+          primary: indigo
+          accent: indigo
+          toggle:
+            icon: material/brightness-7
+            name: Switch to dark mode
+        - scheme: slate
+          primary: indigo
+          accent: indigo
+          toggle:
+            icon: material/brightness-4
+            name: Switch to light mode
+    font: false
+    language: de
+    direction: ltr
+    favicon: assets/favicon.ico
+    features:
+        - header.autohide
+        - content.action.edit
+        - content.action.view
+        - content.code.copy
+        - navigation.expand
+        - navigation.footer
+        - navigation.indexes
+        - navigation.instant
+        - navigation.prune
+        - navigation.sections
+        - navigation.tracking
+        - navigation.tabs
+        - navigation.tabs.sticky
+        - navigation.top
+        - search.suggest
+        - search.highlight
+    icon:
+        repo: fontawesome/brands/github
+        edit: material/pencil
+        view: material/eye
+        previous: fontawesome/solid/angle-left
+        next: fontawesome/solid/angle-right
+
+nav:
+    - Home: index.md
+    - Info:
+        - info.md
+        - Über: info/about.md
+        - Lizenz: info/license.md
+        - GDPR/DSGVO: info/gdpr.md
+
+docs_dir: docs
+site_dir: site
+
+use_directory_urls: false
+strict: true
+
+copyright: Copyright (c) 2025 <a href="https://maroph.github.io/">Manfred Rosenboom</a>
+
+markdown_extensions:
+    - attr_list
+    - pymdownx.highlight:
+          anchor_linenums: true
+          line_spans: __span
+          pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+
+plugins:
+    - git-revision-date-localized:
+          enable_creation_date: false
+          fallback_to_build_date: true
+          timezone: Europe/Amsterdam
+          type: iso_datetime
+    - info:
+          enabled: false
+    - search:
+          lang: de
+
+extra:
+    social:
+        - icon: fontawesome/brands/github
+          link: https://github.com/maroph
+        - icon: fontawesome/brands/mastodon
+          link: https://mastodon.social/@maroph

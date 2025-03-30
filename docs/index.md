@@ -22,3 +22,18 @@ effizient automatisiert.
 * Web-Scraping mit requests und BeautifulSoup
 * Extraktion von Webdaten
 * CSV-Dateien automatisiert bearbeiten
+
+**Voraussetzung:** Kenntnisse entsprechend dem Kurs "Programmierung mit Python: Grundlagen".
+
+### Kurstermine
+* Donnerstag 03.07.2025 18:00 – 21:00 Uhr
+* Donnerstag 10.07.2025 18:00 – 21:00 Uhr
+* Donnerstag 17.07.2025 18:00 – 21:00 Uhr
+
+## Meine Linkliste zum Workshop
+* Web: <https://raindrop.io/maroph/workshop-automatisierung-scripting-53914003>
+* RSS: <https://bg.raindrop.io/rss/public/53914003>
+
+---
+
+[![CC-BY 4.0](./assets/cc-by_88x31.png)](https://creativecommons.org/licenses/by/4.0/)
