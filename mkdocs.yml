@@ -54,6 +54,14 @@ theme:
 
 nav:
     - Home: index.md
+    - Python:
+        - python.md
+        - Python Links: python/links.md
+        - Dictionaries: python/dictionaries.md
+        - Hashable: python/hashable.md
+        - Listen: python/listen.md
+        - Sets: python/sets.md
+        - Tuples: python/tuples.md
     - Info:
         - info.md
         - Über: info/about.md
