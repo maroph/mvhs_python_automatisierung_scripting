@@ -99,8 +99,6 @@ plugins:
 
 extra:
     social:
-        - icon: fontawesome/brands/bluesky
-          link: https://bsky.app/profile/maroph.bsky.social
         - icon: fontawesome/brands/github
           link: https://github.com/maroph
         - icon: fontawesome/brands/mastodon

@@ -1,15 +1,7 @@
 # Links
 
-## openHPI Python Kurse
-* [Python – schnell und intensiv Programmieren lernen](https://open.hpi.de/courses/python2024)
-* [2024: Programmieren lernen mit Python - Schulversion](https://open.hpi.de/courses/pythonjunior-schule2024)
-* [2023: Programmieren lernen mit Python](https://open.hpi.de/courses/pythonjunior2023-1)
-* [2023: Programmieren lernen mit Python - Schulversion](https://open.hpi.de/courses/pythonjunior-schule2023)
-* [2020: Programmieren lernen mit Python](https://open.hpi.de/courses/pythonjunior2020)
-* [2015: Spielend Programmieren lernen!](https://open.hpi.de/courses/pythonjunior2015)
-
-## Python
-* [Python](https://python.org)
+## Python Allgemein
+* [Python Homepage](https://python.org)
 * [Python Docs](https://docs.python.org/3/)
 * [Python Language Reference](https://docs.python.org/3.11/reference/index.html)
 * [Python Data model](https://docs.python.org/3.11/reference/datamodel.html)
@@ -25,13 +17,8 @@
   Wandelt Python Anwendungen in ausführbare Programme um
 * [Pylint](https://www.pylint.org/)  
   Static code analyser for Python 
-* [Typangaben in Python](https://m.heise.de/developer/artikel/Explizite-Typangaben-in-Python-Segen-oder-Fluch-3964094.html?seite=all)
-* [Idiomatic Python: EAFP versus LBYL](https://devblogs.microsoft.com/python/idiomatic-python-eafp-versus-lbyl/)
-* [Python Docstrings](https://www.geeksforgeeks.org/python-docstrings/)
-* [Python Scope & the LEGB Rule: Resolving Names in Your Code](https://realpython.com/python-scope-legb-rule/)
-* [Pass by Reference in Python: Background and Best Practices](https://realpython.com/python-pass-by-reference/)
-* [Object-Oriented Programming (OOP) in Python 3](https://realpython.com/python3-object-oriented-programming/)
-* 
+
+## Python Artikel
 * [A Guide to Modern Python String Formatting Tools](https://realpython.com/python-formatted-output/)
 * [Build Your Python Project Documentation With MkDocs](https://realpython.com/python-project-documentation-with-mkdocs/)
 * [Bytes Objects: Handling Binary Data in Python](https://realpython.com/python-bytes/)
@@ -55,9 +42,12 @@
 * [How to Use sorted() and .sort() in Python](https://realpython.com/python-sort/)
 * [How to Write Beautiful Python Code With PEP 8](https://realpython.com/python-pep8/)
 * [GUI Programming With PyQt](https://realpython.com/learning-paths/pyqt-gui-programming/)
+* [Idiomatic Python: EAFP versus LBYL](https://devblogs.microsoft.com/python/idiomatic-python-eafp-versus-lbyl/)
 * [Image Processing With the Python Pillow Library](https://realpython.com/image-processing-with-the-python-pillow-library/)
 * [Iterators and Iterables in Python: Run Efficient Iterations](https://realpython.com/python-iterators-iterables/)
 * [Logging in Python](https://realpython.com/python-logging/)
+* [Object-Oriented Programming (OOP) in Python 3](https://realpython.com/python3-object-oriented-programming/)
+* [Pass by Reference in Python: Background and Best Practices](https://realpython.com/python-pass-by-reference/)
 * [Providing Multiple Constructors in Your Python Classes](https://realpython.com/python-multiple-constructors/)
 * [Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/)
 * [Python args and kwargs: Demystified](https://realpython.com/python-kwargs-and-args/)
@@ -65,6 +55,7 @@
 * [Python Concurrency: Threads, Processes, and asyncio Explained](https://newvick.com/python-concurrency/)
 * [Python: create temporary files and directories in unittest](https://adamj.eu/tech/2024/12/30/python-temporary-files-directories-unittest/)
 * [Python Dictionary Comprehensions: How and When to Use Them](https://realpython.com/python-dictionary-comprehension/)
+* [Python Docstrings](https://www.geeksforgeeks.org/python-docstrings/)
 * [Python's F-String for String Interpolation and Formatting](https://realpython.com/python-f-strings/)
 * [Python for Loops: The Pythonic Way](https://realpython.com/python-for-loop/)
 * [Python Garbage Collection: What It Is and How It Works](https://stackify.com/python-garbage-collection/)
@@ -72,6 +63,7 @@
 * [Python's Mutable vs Immutable Types: What's the Difference?](https://realpython.com/python-mutable-vs-immutable-types/)
 * [Python's pathlib module](https://www.pythonmorsels.com/pathlib-module/)
 * [Python's property(): Add Managed Attributes to Your Classes](https://realpython.com/python-property/)
+* [Python Scope & the LEGB Rule: Resolving Names in Your Code](https://realpython.com/python-scope-legb-rule/)
 * [Python Set Comprehensions: How and When to Use Them](https://realpython.com/python-set-comprehension/)
 * [Python Stacks, Queues, and Priority Queues in Practice](https://realpython.com/queue-in-python/)
 * [Python Timer Functions: Three Ways to Monitor Your Code](https://realpython.com/python-timer/)
@@ -80,6 +72,8 @@
 * [Should You Use Python pathlib or os?](https://betterprogramming.pub/should-you-be-using-pathlib-6f3a0fddec7e?gi=d6568d68af78)
 * [Speed Up Your Python Program With Concurrency](https://realpython.com/python-concurrency/)
 * [Timing Functions With Decorators](https://www.geeksforgeeks.org/timing-functions-with-decorators-python/)
+* [Typangaben in Python](https://m.heise.de/developer/artikel/Explizite-Typangaben-in-Python-Segen-oder-Fluch-3964094.html?seite=all)
+
 * [Using Python's pip to Manage Your Projects' Dependencies](https://realpython.com/what-is-pip/)
 * [Using the Python zip() Function for Parallel Iteration](https://realpython.com/python-zip-function/)
 * [Variables in Python: Usage and Best Practices](https://realpython.com/python-variables/)

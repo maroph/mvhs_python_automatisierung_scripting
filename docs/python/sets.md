@@ -40,17 +40,6 @@ Beispiel
     myset = { 0, 1, 2, True, False }
     ## {0, 1, 2}
 
-## frozenset
-TODO _frozenset_
-
-    liste = [ 'Apfel', 'Bananne', 'Kirsche' ]
-    dset.add(liste)
-
-    TypeError: unhashable type: 'list'
-
-    fset = frozenset(liste)
-    ## frozenset({'Bananne', 'Apfel', 'Kirsche'})
-
 ## Länge eines Sets
 
     len(myset)
@@ -208,6 +197,20 @@ In s2, nicht in s1
     s2 -s1
     ## {8, 6, 7}
 
+## frozenset
+Set Objekte sind veränderbar. Mit Hilfe der
+Funktion __frozenset__ werden Sets
+"eingefroren" und somit unveränderbar.
+
+    myset = { 1, 2, 3, 'A', 'B', 'C' }
+    ## {'A', 1, 2, 3, 'B', 'C'}
+
+    myset_frozen = frozenset(myset)
+    ## frozenset({'A', 1, 2, 3, 'B', 'C'})
+
+    type(myset_frozen)
+    ## class 'frozenset'>
+
 ---
 
 ## Weiterführende Links
@@ -216,4 +219,6 @@ In s2, nicht in s1
 * [Set Types - set, frozenset](https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset)
 * [Hashable](https://docs.python.org/3/glossary.html#term-hashable)
 * [dataclasses — Data Classes](https://docs.python.org/3/library/dataclasses.html#module-dataclasses)
+* [w3schools: frozenset() Function](https://www.w3schools.com/python/ref_func_frozenset.asp)
+* [Mengen managen über: set und frozenset](https://www.python-lernen.de/mengenlehre-set-frozenset.htm)
  
