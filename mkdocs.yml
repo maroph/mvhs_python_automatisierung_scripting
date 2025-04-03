@@ -33,6 +33,7 @@ theme:
         - content.action.edit
         - content.action.view
         - content.code.copy
+        - content.tooltips
         - navigation.expand
         - navigation.footer
         - navigation.indexes
@@ -54,9 +55,13 @@ theme:
 
 nav:
     - Home: index.md
+    - Workshop:
+        - workshop.md
+        - Links: workshop/links.md
+        - Tag 1: workshop/tag1.md
     - Python:
         - python.md
-        - Python Links: python/links.md
+        - Links: python/links.md
         - Dictionaries: python/dictionaries.md
         - Hashable: python/hashable.md
         - Listen: python/listen.md
@@ -94,10 +99,14 @@ plugins:
           type: iso_datetime
     - info:
           enabled: false
+    - privacy:
+          enabled: true
+          cache: true
     - search:
           lang: de
 
 extra:
+    generator: true
     social:
         - icon: fontawesome/brands/github
           link: https://github.com/maroph

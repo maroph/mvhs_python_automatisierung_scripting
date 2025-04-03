@@ -3,9 +3,18 @@ Auf dieser Site habe ich meine Daten zum Kurs
 [MVHS Workshop: Python für Automatisierungs- und Scripting-Aufgaben](https://www.mvhs.de/kurse/online-programm/it-digitales/workshop-python-fuer-automatisierungs-und-scripting-aufgaben/online-kurs-460-C-U486390) 
 abgelegt.
 
+Der gesamte Inhalt dieser Site (HTML und Python
+Source Code) ist abgelegt in meinem GitHub
+Repository
+[maroph/mvhs_python_automatisierung_scripting](https://github.com/maroph/mvhs_python_automatisierung_scripting/).
+
+Auf die Webseiten kann man über die GitHub Page 
+[maroph.github.io/mvhs_python_automatisierung_scripting](https://maroph.github.io/mvhs_python_automatisierung_scripting/)
+zugreifen.
+
 Die Python Dateien sind im Verzeichnis 
 [sources](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/main/sources)
-abgelegt.
+des Repositories abgelegt.
 
 __Die Python Programme habe ich unter Debian 12
 und Windows 11 getestet.__  
@@ -38,10 +47,11 @@ releaselevel : final
 serial       : 0
 ```
 
-## Struktur der Site
-Der gesamte Inhalt dieser Site (HTML und Python Source
-Code) ist abgelegt in meinem GitHub Repository
-[maroph/mvhs_python_automatisierung_scripting](https://github.com/maroph/mvhs_python_automatisierung_scripting/):
+## Struktur des Repositories
+Im Branch 
+__[main](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/main)__ 
+des Repositories befinden sich die folgenden
+Dateien und Verzeichnisse:
 
 * .github/workflows/ci.yml  
   GitHub Actions Konfigurationsdatei.  
@@ -67,7 +77,9 @@ Die Webseiten aus den Markdown Dateien erzeuge
 ich mit dem  
 [MkDocs](https://www.mkdocs.org/) 
 Static Site Generator. Die erzeugten Webseiten 
-werden im Verzeichnis _site_ abgelegt.
+werden im Branch 
+__[gh-pages](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/gh-pages)__
+abgelegt.
 
 ## Mein Python Virtual Environment
 Zur Erzeugung der Webseiten verwende ich die 

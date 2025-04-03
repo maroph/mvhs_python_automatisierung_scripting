@@ -132,7 +132,7 @@
 * [IDLE](https://docs.python.org/3/library/idle.html)  
   Teil der Python Distribution
 * [PyCharm](https://www.jetbrains.com/pycharm/)  
-  Die Community Editon kann man kostenlos verwenden.
+  Die Community Edition kann man kostenlos verwenden.
 * [Spyder](https://www.spyder-ide.org/)
 * [Sublime Text 3](https://www.sublimetext.com/3)
 * [Thonny](https://thonny.org/)
