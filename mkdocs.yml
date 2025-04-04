@@ -59,6 +59,8 @@ nav:
         - workshop.md
         - Links: workshop/links.md
         - Tag 1: workshop/tag1.md
+        - Tag 2: workshop/tag2.md
+        - Tag 3: workshop/tag3.md
     - Python:
         - python.md
         - Links: python/links.md
@@ -110,5 +112,7 @@ extra:
     social:
         - icon: fontawesome/brands/github
           link: https://github.com/maroph
+          name: github.com/maroph
         - icon: fontawesome/brands/mastodon
           link: https://mastodon.social/@maroph
+          name: mastodon.social/@maroph

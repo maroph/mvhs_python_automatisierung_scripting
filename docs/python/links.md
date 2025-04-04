@@ -79,6 +79,7 @@
 * [Variables in Python: Usage and Best Practices](https://realpython.com/python-variables/)
 * [What is "hashable" in Python?](https://www.pythonmorsels.com/what-are-hashable-objects/)
 * [What Are Python Asterisk and Slash Special Parameters For?](https://realpython.com/python-asterisk-and-slash-special-parameters/)
+* [Working With Files in Python](https://realpython.com/working-with-files-in-python/)
 
 ## Tutorials/Bücher
 * [Dive Into Python 3](https://diveintopython3.problemsolving.io/)

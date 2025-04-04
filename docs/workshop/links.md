@@ -28,6 +28,15 @@ Selbststudium absolviert werden.
 * [PyPi: beautifulsoup4](https://pypi.org/project/beautifulsoup4/)
 * [Beautiful Soup: Homepage](https://www.crummy.com/software/BeautifulSoup/)
 
+### CSV
+* Python Doc: [CSV File Reading and Writing](https://docs.python.org/3.12/library/csv.html)
+* [Guide to Python's CSV Module](https://dev.to/devasservice/guide-to-pythons-csv-module-32ie)
+* [Reading and Writing CSV Files in Python](https://realpython.com/python-csv/)
+
+### Dateien und Verzeichnisse
+* [Python's pathlib Module: Taming the File System](https://realpython.com/python-pathlib/)
+* [Working With Files in Python](https://realpython.com/working-with-files-in-python/)
+
 ### Requests
 * [PyPi: requests](https://pypi.org/project/requests/)
 * [Requests](https://requests.readthedocs.io/en/latest/)
