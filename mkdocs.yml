@@ -65,6 +65,7 @@ nav:
         - python.md
         - Links: python/links.md
         - Dictionaries: python/dictionaries.md
+        - Funktionsargumente: python/func_args.md
         - Hashable: python/hashable.md
         - Listen: python/listen.md
         - Sets: python/sets.md

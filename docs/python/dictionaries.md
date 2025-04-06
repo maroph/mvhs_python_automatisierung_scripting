@@ -281,6 +281,11 @@ in das Dictionary dict eingefügt. Ist der Key
 bereits in dict enthalten, wird der Wert durch den
 Wert aus dem Dictionary dict2 ersetzt.
 
+Alternativ kann man als Ergebnis auch ein neues 
+Dictionary anlegen:
+
+    dict_merge = { **dict1, **dict2 }
+
 ---
 
 ## Weiterführende Links
