@@ -580,6 +580,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Funktionsargumente
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="func_args.html" class="md-nav__link md-nav__link--active">
         
   
@@ -591,6 +604,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#weiterfuhrende-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weiterführende Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -774,6 +815,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#weiterfuhrende-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weiterführende Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -805,8 +863,29 @@
 
 
 <h1 id="funktionsargumente">Funktionsargumente</h1>
-<p>TODO</p>
-<p><a href="https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/extras/func_arg_args_kwargs.py" target="blank">func_arg_args_kwargs.py</a></p>
+<p>Oft werden in einer Funktionsdefinition
+alle Parameter angegeben, z.B.:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>def func_sample(arg1, arg2, arg3):
+</span></code></pre></div>
+<p>Es gibt aber auch die Möglichkeit, eine  nicht
+festgelegte Anzahl von Parametern zu verwenden.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>def func_sample(*args):
+</span></code></pre></div>
+Hier werden die Argumente als Tupel an die Funktion
+übergeben.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>def func_sample(**kwargs):
+</span></code></pre></div>
+In diesem Fall werden die Argumente als Dicitonary
+an die Funktion übergeben.</p>
+<p>Ein Beispiel hierzu ist in der Source 
+<a href="https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/extras/func_arg_args_kwargs.py" target="blank">func_arg_args_kwargs.py</a></p>
+<p>abgelegt.</p>
+<hr />
+<h2 id="weiterfuhrende-links">Weiterführende Links</h2>
+<ul>
+<li><a href="https://www.python-kurs.eu/python3_funktionen.php">Python-Kurs: Funktionen</a></li>
+<li><a href="https://book.pythontips.com/en/latest/args_and_kwargs.html">Python Tips: <em>args and </em>*kwargs</a></li>
+</ul>
 
 
 
@@ -827,7 +906,7 @@
     <span class="md-icon" title="Letztes Update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="6. April 2025 11:11:50">2025-04-06 11:11:50</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="7. April 2025 10:24:15">2025-04-07 10:24:15</span>
   </span>
 
     
