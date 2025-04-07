@@ -19,8 +19,9 @@ des Repositories abgelegt.
 __Die Python Programme habe ich unter Debian 12
 und Windows 11 getestet.__  
 
-Die verwendete Python Version kann man mit dem Programm 
-[version.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/version.py) 
+Die verwendete Python Version kann man mit dem Programm
+[version.py]{:target="blank"} 
+[version.py]: https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/version.py 
 ausgeben.
 
 **Debian 12.10**

@@ -96,6 +96,7 @@
     * [Maschinelles Lernen mit Python](https://www.python-kurs.eu/maschinelles_lernen.php)
     * [Python Tkinter](https://www.python-kurs.eu/python_tkinter.php)
 * [Python Projekte](https://projects.raspberrypi.org/de-DE/projects)
+* [Python Tips](https://book.pythontips.com/en/latest/)
 * [Real Python Tutorials](https://realpython.com/)
 * [SQLite Python](https://www.sqlitetutorial.net/sqlite-python/)
 * [The Python Tutorial](https://docs.python.org/3/tutorial/)
