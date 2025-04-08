@@ -221,4 +221,5 @@ Funktion __frozenset__ werden Sets
 * [dataclasses — Data Classes](https://docs.python.org/3/library/dataclasses.html#module-dataclasses)
 * [w3schools: frozenset() Function](https://www.w3schools.com/python/ref_func_frozenset.asp)
 * [Mengen managen über: set und frozenset](https://www.python-lernen.de/mengenlehre-set-frozenset.htm)
+* [Python Set Comprehensions: How and When to Use Them](https://realpython.com/python-set-comprehension/)
  

@@ -286,6 +286,16 @@ Dictionary anlegen:
 
     dict_merge = { **dict1, **dict2 }
 
+## Funktionen als Werte in einem Dictionary
+Da Funktionen in Python auch Objekte sind, kann
+man Funktionen auch als Werte in einem Dictionary
+verwenden.
+
+Ein einfaches Beispiel hierzu ist in der Source 
+[dict_funcs.py]{:target="blank"}
+[dict_func.py]: https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/extras/dict_funcs.py
+abgelegt.
+
 ---
 
 ## Weiterführende Links
@@ -294,4 +304,5 @@ Dictionary anlegen:
 * [Dictionaries in Python](https://realpython.com/python-dicts/)
 * [How to Iterate Through a Dictionary in Python](https://realpython.com/iterate-through-dictionary-python/)
 * [Defaultdict in Python](https://www.geeksforgeeks.org/defaultdict-in-python/)
+* [Python Dictionary Comprehensions: How and When to Use Them](https://realpython.com/python-dictionary-comprehension/)
 * [Python Dictionary Comprehensions: How and When to Use Them](https://realpython.com/python-dictionary-comprehension/)

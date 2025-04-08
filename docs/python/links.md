@@ -60,6 +60,7 @@
 * [Python's F-String for String Interpolation and Formatting](https://realpython.com/python-f-strings/)
 * [Python for Loops: The Pythonic Way](https://realpython.com/python-for-loop/)
 * [Python Garbage Collection: What It Is and How It Works](https://stackify.com/python-garbage-collection/)
+* [Python Set Comprehensions: How and When to Use Them](https://realpython.com/python-set-comprehension/)
 * [Python's Bytearray: A Mutable Sequence of Bytes](https://realpython.com/python-bytearray/)
 * [Python's Instance, Class, and Static Methods Demystified](https://realpython.com/instance-class-and-static-methods-demystified/)
 * [Python's Mutable vs Immutable Types: What's the Difference?](https://realpython.com/python-mutable-vs-immutable-types/)
@@ -81,6 +82,7 @@
 * [Variables in Python: Usage and Best Practices](https://realpython.com/python-variables/)
 * [What is "hashable" in Python?](https://www.pythonmorsels.com/what-are-hashable-objects/)
 * [What Are Python Asterisk and Slash Special Parameters For?](https://realpython.com/python-asterisk-and-slash-special-parameters/)
+* [When to Use a List Comprehension in Python](https://realpython.com/list-comprehension-python/)
 * [Working With Files in Python](https://realpython.com/working-with-files-in-python/)
 
 ## Tutorials/Bücher

@@ -349,3 +349,4 @@ Alternativ kann man auch die folgende for Schleife verwenden:
 * [Python Documentation: Sorting Techniques](https://docs.python.org/3/howto/sorting.html)
 * [Python-Kurs: Listen](https://www.python-kurs.eu/python3_listen.php)
 * [Python's list Data Type: A Deep Dive With Examples](https://realpython.com/python-list/)
+* [When to Use a List Comprehension in Python](https://realpython.com/list-comprehension-python/)
