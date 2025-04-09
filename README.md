@@ -1,4 +1,6 @@
 # MVHS Workshop: Python für Automatisierungs- und Scripting-Aufgaben
+Auf dieser Site habe ich meine Daten zu diesem 
+Kurs abgelegt.
 
 ## Kursdaten
 **Kurs**: [MVHS Workshop: Python für Automatisierungs- und Scripting-Aufgaben](https://www.mvhs.de/kurse/online-programm/it-digitales/workshop-python-fuer-automatisierungs-und-scripting-aufgaben/online-kurs-460-C-U486390)  
@@ -27,3 +29,7 @@ effizient automatisiert.
 * Donnerstag, 03.07.2025, 18:00 – 21:00 Uhr
 * Donnerstag, 10.07.2025, 18:00 – 21:00 Uhr
 * Donnerstag, 17.07.2025, 18:00 – 21:00 Uhr
+
+---
+
+[![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?style=for-the-badge&logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/)

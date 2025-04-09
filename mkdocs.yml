@@ -4,8 +4,8 @@ site_url: https://maroph.github.io/mvhs_python_automatisierung_scripting/
 site_description: Daten aus dem MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben
 site_author: Manfred Rosenboom (maroph)
 
-repo_name: maroph/mvhs_python_automatisierung_scripting
 repo_url: https://github.com/maroph/mvhs_python_automatisierung_scripting/
+repo_name: maroph/mvhs_python_automatisierung_scripting
 edit_uri: edit/main/docs
 
 theme:
@@ -46,6 +46,8 @@ theme:
         - navigation.top
         - search.suggest
         - search.highlight
+        - toc.follow
+#        - toc.integrate
     icon:
         repo: fontawesome/brands/github
         edit: material/pencil
@@ -72,7 +74,7 @@ nav:
         - Tuples: python/tuples.md
     - Info:
         - info.md
-        - Über: info/about.md
+        - Über diese Site: info/about.md
         - Lizenz: info/license.md
         - GDPR/DSGVO: info/gdpr.md
     - Blog: blog/index.md
@@ -87,6 +89,10 @@ copyright: Copyright (c) 2025 <a href="https://maroph.github.io/">Manfred Rosenb
 
 markdown_extensions:
     - attr_list
+# available icons, emojis: https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search
+    - pymdownx.emoji:
+          emoji_index: !!python/name:material.extensions.emoji.twemoji
+          emoji_generator: !!python/name:material.extensions.emoji.to_svg
     - pymdownx.highlight:
           anchor_linenums: true
           line_spans: __span
@@ -94,6 +100,7 @@ markdown_extensions:
     - pymdownx.inlinehilite
     - pymdownx.snippets
     - pymdownx.superfences
+    - tables
 
 plugins:
     - git-revision-date-localized:
@@ -107,6 +114,7 @@ plugins:
           enabled: true
           cache: true
     - search:
+          enabled: true
           lang: de
 # https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#writing-your-first-post
     - blog:
@@ -135,6 +143,7 @@ plugins:
         categories_url_format: "category/{slug}"
         categories_toc: true
         categories_allowed:
+            - Announcement
             - General
 
 extra:

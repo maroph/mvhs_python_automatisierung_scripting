@@ -3,7 +3,7 @@
 ## Kursdaten
 
 | Kurs     | [MVHS Workshop: Python für Automatisierungs- und Scripting-Aufgaben](https://www.mvhs.de/kurse/online-programm/it-digitales/workshop-python-fuer-automatisierungs-und-scripting-aufgaben/online-kurs-460-C-U486390) |
-|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:---------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Dozentin | [Dr. Florence Maurice](https://www.maurice-web.de/)                                                                                                                                                                 |
 
 ### Beschreibung
