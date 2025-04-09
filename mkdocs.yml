@@ -74,7 +74,7 @@ nav:
         - Tuples: python/tuples.md
     - Info:
         - info.md
-        - Über diese Site: info/about.md
+        - Über: info/about.md
         - Lizenz: info/license.md
         - GDPR/DSGVO: info/gdpr.md
     - Blog: blog/index.md

@@ -4,9 +4,9 @@ Auf dieser Site habe ich meine Daten zum Kurs
 abgelegt.
 
 Der gesamte Inhalt dieser Site (HTML und Python
-Source Code) ist abgelegt in meinem GitHub
-Repository
-[maroph/mvhs_python_automatisierung_scripting](https://github.com/maroph/mvhs_python_automatisierung_scripting/).
+Source Code) ist in meinem GitHub Repository
+[maroph/mvhs_python_automatisierung_scripting](https://github.com/maroph/mvhs_python_automatisierung_scripting/)
+abgelegt.
 
 Auf die Webseiten kann man über die GitHub Page 
 [maroph.github.io/mvhs_python_automatisierung_scripting](https://maroph.github.io/mvhs_python_automatisierung_scripting/)
@@ -77,8 +77,9 @@ Dateien und Verzeichnisse:
 Die Webseiten aus den Markdown Dateien erzeuge
 ich mit dem  
 [MkDocs](https://www.mkdocs.org/) 
-Static Site Generator. Die erzeugten Webseiten 
-werden im Branch 
+Static Site Generator und dem darauf aufbauenden 
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+Die erzeugten Webseiten werden im Branch 
 __[gh-pages](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/gh-pages)__
 abgelegt.
 

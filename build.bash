@@ -1,4 +1,4 @@
-#!/bin/bash
+f #!/bin/bash
 #
 #
 ##############################################
@@ -9,7 +9,7 @@
 ##############################################
 #
 declare -r SCRIPT_NAME=`basename $0`
-declare -r VERSION="${SCRIPT_NAME}  1  (30-MAR-2025)"
+declare -r VERSION="${SCRIPT_NAME}  1  (09-APR-2025)"
 #
 ###############################################################################
 #
@@ -134,7 +134,7 @@ then
     fi
 #
     rm -fr ${SCRIPT_DIR}/venv
-    echo "${SCRIPT_NAME}: python3 -m venv v --prompt ven venv"
+    echo "${SCRIPT_NAME}: python3 -m venv --prompt venv venv"
     python3 -m venv --prompt venv ${SCRIPT_DIR}/venv || exit 1
     echo "${SCRIPT_NAME}: . venv/bin/activate"
     . ${SCRIPT_DIR}/venv/bin/activate

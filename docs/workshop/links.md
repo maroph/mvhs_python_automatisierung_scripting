@@ -40,3 +40,12 @@ Selbststudium absolviert werden.
 ### Requests
 * [PyPi: requests](https://pypi.org/project/requests/)
 * [Requests](https://requests.readthedocs.io/en/latest/)
+
+### Weitere Links
+Weitere Links zum Thema Automatisierung habe
+ich in meinem 
+[Raindrop.io](https://raindrop.io/)
+Account abgelegt.
+
+* [Web: Workshop Automatisierung/Scripting](https://raindrop.io/maroph/workshop-automatisierung-scripting-53914003)
+* [RSS: Workshop Automatisierung/Scripting](https://bg.raindrop.io/rss/public/53914003)

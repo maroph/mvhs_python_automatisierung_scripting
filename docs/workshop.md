@@ -1,4 +1,4 @@
-# MVHS Workshop: Python für Automatisierungs- und Scripting-Aufgaben
+# Workshop
 
 ## Kursdaten
 
