@@ -10,6 +10,9 @@ ein guter Einstiegskurs für diesen Workshop.
 Dieser Kurs kann jederzeit kostenlos im
 Selbststudium absolviert werden.
 
+Hier die [Folien](./PyMOOC.pdf) (PDF) zu diesem
+Kurs.
+
 ### Python IDEs
 * [PyCharm Community Editon](https://www.jetbrains.com/pycharm/download)  
   Diese Version kann für private Projekte 
@@ -41,9 +44,8 @@ Selbststudium absolviert werden.
 * [PyPi: requests](https://pypi.org/project/requests/)
 * [Requests](https://requests.readthedocs.io/en/latest/)
 
-### Weitere Links
-Weitere Links zum Thema Automatisierung habe
-ich in meinem 
+## Weitere Links
+Weitere Links zum Workshop habe ich in meinem 
 [Raindrop.io](https://raindrop.io/)
 Account abgelegt.
 

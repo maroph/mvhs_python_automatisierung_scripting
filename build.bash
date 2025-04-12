@@ -1,15 +1,17 @@
 f #!/bin/bash
 #
+####################################################
+# Copyright (c) 2025 by Manfred Rosenboom          #
+# https://maroph.github.io/ (maroph@pm.me)         #
+#                                                  #
+# This work is licensed under a CC-BY 4.0 License. #
+# https://creativecommons.org/licenses/by/4.0/     #
+####################################################
 #
-##############################################
-# Copyright (c) 2025 by Manfred Rosenboom    #
-#                                            #
-# This work is licensed under a MIT License. #
-# https://choosealicense.com/licenses/mit/   #
-##############################################
-#
-declare -r SCRIPT_NAME=`basename $0`
-declare -r VERSION="${SCRIPT_NAME}  1  (09-APR-2025)"
+declare -r SCRIPT_NAME=$(basename $0)
+declare -r VERSION="0.1.0"
+declare -r VERSION_DATE="12-APR-2025"
+declare -r VERSION_STRING="${SCRIPT_NAME}  ${VERSION}  (${VERSION_DATE})"
 #
 ###############################################################################
 #
@@ -73,7 +75,7 @@ do
             exit 0
             ;;
         -V | --version)
-            echo ${VERSION}
+            echo ${VERSION_STRING}
             exit 0
             ;;
         -c | --check-only)
@@ -279,4 +281,3 @@ fi
 ###############################################################################
 #
 exit 0
-

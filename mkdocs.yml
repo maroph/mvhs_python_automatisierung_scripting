@@ -1,4 +1,7 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+# https://www.mkdocs.org/getting-started/
+# https://www.mkdocs.org/user-guide/
+# https://squidfunk.github.io/mkdocs-material/
 site_name: MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben
 site_url: https://maroph.github.io/mvhs_python_automatisierung_scripting/
 site_description: Daten aus dem MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben
@@ -85,7 +88,7 @@ site_dir: site
 use_directory_urls: false
 strict: true
 
-copyright: Copyright (c) 2025 <a href="https://maroph.github.io/">Manfred Rosenboom</a>
+copyright: Copyright (c) 2025 CC-BY 4.0 <a href="https://maroph.github.io/">Manfred Rosenboom</a>
 
 markdown_extensions:
     - attr_list
@@ -103,6 +106,7 @@ markdown_extensions:
     - tables
 
 plugins:
+# https://timvink.github.io/mkdocs-git-revision-date-localized-plugin/index.html
     - git-revision-date-localized:
           enable_creation_date: false
           fallback_to_build_date: true

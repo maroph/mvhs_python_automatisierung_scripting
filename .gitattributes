@@ -2,14 +2,32 @@
 #
 * text=auto
 #
-*.bash text eol=lf
-*.md   text
-*.py   text
-*.sh   text eol=lf
-*.txt  text
-*.yml  text
+*.bash    text eol=lf
+*.c       text
+*.css     text
+*.css.map text
+*.html    text
+*.java    text
+*.js      text
+*.js.map  text
+*.json    text
+*.md      text
+*.py      text
+*.sh      text eol=lf
+*.sql     text
+*.txt     text
+*.xml     text
+*.yml     text
 #
-*.ico binary
-*.jpg binary
-*.pdf binary
-*.png binary
+*.class binary
+*.exe   binary
+*.gif   binary
+*.gz    binary
+*.ico   binary
+*.jar   binary
+*.jpg   binary
+*.pdf   binary
+*.png   binary
+*.rar   binary
+*.war   binary
+*.zip   binary

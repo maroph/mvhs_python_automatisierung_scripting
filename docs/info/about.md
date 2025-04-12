@@ -1,5 +1,5 @@
 # Über diese Site
-Auf dieser Site habe ich meine Daten zum Kurs 
+Auf dieser Site habe ich meine Daten zum 
 [MVHS Workshop: Python für Automatisierungs- und Scripting-Aufgaben](https://www.mvhs.de/kurse/online-programm/it-digitales/workshop-python-fuer-automatisierungs-und-scripting-aufgaben/online-kurs-460-C-U486390) 
 abgelegt.
 
@@ -79,6 +79,7 @@ ich mit dem
 [MkDocs](https://www.mkdocs.org/) 
 Static Site Generator und dem darauf aufbauenden 
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+
 Die erzeugten Webseiten werden im Branch 
 __[gh-pages](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/gh-pages)__
 abgelegt.
@@ -104,7 +105,7 @@ python -m pip install mkdocs-material
 python -m pip install mkdocs-git-revision-date-localized-plugin
 ```
 
-Für die Kursbeispiele werden zusätzlich die
+Für die Beispiele werden zusätzlich die
 folgenden Python Module benötigt:
 
 * [beautifulsoup4](https://pypi.org/project/beautifulsoup4/)

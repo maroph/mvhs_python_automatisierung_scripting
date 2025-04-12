@@ -1,6 +1,6 @@
 # MVHS Workshop: Python für Automatisierungs- und Scripting-Aufgaben
-Auf dieser Site habe ich meine Daten zu diesem 
-Kurs abgelegt.
+**Auf dieser Site habe ich meine Daten zu diesem 
+Workshop abgelegt.**
 
 ## Kursdaten
 **Kurs**: [MVHS Workshop: Python für Automatisierungs- und Scripting-Aufgaben](https://www.mvhs.de/kurse/online-programm/it-digitales/workshop-python-fuer-automatisierungs-und-scripting-aufgaben/online-kurs-460-C-U486390)  

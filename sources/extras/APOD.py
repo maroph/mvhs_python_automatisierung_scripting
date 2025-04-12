@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
 #
+####################################################
+# Copyright (c) 2025 by Manfred Rosenboom          #
+# https://maroph.github.io/ (maroph@pm.me)         #
+#                                                  #
+# This work is licensed under a CC-BY 4.0 License. #
+# https://creativecommons.org/licenses/by/4.0/     #
+####################################################
+#
 # APOD: Astronomy Picture of the Day
 # https://apod.nasa.gov/apod/astropix.html
 #
