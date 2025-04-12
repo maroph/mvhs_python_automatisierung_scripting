@@ -1,6 +1,6 @@
 # Lizenz
 
-![CC-BY 4.0](../assets/cc-by_88x31.png)  
+[![CC-BY 4.0](../assets/cc-by_88x31.png)](https://creativecommons.org/licenses/by/4.0/ "CC-BY 4.0")  
 Der Inhalt dieser Site ist lizenziert unter einer
 [CC-BY 4.0 - Creative Commons Namensnennung 4.0 International Lizenz](https://creativecommons.org/licenses/by/4.0/legalcode.de).
 
