@@ -1,4 +1,4 @@
-f #!/bin/bash
+#!/bin/bash
 #
 ####################################################
 # Copyright (c) 2025 by Manfred Rosenboom          #
