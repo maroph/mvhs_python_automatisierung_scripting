@@ -76,7 +76,7 @@
 * [Speed Up Your Python Program With Concurrency](https://realpython.com/python-concurrency/)
 * [Timing Functions With Decorators](https://www.geeksforgeeks.org/timing-functions-with-decorators-python/)
 * [Typangaben in Python](https://m.heise.de/developer/artikel/Explizite-Typangaben-in-Python-Segen-oder-Fluch-3964094.html?seite=all)
-
+* [Using Python's .__dict__ to Work With Attributes](https://realpython.com/python-dict-attribute/)
 * [Using Python's pip to Manage Your Projects' Dependencies](https://realpython.com/what-is-pip/)
 * [Using the Python zip() Function for Parallel Iteration](https://realpython.com/python-zip-function/)
 * [Variables in Python: Usage and Best Practices](https://realpython.com/python-variables/)

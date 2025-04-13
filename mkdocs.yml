@@ -4,7 +4,7 @@
 # https://squidfunk.github.io/mkdocs-material/
 site_name: MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben
 site_url: https://maroph.github.io/mvhs_python_automatisierung_scripting/
-site_description: Daten aus dem MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben
+site_description: Meine Daten aus dem MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben
 site_author: Manfred Rosenboom (maroph)
 
 repo_url: https://github.com/maroph/mvhs_python_automatisierung_scripting/
@@ -113,6 +113,8 @@ plugins:
           timezone: Europe/Amsterdam
           type: iso_datetime
     - info:
+          enabled: false
+    - offline:
           enabled: false
     - privacy:
           enabled: true

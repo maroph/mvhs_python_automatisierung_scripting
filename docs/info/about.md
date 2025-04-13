@@ -3,62 +3,23 @@ Auf dieser Site habe ich meine Daten zum
 [MVHS Workshop: Python für Automatisierungs- und Scripting-Aufgaben](https://www.mvhs.de/kurse/online-programm/it-digitales/workshop-python-fuer-automatisierungs-und-scripting-aufgaben/online-kurs-460-C-U486390) 
 abgelegt.
 
-Der gesamte Inhalt dieser Site (HTML und Python
-Source Code) ist in meinem GitHub Repository
+Der gesamte Inhalt dieser Site ist in meinem
+GitHub Repository
 [maroph/mvhs_python_automatisierung_scripting](https://github.com/maroph/mvhs_python_automatisierung_scripting/)
 abgelegt.
 
-Auf die Webseiten kann man über die GitHub Page 
-[maroph.github.io/mvhs_python_automatisierung_scripting](https://maroph.github.io/mvhs_python_automatisierung_scripting/)
-zugreifen.
-
-Die Python Dateien sind im Verzeichnis 
-[sources](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/main/sources)
-des Repositories abgelegt.
-
-__Die Python Programme habe ich unter Debian 12
-und Windows 11 getestet.__  
-
-Die verwendete Python Version kann man mit dem Programm
-[version.py]{:target="blank"} 
-[version.py]: https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/version.py 
-ausgeben.
-
-**Debian 12.10**
-```
-$ python3 version.py
-3.11.2 (main, Nov 30 2024, 21:22:50) [GCC 12.2.0]
-sys.version_info(major=3, minor=11, micro=2, releaselevel='final', serial=0)
-major        : 3
-minor        : 11
-micro        : 2
-releaselevel : final
-serial       : 0
-```
-
-**Windows 11 24H2**
-```
-> python.exe version.py
-3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]
-sys.version_info(major=3, minor=13, micro=2, releaselevel='final', serial=0)
-major        : 3
-minor        : 13
-micro        : 2
-releaselevel : final
-serial       : 0
-```
-
 ## Struktur des Repositories
 Im Branch 
-__[main](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/main)__ 
+[main](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/main) 
 des Repositories befinden sich die folgenden
 Dateien und Verzeichnisse:
 
 * .github/workflows/ci.yml  
   GitHub Actions Konfigurationsdatei.  
   Diese Konfigurationsdatei sorgt dafür, dass bei
-  jedem commit im Branch main die HTML Seiten
-  neu erzeugt werden.
+  jedem commit im Branch main, der den Inhalt der
+  Webseiten betrifft, die HTML Seiten neu erzeugt
+  werden.
 * docs  
   Markdown Sourcen dieser Site
 * sources  
@@ -70,21 +31,79 @@ Dateien und Verzeichnisse:
 * build.bash  
   Linux build Skript.  
   Mit diesem Skript kann man lokal die HTML Seiten
-  erzeugen.
+  auf einem Linux System erzeugen.
 * mkdocs.yml  
-  [MkDocs](https://www.mkdocs.org/) Konfigurationsdatei
+  [MkDocs](https://www.mkdocs.org/) 
+  Konfigurationsdatei
 
-Die Webseiten aus den Markdown Dateien erzeuge
-ich mit dem  
-[MkDocs](https://www.mkdocs.org/) 
-Static Site Generator und dem darauf aufbauenden 
-[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+Änderungen/Erweiterungen committe ich zuerst im 
+Branch 
+[develop](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/develop). Abschließend merge ich das Ergebnis
+in den main Branch.
 
-Die erzeugten Webseiten werden im Branch 
-__[gh-pages](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/gh-pages)__
+## Webseiten
+Die Markdown Dateien für die Webseiten sind unter 
+[docs](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/main/docs)
 abgelegt.
 
-## Mein Python Virtual Environment
+Die Webseiten erzeuge ich aus den Markdown
+Dateien mit dem  
+[MkDocs](https://www.mkdocs.org/) 
+Static Site Generator und dem darauf aufbauenden 
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). Die erzeugten Webseiten
+werden im Branch 
+[gh-pages](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/gh-pages)
+abgelegt.
+
+Für den Aufruf der benötigten Python Module 
+nutze ich ein Python Virtual Environment.
+
+Auf die Webseiten kann man über die GitHub Page 
+[maroph.github.io/mvhs_python_automatisierung_scripting](https://maroph.github.io/mvhs_python_automatisierung_scripting/)
+zugreifen.
+
+## Python
+### Python Dateien
+Die Python Dateien sind im Verzeichnis 
+[sources](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/main/sources)
+des Repositories abgelegt.
+
+### Python Version und Betriebssysteme
+Die Python Programme habe ich unter __Debian 12__
+und __Windows 11__ getestet.  
+
+Die jeweils verwendete Python Version kann man mit
+dem Programm 
+[version.py]{:target="blank"}
+ausgeben.
+[version.py]: https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/version.py
+
+
+#### Debian 12.10
+```
+$ python3 version.py
+3.11.2 (main, Nov 30 2024, 21:22:50) [GCC 12.2.0]
+sys.version_info(major=3, minor=11, micro=2, releaselevel='final', serial=0)
+major        : 3
+minor        : 11
+micro        : 2
+releaselevel : final
+serial       : 0
+```
+
+#### Windows 11 24H2
+```
+> python.exe version.py
+3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]
+sys.version_info(major=3, minor=13, micro=2, releaselevel='final', serial=0)
+major        : 3
+minor        : 13
+micro        : 2
+releaselevel : final
+serial       : 0
+```
+
+### Python Virtual Environment
 Zur Erzeugung der Webseiten verwende ich die 
 folgenden Python Module
 

@@ -1,6 +1,10 @@
 # Links
 
 ## Python
+### Python Site
+* [Python Homepage](https://python.org)
+* [Python Docs](https://docs.python.org/3/)
+
 ### Alternativer Einstiegskurs
 Neben dem [MVHS](https://www.mvhs.de/) Kurs
 "Programmierung mit Python: Grundlagen" ist,
