@@ -14,7 +14,7 @@ ein guter Einstiegskurs für diesen Workshop.
 Dieser Kurs kann jederzeit kostenlos im
 Selbststudium absolviert werden.
 
-Hier die [Folien](./PyMOOC.pdf) (PDF) zu diesem
+Hier die [Folien](./PyMOOC.pdf) (PDF-Datei) zu diesem
 Kurs.
 
 ### Python IDEs

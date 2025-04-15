@@ -177,9 +177,10 @@ if __name__ == '__main__':
     apod = APOD()
     # apod = APOD('APOD_KEY')
     data = apod.fetchdata()
-    # data = apod.fetchData('2023-05-15')
+    # data = apod.fetchData('2025-04-15')
     if data:
-        print('JSON             :', data.json)
+        print('JSON:')
+        print(json.dumps(data.json, indent=2))
         print('title            :', data.title)
         print('date             :', data.date)
         print('url              :', data.url)
@@ -199,7 +200,7 @@ if __name__ == '__main__':
         #     2: a new browser page ("tab") is opened if possible
         # autoraise: If autoraise is True (default), the window is raised if possible
         webbrowser.open(url=data.url, new=2, autoraise=True)
-        webbrowser.open_new_tab(data.url)
+        # webbrowser.open_new_tab(data.url)
     else:
         print('service version  :', apod.service_version)
         print('limit            :', apod.limit)

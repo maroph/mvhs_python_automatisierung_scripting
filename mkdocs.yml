@@ -80,6 +80,7 @@ nav:
         - Über: info/about.md
         - Lizenz: info/license.md
         - GDPR/DSGVO: info/gdpr.md
+        - Quellen: info/sources.md
     - Blog: blog/index.md
 
 docs_dir: docs
