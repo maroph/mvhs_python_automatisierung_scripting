@@ -18,9 +18,9 @@ Hier die [Folien](./PyMOOC.pdf) (PDF-Datei) zu diesem
 Kurs.
 
 ### Python IDEs
-* [PyCharm Community Editon](https://www.jetbrains.com/pycharm/download)  
-  Diese Version kann für private Projekte 
-  kostenlos genutzt werden.
+* [PyCharm](https://www.jetbrains.com/pycharm/download)  
+  Die Basisversion kann für private Projekte kostenlos
+  genutzt werden.
 * [Visual Studio Code](https://code.visualstudio.com/download)  
   Dies dürfte die am meisten genutzte IDE sein.
 * [VSCodium](https://github.com/VSCodium/vscodium/releases)  

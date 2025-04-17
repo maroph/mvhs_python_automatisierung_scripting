@@ -47,6 +47,7 @@
 * [Image Processing With the Python Pillow Library](https://realpython.com/image-processing-with-the-python-pillow-library/)
 * [Iterators and Iterables in Python: Run Efficient Iterations](https://realpython.com/python-iterators-iterables/)
 * [Logging in Python](https://realpython.com/python-logging/)
+* [Namespaces in Python](https://realpython.com/python-namespace/)
 * [Object-Oriented Programming (OOP) in Python 3](https://realpython.com/python3-object-oriented-programming/)
 * [Pass by Reference in Python: Background and Best Practices](https://realpython.com/python-pass-by-reference/)
 * [Providing Multiple Constructors in Your Python Classes](https://realpython.com/python-multiple-constructors/)
@@ -138,14 +139,15 @@
 * [IDLE](https://docs.python.org/3/library/idle.html)  
   Teil der Python Distribution
 * [PyCharm](https://www.jetbrains.com/pycharm/)  
-  Die Community Edition kann man kostenlos verwenden.
+  Die Basisversion kann für private Projekte kostenlos
+  genutzt werden.
 * [Spyder](https://www.spyder-ide.org/)
 * [Sublime Text 3](https://www.sublimetext.com/3)
 * [Thonny](https://thonny.org/)
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [VSCodium](https://github.com/VSCodium/vscodium/releases)  
   Open Source Version von Visual Studio Code ohne 
-  Microsoft Branding/Telemetry/Lizensierung
+  Microsoft Branding/Telemetry/Lizensierung.
 * [Wing Python IDE](https://wingware.com/)  
 
 ## Online IDEs

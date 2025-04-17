@@ -10,10 +10,12 @@ site_author: Manfred Rosenboom (maroph)
 repo_url: https://github.com/maroph/mvhs_python_automatisierung_scripting/
 repo_name: maroph/mvhs_python_automatisierung_scripting
 edit_uri: edit/main/docs
+# view readonly version                  edit_uri: blob/main/docs
+# link to GitHub repository site only    edit_uri: ""
 
 theme:
     name: material
-    logo: assets/python-logo-only2.png
+# https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
     palette:
         - scheme: default
           primary: indigo
@@ -29,6 +31,7 @@ theme:
             name: Switch to light mode
     font: false
     language: de
+    logo: assets/python-logo-only2.png
     direction: ltr
     favicon: assets/favicon.ico
     features:
@@ -79,7 +82,7 @@ nav:
         - info.md
         - Über: info/about.md
         - Lizenz: info/license.md
-        - GDPR/DSGVO: info/gdpr.md
+        - DSGVO: info/gdpr.md
         - Quellen: info/sources.md
     - Blog: blog/index.md
 
@@ -155,6 +158,7 @@ plugins:
 
 extra:
     generator: true
+#icons: https://fontawesome.com/search?o=r&f=brands
     social:
         - icon: fontawesome/brands/github
           link: https://github.com/maroph
