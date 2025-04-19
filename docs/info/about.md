@@ -110,6 +110,7 @@ folgenden Python Module
 * [mkdocs-material](https://pypi.org/project/mkdocs-material/)  
   Das Modul [mkdocs](https://pypi.org/project/mkdocs/) wird dabei mitinstalliert.
 * [mkdocs-git-revision-date-localized-plugin](https://pypi.org/project/mkdocs-git-revision-date-localized-plugin/)
+* [mkdocs-rss-plugin](https://pypi.org/project/mkdocs-rss-plugin/)
 
 Für die benötigten Python Module verwende ich das
 folgende Virtual Environment:
@@ -122,6 +123,7 @@ python -m pip install --upgrade setuptools
 python -m pip install --upgrade wheel
 python -m pip install mkdocs-material
 python -m pip install mkdocs-git-revision-date-localized-plugin
+python -m pip install mkdocs-rss-plugin
 ```
 
 Für die Beispiele werden zusätzlich die

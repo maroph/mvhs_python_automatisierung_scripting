@@ -10,7 +10,7 @@
 #
 declare -r SCRIPT_NAME=$(basename $0)
 declare -r VERSION="0.1.0"
-declare -r VERSION_DATE="12-APR-2025"
+declare -r VERSION_DATE="19-APR-2025"
 declare -r VERSION_STRING="${SCRIPT_NAME}  ${VERSION}  (${VERSION_DATE})"
 #
 ###############################################################################
@@ -151,6 +151,8 @@ then
     python -m pip install --upgrade mkdocs-material || exit 1
     echo "${SCRIPT_NAME}: python -m pip install --upgrade mkdocs-git-revision-date-localized-plugin"
     python -m pip install --upgrade mkdocs-git-revision-date-localized-plugin || exit 1
+    echo "${SCRIPT_NAME}: python -m pip install --upgrade mkdocs-rss-plugin"
+    python -m pip install --upgrade mkdocs-rss-plugin || exit 1
 #
     echo "${SCRIPT_NAME}: python -m pip freeze >requirements.txt"
     python -m pip freeze >${SCRIPT_DIR}/venv/requirements.txt || exit 1
@@ -214,6 +216,16 @@ then
     if [ $? -ne 0 ]
     then
         echo "${SCRIPT_NAME}: Python module mkdocs-git-revision-date-localized-plugin not available"
+        exit 1
+    fi
+    echo ${data} | awk '{ printf "%s %s\n%s %s\n", $1, $2, $3, $4;}'
+    echo "----------"
+    echo ""
+#
+    data=$(python -m pip show mkdocs-rss-plugin 2>/dev/null)
+    if [ $? -ne 0 ]
+    then
+        echo "${SCRIPT_NAME}: Python module mkdocs-rss-plugin not available"
         exit 1
     fi
     echo ${data} | awk '{ printf "%s %s\n%s %s\n", $1, $2, $3, $4;}'
