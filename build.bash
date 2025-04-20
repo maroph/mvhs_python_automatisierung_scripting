@@ -10,7 +10,7 @@
 #
 declare -r SCRIPT_NAME=$(basename $0)
 declare -r VERSION="0.1.0"
-declare -r VERSION_DATE="19-APR-2025"
+declare -r VERSION_DATE="20-APR-2025"
 declare -r VERSION_STRING="${SCRIPT_NAME}  ${VERSION}  (${VERSION_DATE})"
 #
 ###############################################################################
@@ -147,12 +147,17 @@ then
     python -m pip install --upgrade setuptools || exit 1
     echo "${SCRIPT_NAME}: python -m pip install --upgrade wheel"
     python -m pip install --upgrade wheel || exit 1
+#
+#
     echo "${SCRIPT_NAME}: python -m pip install --upgrade mkdocs-material"
     python -m pip install --upgrade mkdocs-material || exit 1
+#
     echo "${SCRIPT_NAME}: python -m pip install --upgrade mkdocs-git-revision-date-localized-plugin"
     python -m pip install --upgrade mkdocs-git-revision-date-localized-plugin || exit 1
+#
     echo "${SCRIPT_NAME}: python -m pip install --upgrade mkdocs-rss-plugin"
     python -m pip install --upgrade mkdocs-rss-plugin || exit 1
+#
 #
     echo "${SCRIPT_NAME}: python -m pip freeze >requirements.txt"
     python -m pip freeze >${SCRIPT_DIR}/venv/requirements.txt || exit 1

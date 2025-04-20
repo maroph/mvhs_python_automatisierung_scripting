@@ -1,7 +1,9 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+# Documentation:
 # https://www.mkdocs.org/getting-started/
 # https://www.mkdocs.org/user-guide/
 # https://squidfunk.github.io/mkdocs-material/
+# https://timvink.github.io/mkdocs-git-revision-date-localized-plugin/index.html
 # https://guts.github.io/mkdocs-rss-plugin/
 site_name: MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben
 site_url: https://maroph.github.io/mvhs_python_automatisierung_scripting/
