@@ -25,7 +25,7 @@ Dateien und Verzeichnisse:
 * sources  
   Python Source Code
 * LICENSE  
-  Lizenz des Repositories (CC-BY 4.0)
+  Lizenz des Repositories ([CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/))
 * README.md  
   Readme Datei des Repositories
 * build.bash  
