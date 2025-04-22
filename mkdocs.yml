@@ -153,13 +153,7 @@ plugins:
         archive_date_format: yyyy
         archive_url_format: "archiv/{date}"
         archive_toc: true
-        categories: true
-        categories_name: Kategorien
-        categories_url_format: "kategorie/{slug}"
-        categories_toc: true
-        categories_allowed:
-            - Allgemein
-            - Ankündigung
+        categories: false
 
 # https://guts.github.io/mkdocs-rss-plugin/configuration/
     - rss:
@@ -167,9 +161,6 @@ plugins:
         match_path: "blog/posts/.*"
         abstract_chars_count: 160
         abstract_delimiter: "<!--more-->"
-        categories:
-            - categories
-            - tags
         date_from_meta:
             as_creation: "date"
             as_update: "updated"

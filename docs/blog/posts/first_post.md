@@ -1,9 +1,7 @@
 ---
-date: 2025-04-19T15:29:00
+date: 2025-04-22T10:19:00
 authors: 
   - maroph
-categories:
-  - Ankündigung
 links:
   - info/about.md
 ---
