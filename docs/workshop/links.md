@@ -31,6 +31,9 @@ Kurs.
 * [Automate the Boring Stuff with Python](https://automatetheboringstuff.com)  
   Webseite zum gleichnamigen Buch.
 
+### Aufruf von Programmen
+* [The subprocess Module: Wrapping Programs With Python](https://realpython.com/python-subprocess)
+
 ### Beautiful Soup
 * [PyPi: beautifulsoup4](https://pypi.org/project/beautifulsoup4/)
 * [Beautiful Soup: Homepage](https://www.crummy.com/software/BeautifulSoup/)
