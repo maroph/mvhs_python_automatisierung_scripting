@@ -74,6 +74,7 @@
 * [Python Timer Functions: Three Ways to Monitor Your Code](https://realpython.com/python-timer/)
 * [Python while Loops: Repeating Tasks Conditionally](https://realpython.com/python-while-loop/)
 * [regex101: regular expressions 101](https://regex101.com/)
+* [Shallow vs Deep Copying of Python Objects](https://realpython.com/python-copy/)
 * [Should You Use Python pathlib or os?](https://betterprogramming.pub/should-you-be-using-pathlib-6f3a0fddec7e?gi=d6568d68af78)
 * [Speed Up Your Python Program With Concurrency](https://realpython.com/python-concurrency/)
 * [The subprocess Module: Wrapping Programs With Python](https://realpython.com/python-subprocess/)
@@ -139,7 +140,9 @@
 * [Eclipse PyDev](https://www.pydev.org/)
 * [Geany](https://www.geany.org/)
 * [IDLE](https://docs.python.org/3/library/idle.html)  
-  Teil der Python Distribution
+  Teil der Python Distribution.  
+  Siehe auch: 
+  [Getting Started With Python IDLE](https://realpython.com/python-idle/).
 * [PyCharm](https://www.jetbrains.com/pycharm/)  
   Die Basisversion kann für private Projekte kostenlos
   genutzt werden.

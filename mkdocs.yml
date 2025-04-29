@@ -80,6 +80,7 @@ nav:
         - Hashable: python/hashable.md
         - Listen: python/listen.md
         - Sets: python/sets.md
+        - SQLite: python/sqlite.md
         - Tuples: python/tuples.md
     - Info:
         - info.md
