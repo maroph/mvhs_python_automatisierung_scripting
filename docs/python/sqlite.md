@@ -1,7 +1,7 @@
 # SQLite
 [SQLite](https://www.sqlite.org/) ist eine 
 [public-domain](https://www.sqlite.org/copyright.html)
-SQL Datenbankimplementierung. Die Software ist der
+SQL Datenbankimplementierung. Die Software ist in der
 Programmiersprache C geschrieben. Zur Python 
 Laufzeitumgebung gehört das Modul 
 [sqlite3](https://docs.python.org/3/library/sqlite3.html),
@@ -21,8 +21,6 @@ in dem folgenden Artikel:
 Als GUI für eine SQLite Datenbank kann man den 
 [DB Browser for SQLite](https://sqlitebrowser.org/)
 verwenden.
-
-Existiert diese Datei noch nicht wird sie angelegt und
 
 ## Zeitstempel (Datetime)
 Zeitstempel (Datum und Uhrzeit) werden in einer SQLite
@@ -125,7 +123,7 @@ def adapt_datetime_iso(val):
 def adapt_datetime_epoch(val):
 ```
 
-Zugehörige Register Funktionen
+**Zugehörige Register Funktionen**  
 ```
 sqlite3.register_adapter(datetime.date, adapt_date_iso)
 sqlite3.register_adapter(datetime.datetime, adapt_datetime_iso)
@@ -139,7 +137,7 @@ def convert_datetime(val):
 def convert_timestamp(val):
 ```
 
-Zugehörige Register Funktionen  
+**Zugehörige Register Funktionen**  
 ```
 sqlite3.register_converter("date", convert_date)
 sqlite3.register_converter("datetime", convert_datetime)
@@ -196,8 +194,8 @@ YYYY-MM-DD HH:mm:ss localtime
 
 _Hinweis_: Den Zusatz `localtime` verwende ich in diesem
 Beispiel nur, damit man unterscheiden kann, ob die
-Zeitstempel in UTC Zeit oder in lokale Zeit abgespeichert
-wurden.
+Zeitstempel in UTC Zeit oder in der lokalen Zeit
+abgespeichert wurden.
 
 Für die Umwandlung zwischen datetime und Zeitstempel
 habe ich die folgenden Funktionen geschrieben:
@@ -275,8 +273,8 @@ Format
 YYYY-MM-DD HH:mm:ss
 ```
 
-haben, wäre nicht mehr klar,
-wann der Eintrag erzeugt wurde.
+haben, wäre nicht mehr klar, wann der Eintrag erzeugt
+wurde.
 
 Um dieses Problem zu umgehen, verwende ich in diesem Fall
 für die Zeitstempel generell die UTC Zeit.
@@ -293,8 +291,10 @@ Die Sätze in der Tabelle sehen folgendermaßen aus:
 ## Weiterführende Links
 
 * [SQLite](https://www.sqlite.org/)
+    * [Documentation](https://www.sqlite.org/docs.html) 
 * [DB Browser for SQLite](https://sqlitebrowser.org/)
 * [Python module sqlite3](https://docs.python.org/3/library/sqlite3.html)
+    * [Tutorial](https://docs.python.org/3/library/sqlite3.html#tutorial) 
 * [SQLite Tutorial](https://www.sqlitetutorial.net/)
     * [Python Binding](https://www.sqlitetutorial.net/sqlite-python/)
 * [Python SQLite tutorial using sqlite3](https://pynative.com/python-sqlite/)
