@@ -2,5 +2,6 @@
 .idea/
 site/
 venv/
+__pycache__
 sources/tmp
 mkdocs.shut

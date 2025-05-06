@@ -186,7 +186,7 @@ then
     echo ""
     echo ""
     echo "----------"
-    grep -E 'mkdocs|beautifulsoup4|python-dateutil' ${SCRIPT_DIR}/venv/requirements.txt
+    grep -E 'mkdocs|beautifulsoup4|python-dateutil|requests|pytest' ${SCRIPT_DIR}/venv/requirements.txt
     echo "----------"
     echo ""
 #
