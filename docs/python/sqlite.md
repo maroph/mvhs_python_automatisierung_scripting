@@ -118,9 +118,18 @@ Eine Beschreibung hierzu findet man hier:
 
 **Adapterfunktionen**  
 ```
-def adapt_date_iso(val):
-def adapt_datetime_iso(val):
-def adapt_datetime_epoch(val):
+def adapt_date_iso(val: datetime.date) -> str :
+    """Adapt datetime.date to ISO 8601 date."""
+    return val.isoformat()
+
+def adapt_datetime_iso(val: datetime.datetime) -> str :
+    """Adapt datetime.datetime to timezone-naive ISO 8601 date."""
+    return val.isoformat()
+
+def adapt_datetime_epoch(val: datetime.datetime) -> float:
+    """Adapt datetime.datetime to Unix timestamp."""
+    print(f"adapt_datetime_epoch(val) : {val} : type(val) : {type(val)}")
+    return int(val.timestamp())
 ```
 
 **Zugehörige Register Funktionen**  
@@ -132,9 +141,17 @@ sqlite3.register_adapter(datetime.datetime, adapt_datetime_epoch)
 
 **Konverterfunktionen**
 ```
-def convert_date(val):
-def convert_datetime(val):
-def convert_timestamp(val):
+def convert_date(val: str) -> datetime.date:
+    """Convert ISO 8601 date to datetime.date object."""
+    return datetime.date.fromisoformat(val.decode())
+
+def convert_datetime(val: str) -> datetime.datetime:
+    """Convert ISO 8601 datetime to datetime.datetime object."""
+    return datetime.datetime.fromisoformat(val.decode())
+
+def convert_timestamp(val: float) -> datetime.datetime:
+    """Convert Unix epoch timestamp to datetime.datetime object."""
+    return datetime.datetime.fromtimestamp(int(val))
 ```
 
 **Zugehörige Register Funktionen**  
@@ -166,14 +183,6 @@ CREATE TABLE IF NOT EXISTS logrecords (
 )
 ```
 
-Die vom Programm erzeugten Sätze in der Tabelle
-sehen dann so aus:
-
-| log_id | log_level | log_dt     | log_msg       |
-|--------|-----------|------------|---------------|
-| 1	  | 5         | 1745932053 | ERROR message |
-| 2	  | 2         | 1745932053 | DEBUG message |
-
 ### Python: manuelle Konvertierung
 [logdb_sample2.py]{:target="blank"}
 
@@ -189,13 +198,8 @@ YYYY-MM-DD HH:mm:ss
 und
 
 ```
-YYYY-MM-DD HH:mm:ss localtime
+YYYY-MM-DD HH:mm:ss.mmmmmm localtime
 ```
-
-_Hinweis_: Den Zusatz `localtime` verwende ich in diesem
-Beispiel nur, damit man unterscheiden kann, ob die
-Zeitstempel in UTC Zeit oder in der lokalen Zeit
-abgespeichert wurden.
 
 Für die Umwandlung zwischen datetime und Zeitstempel
 habe ich die folgenden Funktionen geschrieben:
@@ -227,13 +231,6 @@ CREATE TABLE IF NOT EXISTS logrecords (
     log_msg   TEXT NOT NULL
 )
 ```
-
-Die Sätze in der Tabelle sehen folgendermaßen aus:
-
-| log_id | log_level | log_dt                        | log_msg       |
-|--------|-----------|-------------------------------|---------------|
-| 1      | 5         | 2025-04-29 15:14:25 localtime | ERROR message |
-| 2	     | 2      | 2025-04-29 15:14:25 localtime | DEBUG message |
 
 
 ```
@@ -278,13 +275,6 @@ wurde.
 
 Um dieses Problem zu umgehen, verwende ich in diesem Fall
 für die Zeitstempel generell die UTC Zeit.
-
-Die Sätze in der Tabelle sehen folgendermaßen aus:
-
-| log_id | log_level | log_dt              | log_msg       
-|--------|-----------|---------------------|---------------|
-| 1      | 5         | 2025-04-29 15:14:25 | ERROR message |
-| 2	     | 2         | 2025-04-29 15:14:25 | DEBUG message |
 
 ---
 

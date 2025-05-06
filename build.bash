@@ -10,7 +10,7 @@
 #
 declare -r SCRIPT_NAME=$(basename $0)
 declare -r VERSION="0.1.0"
-declare -r VERSION_DATE="20-APR-2025"
+declare -r VERSION_DATE="06-MAY-2025"
 declare -r VERSION_STRING="${SCRIPT_NAME}  ${VERSION}  (${VERSION_DATE})"
 #
 ###############################################################################
@@ -148,6 +148,7 @@ then
     echo "${SCRIPT_NAME}: python -m pip install --upgrade wheel"
     python -m pip install --upgrade wheel || exit 1
 #
+###############################################################################
 #
     echo "${SCRIPT_NAME}: python -m pip install --upgrade mkdocs-material"
     python -m pip install --upgrade mkdocs-material || exit 1
@@ -158,6 +159,26 @@ then
     echo "${SCRIPT_NAME}: python -m pip install --upgrade mkdocs-rss-plugin"
     python -m pip install --upgrade mkdocs-rss-plugin || exit 1
 #
+###############################################################################
+#
+    echo "${SCRIPT_NAME}: python -m pip install --upgrade beautifulsoup4"
+    python -m pip install --upgrade beautifulsoup4 || exit 1
+#
+    echo "${SCRIPT_NAME}: python -m pip install --upgrade python-dateutil"
+    python -m pip install --upgrade python-dateutil || exit 1
+#
+    echo "${SCRIPT_NAME}: python -m pip install --upgrade requests"
+    python -m pip install --upgrade requests || exit 1
+#
+###############################################################################
+#
+    echo "${SCRIPT_NAME}: python -m pip install --upgrade pytest"
+    python -m pip install --upgrade pytest || exit 1
+#
+    echo "${SCRIPT_NAME}: python -m pip install --upgrade pytest-order"
+    python -m pip install --upgrade pytest-order || exit 1
+#
+###############################################################################
 #
     echo "${SCRIPT_NAME}: python -m pip freeze >requirements.txt"
     python -m pip freeze >${SCRIPT_DIR}/venv/requirements.txt || exit 1
@@ -165,7 +186,7 @@ then
     echo ""
     echo ""
     echo "----------"
-    grep -E 'mkdocs' ${SCRIPT_DIR}/venv/requirements.txt
+    grep -E 'mkdocs|beautifulsoup4|python-dateutil' ${SCRIPT_DIR}/venv/requirements.txt
     echo "----------"
     echo ""
 #

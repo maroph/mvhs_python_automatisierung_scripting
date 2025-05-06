@@ -54,35 +54,35 @@ class LogLevel(Enum):
 
 # https://docs.python.org/3/library/sqlite3.html#sqlite3-adapter-converter-recipes
 # https://docs.python.org/3/library/sqlite3.html#how-to-adapt-custom-python-types-to-sqlite-values
-def adapt_date_iso(val):
-    print(f"adapt_date_iso(val) : {val} : type(val) : {type(val)}")
+def adapt_date_iso(val: datetime.date) -> str :
     """Adapt datetime.date to ISO 8601 date."""
+    print(f"adapt_date_iso(val) : {val} : type(val) : {type(val)}")
     return val.isoformat()
 
-def adapt_datetime_iso(val):
-    print(f"adapt_datetime_iso(val) : {val} : type(val) : {type(val)}")
+def adapt_datetime_iso(val: datetime.datetime) -> str :
     """Adapt datetime.datetime to timezone-naive ISO 8601 date."""
+    print(f"adapt_datetime_iso(val) : {val} : type(val) : {type(val)}")
     return val.isoformat()
 
-def adapt_datetime_epoch(val):
-    print(f"adapt_datetime_epoch(val) : {val} : type(val) : {type(val)}")
+def adapt_datetime_epoch(val: datetime.datetime) -> float:
     """Adapt datetime.datetime to Unix timestamp."""
+    print(f"adapt_datetime_epoch(val) : {val} : type(val) : {type(val)}")
     return int(val.timestamp())
 
 
 # https://docs.python.org/3/library/sqlite3.html#sqlite3-adapter-converter-recipes
 # https://docs.python.org/3/library/sqlite3.html#how-to-convert-sqlite-values-to-custom-python-types
-def convert_date(val):
-    print(f"convert_date(val) : {val} : type(val) : {type(val)}")
+def convert_date(val: str) -> datetime.date:
     """Convert ISO 8601 date to datetime.date object."""
+    print(f"convert_date(val) : {val} : type(val) : {type(val)}")
     return datetime.date.fromisoformat(val.decode())
 
-def convert_datetime(val):
-    print(f"convert_datetime(val) : {val} : type(val) : {type(val)}")
+def convert_datetime(val: str) -> datetime.datetime:
     """Convert ISO 8601 datetime to datetime.datetime object."""
+    print(f"convert_datetime(val) : {val} : type(val) : {type(val)}")
     return datetime.datetime.fromisoformat(val.decode())
 
-def convert_timestamp(val):
+def convert_timestamp(val: float) -> datetime.datetime:
     """Convert Unix epoch timestamp to datetime.datetime object."""
     print(f"convert_timestamp(val) : {val} : type(val) : {type(val)}")
     return datetime.datetime.fromtimestamp(int(val))
@@ -93,14 +93,15 @@ print(f"Python version : {sys.version}")
 print(f"SQLite version : {sqlite3.sqlite_version}")
 
 if sys.version_info.major != 3:
-    print("Python 3 support is required")
+    print("Python 3 is required")
     sys.exit(1)
 
 con = None
 cur = None
+
 try:
     if sys.version_info.minor > 11:
-        print("register needed adapter/converter")
+        print("register needed adapters/converters")
         sqlite3.register_adapter(datetime.date, adapt_date_iso)
         sqlite3.register_adapter(datetime.datetime, adapt_datetime_iso)
         sqlite3.register_adapter(datetime.datetime, adapt_datetime_epoch)
@@ -117,10 +118,9 @@ try:
     # con = sqlite3.connect('logdb_sample.db', detect_types=sqlite3.PARSE_DECLTYPES)
     con.autocommit = True
 except sqlite3.Error as error:
-    print(f"sqlite3 error : {error}")
+    print(f"sqlite3 error (connect) : {error}")
     sys.exit(1)
 
-cur = None
 try:
     cur = con.cursor()
     cur.execute("""CREATE TABLE IF NOT EXISTS logrecords
@@ -134,10 +134,9 @@ try:
     cur.execute("CREATE INDEX IF NOT EXISTS idx_dt ON logrecords(log_dt)")
     cur.close()
 except sqlite3.Error as error:
-    print(f"sqlite3 error : {error}")
+    print(f"sqlite3 error (CREATE TABLE/INDEX) : {error}")
     sys.exit(1)
 
-cur = None
 try:
     cur = con.cursor()
     print("INSERT #1")
@@ -160,10 +159,9 @@ try:
 
     cur.close()
 except sqlite3.Error as error:
-    print(f"sqlite3.error : {error}")
+    print(f"sqlite3.error (INSERT) : {error}")
     sys.exit(1)
 
-cur = None
 try:
     cur = con.cursor()
     cur.execute("SELECT log_id,log_level,log_dt,log_msg FROM logrecords WHERE log_id=?", (1,))
@@ -188,7 +186,7 @@ try:
         print('---')
     cur.close()
 except sqlite3.Error as error:
-    print(f"sqlite3.error : {error}")
+    print(f"sqlite3.error (SELECT) : {error}")
     sys.exit(1)
 
 con.close()

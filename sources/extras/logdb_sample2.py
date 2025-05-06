@@ -37,21 +37,14 @@
 #
 # Getestet mit Python 3.13.2 unter Windows 11 24H2
 #
-# Auf meinem Debian 12 System (Python 3.11.2) musste ich zusätzlich
-# das Modul python-dateutil installieren:
-#
-# pip install python-dateutil
-#
-# --------------------------------------------------
-#
 import datetime
 from dateutil import tz
 from enum import Enum
 import sqlite3
 import sys
 
-# use_utc: bool = True
-use_utc: bool = False
+use_utc: bool = True
+# use_utc: bool = False
 
 
 class LogLevel(Enum):
@@ -73,7 +66,8 @@ class LogLevel(Enum):
 
 def dt_string_to_dt(dt_string: str) -> datetime.datetime:
     if not use_utc:
-        dt = datetime.datetime.strptime(dt_string, '%Y-%m-%d %H:%M:%S localtime')
+        dt = datetime.datetime.strptime(dt_string, '%Y-%m-%d %H:%M:%S.%f localtime')
+        # dt = datetime.datetime.strptime(dt_string, '%Y-%m-%d %H:%M:%S.%f')
         return dt.astimezone(tz.tzlocal())
     dt = datetime.datetime.strptime(dt_string, '%Y-%m-%d %H:%M:%S')
     dt = dt.replace(tzinfo=tz.tzutc())
@@ -82,21 +76,26 @@ def dt_string_to_dt(dt_string: str) -> datetime.datetime:
 def dt_to_dt_string(dt: datetime.datetime) -> str:
     dt = dt.replace(tzinfo=tz.tzlocal())
     if not use_utc:
-        return dt.strftime('%Y-%m-%d %H:%M:%S localtime')
+        return dt.strftime('%Y-%m-%d %H:%M:%S.%f localtime')
     utc = dt.astimezone(tz.tzutc())
     return utc.strftime('%Y-%m-%d %H:%M:%S')
 
+def dt_to_string(dt: datetime.datetime) -> str:
+    if not use_utc:
+        return dt.strftime('%Y-%m-%d %H:%M:%S.%f')
+    return dt.strftime('%Y-%m-%d %H:%M:%S')
 
 print("logdb_sample2")
 print(f"Python version : {sys.version}")
 print(f"SQLite version : {sqlite3.sqlite_version}")
 
 if sys.version_info.major != 3:
-    print("Python 3 support is required")
+    print("Python 3 is required")
     sys.exit(1)
 
 con = None
 cur = None
+
 try:
     con = sqlite3.connect(':memory:')
     # from pathlib import Path
@@ -106,10 +105,9 @@ try:
     # con = sqlite3.connect('logdb_sample2.db')
     con.autocommit = True
 except sqlite3.Error as error:
-    print(f"sqlite3 error : {error}")
+    print(f"sqlite3 error (connect) : {error}")
     sys.exit(1)
 
-cur = None
 try:
     cur = con.cursor()
     if use_utc:
@@ -132,10 +130,9 @@ try:
     cur.execute("CREATE INDEX IF NOT EXISTS idx_dt ON logrecords(log_dt)")
     cur.close()
 except sqlite3.Error as error:
-    print(f"sqlite3 error : {error}")
+    print(f"sqlite3 error (CREATE TABLE/INDEX) : {error}")
     sys.exit(1)
 
-cur = None
 try:
     cur = con.cursor()
     print("INSERT #1")
@@ -162,10 +159,9 @@ try:
 
     cur.close()
 except sqlite3.Error as error:
-    print(f"sqlite3.error : {error}")
+    print(f"sqlite3.error (INSERT) : {error}")
     sys.exit(1)
 
-cur = None
 try:
     cur = con.cursor()
     cur.execute("SELECT log_id,log_level,log_dt,log_msg FROM logrecords WHERE log_id=?", (1,))
@@ -177,7 +173,7 @@ try:
     print(f"                {LogLevel(int(log_entry[1]))}, {type(LogLevel(int(log_entry[1])))}")
     print(f"    log_dt    : {log_entry[2]}, {type(log_entry[2])}")
     dt_local = dt_string_to_dt(log_entry[2])
-    print(f"                {dt_local.strftime('%Y-%m-%d %H:%M:%S')}, {type(dt_local)}")
+    print(f"                {dt_to_string(dt_local)}, {type(dt_local)}")
     print(f"    log_msg   : {log_entry[3]}, {type(log_entry[3])}")
     print()
 
@@ -190,11 +186,11 @@ try:
         print(f"                {LogLevel(int(log_entry[1]))}, {type(LogLevel(int(log_entry[1])))}")
         print(f"    log_dt    : {log_entry[2]}, {type(log_entry[2])}")
         dt_local = dt_string_to_dt(log_entry[2])
-        print(f"                {dt_local.strftime('%Y-%m-%d %H:%M:%S')}, {type(dt_local)}")
+        print(f"                {dt_to_string(dt_local)}, {type(dt_local)}")
         print(f"    log_msg   : {log_entry[3]}, {type(log_entry[3])}")
         print('---')
 except sqlite3.Error as error:
-    print(f"sqlite3.error : {error}")
+    print(f"sqlite3.error (SELECT) : {error}")
     sys.exit(1)
 
 con.close()

@@ -126,15 +126,31 @@ python -m pip install mkdocs-git-revision-date-localized-plugin
 python -m pip install mkdocs-rss-plugin
 ```
 
+### Python Virtual Environment (Ergänzung: Runtime)
 Für die Beispiele werden zusätzlich die
 folgenden Python Module benötigt:
 
 * [beautifulsoup4](https://pypi.org/project/beautifulsoup4/)
+* [python-dateutil](https://pypi.org/project/python-dateutil/)
 * [requests](https://pypi.org/project/requests/)
 
 ```
 python -m pip install beautifulsoup4
-python -m pip install requests 
+python -m pip install python-dateutil
+python -m pip install requests
+```
+
+
+Für Testfälle benutze ich die 
+[pytest](https://docs.pytest.org/en/stable/)
+Module
+
+* [pytest](https://pypi.org/project/pytest/)
+* [pytest-order](https://pypi.org/project/pytest-order/)
+
+```
+python -m pip install pytest
+python -m pip install pytest-order
 ```
 
 Sollte das Modul pip und/oder venv nicht 
