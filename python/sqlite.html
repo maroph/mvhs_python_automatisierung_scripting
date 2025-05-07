@@ -1111,9 +1111,18 @@ dann Adapter- und Konverterfunktionen verwendet.</p>
 <p>Eine Beschreibung hierzu findet man hier: 
 <a href="https://docs.python.org/3/library/sqlite3.html#adapter-and-converter-recipes">Adapter and converter recipes</a>.</p>
 <p><strong>Adapterfunktionen</strong><br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>def adapt_date_iso(val):
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>def adapt_datetime_iso(val):
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>def adapt_datetime_epoch(val):
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>def adapt_date_iso(val: datetime.date) -&gt; str :
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    &quot;&quot;&quot;Adapt datetime.date to ISO 8601 date.&quot;&quot;&quot;
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    return val.isoformat()
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>def adapt_datetime_iso(val: datetime.datetime) -&gt; str :
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    &quot;&quot;&quot;Adapt datetime.datetime to timezone-naive ISO 8601 date.&quot;&quot;&quot;
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    return val.isoformat()
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>def adapt_datetime_epoch(val: datetime.datetime) -&gt; float:
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    &quot;&quot;&quot;Adapt datetime.datetime to Unix timestamp.&quot;&quot;&quot;
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    print(f&quot;adapt_datetime_epoch(val) : {val} : type(val) : {type(val)}&quot;)
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    return int(val.timestamp())
 </span></code></pre></div></p>
 <p><strong>Zugehörige Register Funktionen</strong><br />
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sqlite3.register_adapter(datetime.date, adapt_date_iso)
@@ -1121,9 +1130,17 @@ dann Adapter- und Konverterfunktionen verwendet.</p>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sqlite3.register_adapter(datetime.datetime, adapt_datetime_epoch)
 </span></code></pre></div></p>
 <p><strong>Konverterfunktionen</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>def convert_date(val):
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>def convert_datetime(val):
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>def convert_timestamp(val):
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>def convert_date(val: str) -&gt; datetime.date:
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    &quot;&quot;&quot;Convert ISO 8601 date to datetime.date object.&quot;&quot;&quot;
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    return datetime.date.fromisoformat(val.decode())
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>def convert_datetime(val: str) -&gt; datetime.datetime:
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    &quot;&quot;&quot;Convert ISO 8601 datetime to datetime.datetime object.&quot;&quot;&quot;
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    return datetime.datetime.fromisoformat(val.decode())
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>def convert_timestamp(val: float) -&gt; datetime.datetime:
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    &quot;&quot;&quot;Convert Unix epoch timestamp to datetime.datetime object.&quot;&quot;&quot;
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    return datetime.datetime.fromtimestamp(int(val))
 </span></code></pre></div></p>
 <p><strong>Zugehörige Register Funktionen</strong><br />
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sqlite3.register_converter(&quot;date&quot;, convert_date)
@@ -1147,32 +1164,6 @@ den Typ <code>TIMESTAMP</code> statt <code>TEXT</code> oder <code>INTEGER</code>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    log_msg   TEXT NOT NULL
 </span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>)
 </span></code></pre></div>
-<p>Die vom Programm erzeugten Sätze in der Tabelle
-sehen dann so aus:</p>
-<table>
-<thead>
-<tr>
-<th>log_id</th>
-<th>log_level</th>
-<th>log_dt</th>
-<th>log_msg</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>5</td>
-<td>1745932053</td>
-<td>ERROR message</td>
-</tr>
-<tr>
-<td>2</td>
-<td>2</td>
-<td>1745932053</td>
-<td>DEBUG message</td>
-</tr>
-</tbody>
-</table>
 <h3 id="python-manuelle-konvertierung">Python: manuelle Konvertierung</h3>
 <p><a href="https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/extras/logdb_sample2.py" target="blank">logdb_sample2.py</a></p>
 <p>Für die Zeitstempel in der Datenbank nutze ich in diesem
@@ -1180,12 +1171,8 @@ Fall die Formate</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>YYYY-MM-DD HH:mm:ss
 </span></code></pre></div>
 <p>und</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>YYYY-MM-DD HH:mm:ss localtime
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>YYYY-MM-DD HH:mm:ss.mmmmmm localtime
 </span></code></pre></div>
-<p><em>Hinweis</em>: Den Zusatz <code>localtime</code> verwende ich in diesem
-Beispiel nur, damit man unterscheiden kann, ob die
-Zeitstempel in UTC Zeit oder in der lokalen Zeit
-abgespeichert wurden.</p>
 <p>Für die Umwandlung zwischen datetime und Zeitstempel
 habe ich die folgenden Funktionen geschrieben:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>def dt_string_to_dt(dt_string: str) -&gt; datetime
@@ -1209,31 +1196,6 @@ habe ich die folgenden Funktionen geschrieben:</p>
 </span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    log_msg   TEXT NOT NULL
 </span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>)
 </span></code></pre></div>
-<p>Die Sätze in der Tabelle sehen folgendermaßen aus:</p>
-<table>
-<thead>
-<tr>
-<th>log_id</th>
-<th>log_level</th>
-<th>log_dt</th>
-<th>log_msg</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>5</td>
-<td>2025-04-29 15:14:25 localtime</td>
-<td>ERROR message</td>
-</tr>
-<tr>
-<td>2</td>
-<td>2</td>
-<td>2025-04-29 15:14:25 localtime</td>
-<td>DEBUG message</td>
-</tr>
-</tbody>
-</table>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>use_utc: bool = True
 </span></code></pre></div>
 <p>Die Tabelle in der Datenbank ist in diesem Fall 
@@ -1263,31 +1225,6 @@ Format </p>
 wurde.</p>
 <p>Um dieses Problem zu umgehen, verwende ich in diesem Fall
 für die Zeitstempel generell die UTC Zeit.</p>
-<p>Die Sätze in der Tabelle sehen folgendermaßen aus:</p>
-<table>
-<thead>
-<tr>
-<th>log_id</th>
-<th>log_level</th>
-<th>log_dt</th>
-<th>log_msg</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>5</td>
-<td>2025-04-29 15:14:25</td>
-<td>ERROR message</td>
-</tr>
-<tr>
-<td>2</td>
-<td>2</td>
-<td>2025-04-29 15:14:25</td>
-<td>DEBUG message</td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h2 id="weiterfuhrende-links">Weiterführende Links</h2>
 <ul>
@@ -1326,7 +1263,7 @@ für die Zeitstempel generell die UTC Zeit.</p>
     <span class="md-icon" title="Letztes Update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="30. April 2025 19:04:56">2025-04-30 19:04:56</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="6. Mai 2025 17:27:14">2025-05-06 17:27:14</span>
   </span>
 
     
