@@ -47,6 +47,36 @@ Kurs.
 * [Python's pathlib Module: Taming the File System](https://realpython.com/python-pathlib/)
 * [Working With Files in Python](https://realpython.com/working-with-files-in-python/)
 
+### Datenbank
+#### MariaDB
+* [MariaDB](https://mariadb.org/)
+    * [Python Connector Software](https://mariadb.org/connector-python/all-releases/)
+    * [Python Connector Documentation](https://mariadb-corporation.github.io/mariadb-connector-python/)
+    * [PyPi: mariadb](https://pypi.org/project/mariadb/)
+
+#### MySQL
+* [MySQL](https://www.mysql.com/)
+    * [Documentation](https://dev.mysql.com/doc/)
+    * [Python Connector Software](https://dev.mysql.com/downloads/connector/python/)
+    * [Python Connector Developer Guide](https://dev.mysql.com/doc/connector-python/en/)
+    * [PyPi: mysql-connector-python](https://pypi.org/project/mysql-connector-python/)
+* [Python and MySQL Database: A Practical Introduction](https://realpython.com/python-mysql/)
+* [Python MySQL](https://www.w3schools.com/python/python_mysql_getstarted.asp)
+
+#### Oracle
+* [Python Driver for Oracle Database: Documentation](https://python-oracledb.readthedocs.io/en/latest/user_guide/installation.html)
+* [PyPi: oracledb](https://pypi.org/project/oracledb/)
+
+#### SQLite
+* [SQLite](https://www.sqlite.org/)
+    * [Documentation](https://www.sqlite.org/docs.html) 
+* [DB Browser for SQLite](https://sqlitebrowser.org/)
+* [Python module sqlite3](https://docs.python.org/3/library/sqlite3.html)
+    * [Tutorial](https://docs.python.org/3/library/sqlite3.html#tutorial) 
+* [SQLite Tutorial](https://www.sqlitetutorial.net/)
+    * [Python Binding](https://www.sqlitetutorial.net/sqlite-python/)
+* [Python SQLite tutorial using sqlite3](https://pynative.com/python-sqlite/)
+
 ### Requests
 * [PyPi: requests](https://pypi.org/project/requests/)
 * [Requests](https://requests.readthedocs.io/en/latest/)
