@@ -25,7 +25,7 @@
         <link rel="alternate" type="application/rss+xml" title="RSS Feed der aktualisierten Inhalte" href="../feed_rss_updated.xml">
       
       <link rel="icon" href="../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -886,6 +886,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dictionary-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dictionary Comprehension
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#weiterfuhrende-links" class="md-nav__link">
     <span class="md-ellipsis">
       Weiterführende Links
@@ -1423,6 +1432,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dictionary-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dictionary Comprehension
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#weiterfuhrende-links" class="md-nav__link">
     <span class="md-ellipsis">
       Weiterführende Links
@@ -1713,6 +1731,53 @@ verwenden.</p>
 <p>Ein einfaches Beispiel hierzu ist in der Source 
 [dict_funcs.py]{:target="blank"}</p>
 <p>abgelegt.</p>
+<h2 id="dictionary-comprehension">Dictionary Comprehension</h2>
+<p>Dictionary Comprehension bietet eine verkürzte Syntax zur
+Erzeugung, Transformation und Filterung von Dictionaries.</p>
+<p>Beispiel: Erzeuge ein Dictionary, das als Schlüssel (Key)
+die Werte 1 bis 10 enthält. Die zugehörigen Werte 
+(Values) sollen die jeweilige Zweierpotenz sein.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>zweier_potenzen = {}
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>for n in range(1, 11):
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    zweier_potenzen[n] = 2**n
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>zweier_potenzen
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>## {1: 2, 2: 4, 3: 8, 4: 16, 5: 32, 6: 64, 7: 128, 8: 256, 9: 512, 10: 1024}
+</span></code></pre></div>
+<p>Beispiel: ein Dictionary enthält als Schlüssel englische 
+Wörter und als Wert die jeweilige deutsche Übersetzung.</p>
+<p>Nutze dieses Dictionary um einen englischen Satz Wort für
+Wort ins Deutsche zu übersetzen. Ist ein englisches Wort
+nicht bekannt, wird "???" ausgegeben.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>woerterbuch = {
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    &#39;we&#39;:&#39;wir&#39;,
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    &#39;they&#39;:&#39;sie&#39;,
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    &#39;love&#39;:&#39;lieben&#39;,
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    &#39;drink&#39;:&#39;trinken&#39;,
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    &#39;eat&#39;:&#39;essen&#39;,
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    &#39;cake&#39;:&#39;kuchen&#39;,
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    &#39;pears&#39;:&#39;birnen&#39;,
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    &#39;juice&#39;:&#39;saft&#39;
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>}
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>satz = &quot;we love cake&quot;
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>&quot; &quot;.join(list(map(lambda w: woerterbuch.get(w, &quot;???&quot;), satz.split())))
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>## wir lieben kuchen
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>satz = &quot;they eat pears&quot;
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>&quot; &quot;.join(list(map(lambda w: woerterbuch.get(w, &quot;???&quot;), satz.split())))
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>## sie essen birnen
+</span></code></pre></div>
+<p>Beispiel: Spiegel den Inhalt eines Dictionaries. D.h.: die 
+Schlüssel werden zu Werten und die Werte zu Schlüsseln.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>d = {&#39;a&#39;:1, &#39;b&#39;:2, &#39;c&#39;:3}
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>d
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>## {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3}
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>d_gespiegelt = { val:key for key,val in d.items() }
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>d_gespiegelt
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>## {1: &#39;a&#39;, 2: &#39;b&#39;, 3: &#39;c&#39;}
+</span></code></pre></div>
 <hr />
 <h2 id="weiterfuhrende-links">Weiterführende Links</h2>
 <ul>
@@ -1743,7 +1808,7 @@ verwenden.</p>
     <span class="md-icon" title="Letztes Update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="8. April 2025 10:50:06">2025-04-08 10:50:06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="14. Mai 2025 15:53:37">2025-05-14 15:53:37</span>
   </span>
 
     
@@ -1864,10 +1929,10 @@ verwenden.</p>
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "content.action.edit", "content.action.view", "content.code.copy", "content.tooltips", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.prune", "navigation.sections", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "toc.follow"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "content.action.edit", "content.action.view", "content.code.copy", "content.tooltips", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.prune", "navigation.sections", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "toc.follow"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
