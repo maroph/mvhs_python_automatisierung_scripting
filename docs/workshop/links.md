@@ -48,6 +48,8 @@ Kurs.
 * [Working With Files in Python](https://realpython.com/working-with-files-in-python/)
 
 ### Datenbank
+* [Introduction to Python SQL Libraries](https://realpython.com/python-sql-libraries/)
+
 #### MariaDB
 * [MariaDB](https://mariadb.org/)
     * [Python Connector Software](https://mariadb.org/connector-python/all-releases/)
@@ -82,9 +84,12 @@ Kurs.
 * [Requests](https://requests.readthedocs.io/en/latest/)
 
 ## Weitere Links
-Weitere Links zum Workshop habe ich in meinem 
+Weitere Links zum Workshop und allgemein zum Thema Python
+habe ich in meinem  
 [Raindrop.io](https://raindrop.io/)
 Account abgelegt.
 
+* [Web: Python](https://raindrop.io/maroph/python-53672887)
+* [RSS: Python](https://bg.raindrop.io/rss/public/53672887)
 * [Web: Workshop Automatisierung/Scripting](https://raindrop.io/maroph/workshop-automatisierung-scripting-53914003)
 * [RSS: Workshop Automatisierung/Scripting](https://bg.raindrop.io/rss/public/53914003)

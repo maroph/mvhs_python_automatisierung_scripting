@@ -19,20 +19,40 @@ class NotesDBException(Exception):
     """
     Notes Database Exception Class.
     """
-    def __init__(self, message):
+    def __init__(self, message: str):
+        """
+        Constructor: initializes a NotesDBException instance.
+
+        Parameters:
+            message (str) : exception error message text.
+        """
         super().__init__()
+        if not isinstance(message, str):
+            raise TypeError("message is not a string")
         self.__message = message
 
     def __str__(self):
-        return self.__message
+        """
+        String representation of the NotesDBException instance.
+
+        Returns:
+            str: Exception class name and error message text.
+        """
+        return f"NotesDBException: {self.__message}"
 
 
 class NotesDBLogLevel(Enum):
     """
-    NotesDB Log Level Class.
+    NotesDB Log Level Enum Class.
 
     The values are the same as the Python logging levels:
     https://docs.python.org/3/library/logging.html#logging-levels
+
+    NotesDBLogLevel.CRITICAL (50)
+    NotesDBLogLevel.ERROR    (40)
+    NotesDBLogLevel.WARNING  (30)
+    NotesDBLogLevel.INFO     (20)
+    NotesDBLogLevel.DEBUG    (10)
     """
     CRITICAL = logging.CRITICAL
     ERROR = logging.ERROR
@@ -86,32 +106,32 @@ class NotesDB:
     Sample class to manage a simple notes database.
 
     Attributes:
-    dbfile (str)         : name of the database file (default: None, i.e.: use an in-memory database).
-    remove_old_db (bool) : True: remove existing database file (default: False) - ignored if dbfile is None.
-    loglevel (int|str)   : log level values: https://docs.python.org/3/library/logging.html#logging-levels.
-                           Reading will always return an int.
-    name (str)           : name of the database class ("NotesDB") - readonly attribute
-    version(str)         : version of the database class - readonly attribute
-    version_date(str)    : date of the version - readonly attribute
+        dbfile (str)         : name of the database file (default: None, i.e.: use an in-memory database).
+        remove_old_db (bool) : True: remove existing database file (default: False) - ignored if dbfile is None.
+        loglevel (int|str)   : log level values: https://docs.python.org/3/library/logging.html#logging-levels.
+                               Reading will always return an int.
+        name (str)           : name of the database class ("NotesDB") - readonly attribute
+        version(str)         : version of the database class - readonly attribute
+        version_date(str)    : date of the version - readonly attribute
     """
 
     def __init__(self, dbfile: str = None, remove_old_db: bool = False, loglevel: int|str = NotesDBLogLevel.ERROR.value):
         """
-        Constructor: initializes a NotesDB object.
+        Constructor: initializes a NotesDB instance.
 
         Parameters:
-        dbfile (str)         : name of the database file (default: None, i.e.: use an in-memory database).
-        remove_old_db (bool) : True: remove existing database file (default: False).
-        loglevel (int|str)   : log level values: https://docs.python.org/3/library/logging.html#logging-levels
-                               50, "CRITICAL"
-                               40, "ERROR"
-                               30, "WARNING"
-                               20, "INFO"
-                               10, "DEBUG"
+            dbfile (str)         : name of the database file (default: None, i.e.: use an in-memory database).
+            remove_old_db (bool) : True: remove existing database file (default: False).
+            loglevel (int|str)   : log level values: https://docs.python.org/3/library/logging.html#logging-levels
+                                   50, "CRITICAL"
+                                   40, "ERROR"
+                                   30, "WARNING"
+                                   20, "INFO"
+                                   10, "DEBUG"
         """
         self.__name = "NotesDB"
         self.__version = "0.1.0"
-        self.__version_date = "11-MAY-2025"
+        self.__version_date = "12-MAY-2025"
         self.__dbfile = None
         self.__connection = None
 
@@ -164,7 +184,6 @@ class NotesDB:
 
             if dbfile:
                 self.__connection = sqlite3.connect(self.__dbfile, detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES)
-                # chmod(self.__dbfile, 0o600)
                 Path(dbfile).chmod(0o600)
             else:
                 self.__connection = sqlite3.connect(":memory:", detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES)
@@ -196,7 +215,7 @@ class NotesDB:
         String representation of the NotesDB instance.
 
         Returns:
-        str:
+            str:
         """
         _str = 'NotesDB("'
         if self.__dbfile:
@@ -232,10 +251,10 @@ class NotesDB:
         Check the given loglevel for a valid string or integer value and return the corresponding integer value.
 
         Parameters:
-        loglevel (int|str):
+            loglevel (int|str):
 
         Returns:
-        int:
+            int: Python logging levels: 50, 40, 30, 20, 10
         """
         if isinstance(loglevel, str):
             if NotesDBLogLevel.is_string_loglevel(loglevel):
@@ -258,27 +277,27 @@ class NotesDB:
     # https://docs.python.org/3/library/sqlite3.html#sqlite3-adapter-converter-recipes
     # https://docs.python.org/3/library/sqlite3.html#how-to-adapt-custom-python-types-to-sqlite-values
     @staticmethod
-    def adapt_datetime_epoch(dt: datetime) -> float:
+    def adapt_datetime_epoch(dt: datetime) -> int:
         """
         Adapt datetime to Unix timestamp.
 
         Parameters:
-        dt (datetime.datetime): The datetime object to be adapted
+            dt (datetime.datetime): The datetime object to be adapted
 
         Returns:
-        float: Unix timestamp of the given datetime object
+            float: Unix timestamp of the given datetime object
         """
         return int(dt.timestamp())
 
     # https://docs.python.org/3/library/sqlite3.html#sqlite3-adapter-converter-recipes
     # https://docs.python.org/3/library/sqlite3.html#how-to-convert-sqlite-values-to-custom-python-types
     @staticmethod
-    def convert_timestamp(uts: float) -> datetime:
+    def convert_timestamp(uts: int) -> datetime:
         """
         Convert Unix epoch timestamp to datetime object.
 
         Parameters:
-        val (float): Unix epoch timestamp
+            uts (float): Unix epoch timestamp
 
         Returns:
             datetime.datetime: The datetime object corresponding to the given Unix epoch timestamp.
@@ -291,11 +310,11 @@ class NotesDB:
         Converts a datetime object to a string formatted as 'YYYY-MM-DD HH:MM:SS'.
 
         Parameters:
-        dt (datetime.datetime): The datetime object to be converted.
+            dt (datetime.datetime): The datetime object to be converted.
 
         Returns:
-        str: A string representation of the given datetime in the format
-            'YYYY-MM-DD HH:MM:SS'.
+            str: A string representation of the given datetime in the format
+                'YYYY-MM-DD HH:MM:SS'.
         """
         return dt.strftime("%Y-%m-%d %H:%M:%S")
 
@@ -305,12 +324,12 @@ class NotesDB:
         Convert year, month and day ints to a datetime object with 00:00:00 as time.
 
         Parameters:
-        year (int)  : year
-        month (int) : month
-        day (int)   : day in month
+            year (int)  : year
+            month (int) : month
+            day (int)   : day in month
 
         Returns:
-        datetime.datetime: datetime(year, month, day, 0, 0, 0, 0)
+            datetime.datetime: datetime(year, month, day, 0, 0, 0, 0)
         """
         if not isinstance(year, int):
             raise NotesDBException("year is not an integer")
@@ -327,12 +346,12 @@ class NotesDB:
         Convert year, month and day ints to a datetime object with 23:59:59 as time.
 
         Parameters:
-        year (int)  : year
-        month (int) : month
-        day (int)   : day in month
+            year (int)  : year
+            month (int) : month
+            day (int)   : day in month
 
         Returns:
-        datetime.datetime: datetime(year, month, day, 23, 59, 59, 999999)
+            datetime.datetime: datetime(year, month, day, 23, 59, 59, 999999)
         """
         if not isinstance(year, int):
             raise NotesDBException("year is not an integer")
@@ -366,11 +385,11 @@ class NotesDB:
         Add a new note.
 
         Parameters:
-        title (str) : note title (non empty string)
-        note (str)  : note text (non empty string)
+            title (str) : note title (non empty string)
+            note (str)  : note text (non empty string)
 
         Returns:
-        int: the note id in the database.
+            int: the note id in the database.
         """
         self.__logger.debug(f"note_add: title: {title}")
         self.__logger.debug(f"note_add: note : {note}")
@@ -411,10 +430,10 @@ class NotesDB:
         Delete a new note.
 
         Parameters:
-        note_id (int): id of note
+            note_id (int): id of note
 
         Returns:
-        bool: True if successful, False otherwise
+            bool: True if successful, False otherwise
         """
         self.__logger.debug(f"note_delete: note_id: {note_id}")
 
@@ -444,12 +463,12 @@ class NotesDB:
         Update a note.
 
         Parameters:
-        note_id (int) : id of note
-        title (str)   : title of note
-        note (str)    : note text
+            note_id (int) : id of note
+            title (str)   : title of note
+            note (str)    : note text
 
         Returns:
-        bool: True if successful, False otherwise
+            bool: True if successful, False otherwise
         """
         self.__logger.debug(f"note_update: note_id: {note_id}")
         self.__logger.debug(f"note_update: title  : {title}")
@@ -512,7 +531,13 @@ class NotesDB:
             note_id (int):
 
         Returns:
-            list: get note or an empty list if not found.
+            list: get note fields as list or an empty list if not found.
+                  List elements:
+                  0 : noted_id (int)
+                  1 : title (str)
+                  2 : note (str)
+                  3 : cdt (datetime.datetime)
+                  4 : mdt (datetime.datetime)
         """
         self.__logger.debug(f"note_get: note_id: {note_id}")
 
@@ -555,7 +580,7 @@ class NotesDB:
             last_date  (datetime.datetime):
 
         Returns:
-            list: the note datat as a list or an empty list if no notes found.
+            list: the note data as a list or an empty list if no notes found.
         """
         self.__logger.debug(f"note_get_interval: first_date: {first_date}")
         self.__logger.debug(f"note_get_interval: last_date : {last_date}")
@@ -590,14 +615,3 @@ class NotesDB:
             self.__logger.debug(f"note_get_interval: sqlite3.error : {error}")
 
             raise NotesDBException(f"{error}")
-
-if __name__ == "__main__X":
-    print(NotesDB.__doc__)
-    print()
-    print(NotesDB.__init__.__doc__)
-    print()
-    print(NotesDB._dt_to_string.__doc__)
-    print()
-    print(NotesDB.note_add.__doc__)
-    print()
-    help(NotesDB)

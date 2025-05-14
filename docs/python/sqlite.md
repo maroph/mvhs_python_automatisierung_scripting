@@ -126,7 +126,7 @@ def adapt_datetime_iso(val: datetime.datetime) -> str :
     """Adapt datetime.datetime to timezone-naive ISO 8601 date."""
     return val.isoformat()
 
-def adapt_datetime_epoch(val: datetime.datetime) -> float:
+def adapt_datetime_epoch(val: datetime.datetime) -> int:
     """Adapt datetime.datetime to Unix timestamp."""
     print(f"adapt_datetime_epoch(val) : {val} : type(val) : {type(val)}")
     return int(val.timestamp())
@@ -149,7 +149,7 @@ def convert_datetime(val: str) -> datetime.datetime:
     """Convert ISO 8601 datetime to datetime.datetime object."""
     return datetime.datetime.fromisoformat(val.decode())
 
-def convert_timestamp(val: float) -> datetime.datetime:
+def convert_timestamp(val: int) -> datetime.datetime:
     """Convert Unix epoch timestamp to datetime.datetime object."""
     return datetime.datetime.fromtimestamp(int(val))
 ```

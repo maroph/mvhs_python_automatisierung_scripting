@@ -17,6 +17,11 @@ ausprobieren:
 * pytest  
   Schreiben einfacher Tests mit pytest.
 
+Hinweis:  
+Ein einfaches Beispiel mit einer GUI findet man in dem
+folgenden Artikel:  
+[Build a Contact Book With Python, PyQt, and SQLite](https://realpython.com/python-contact-book/)
+
 ## Datenbank
 Der 
 [SQLite](https://www.sqlite.org/)
@@ -100,7 +105,8 @@ _idx_unique_ und _idx_mdt_ verwendet.
 ## Logging
 Teil der Python Distribution ist das Modul 
 [logging](https://docs.python.org/3/library/logging.html).
-
+In meiner Klasse _NotesDB_ verwende ich die Log Level 
+ERROR, INFO und DEBUG. Das Standardlevel ist ERROR.
 
 ## Docstring
 Mit der Hilfe von Docstrings kann man seinen Python Code

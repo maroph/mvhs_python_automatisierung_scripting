@@ -340,6 +340,48 @@ Alternativ kann man auch die folgende for Schleife verwenden:
     for _ in range(len(liste)):
         print(liste.pop(0))
 
+## List Comprehension
+List Comprehension bietet eine verkürzte Syntax zur
+Erzeugung einer neuen Liste aus Elementen einer bereits
+vorhandenen Liste.
+
+Beispiel: Berechne die Summe aller Zahlen von 1 bis 10 
+(inklusive). Die Funktion _range_ liefert hier die
+"Ausgangsliste".
+
+```
+summe = sum(n for n in range(1,11))
+```
+
+Beispiel: Bilde eine neue Liste mit Elementen einer Liste,
+die den Buchstaben "a" enthalten.
+
+```
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = [fruit for fruit in fruits if "a" in fruit]
+```
+
+Beispiel: Wie oft wird die 1 gewürfelt bei 10000 Würfen.
+
+```
+import random
+
+count = sum([ 1 for _ in range(10000) if random.randint(1, 6) == 1])
+```
+
+Beispiel: gegeben ist die Liste _liste_orte_ mit Ortsnamen.
+Gesucht sind alle Orte, die mit einem "B" beginen und
+die maximal 6 Zeichen lang sind.
+```
+liste_orte = [
+    'London', 'Berlin', 'Hamburg', 'Bonn',
+    'Budapest', 'Rom', 'Paris', 'München', 
+    'New York', 'Bremen', 'Madrid', 'Beijing'
+]
+
+liste_gesuchte_orte = list(filter(lambda ort: ort[0] == "B" and len(ort) <= 6, liste_orte))
+```
+
 ---
 
 ## Weiterführende Links
@@ -350,3 +392,7 @@ Alternativ kann man auch die folgende for Schleife verwenden:
 * [Python-Kurs: Listen](https://www.python-kurs.eu/python3_listen.php)
 * [Python's list Data Type: A Deep Dive With Examples](https://realpython.com/python-list/)
 * [When to Use a List Comprehension in Python](https://realpython.com/list-comprehension-python/)
+* [Python - List Comprehension](https://www.w3schools.com/python/python_lists_comprehension.asp)
+* [List Comprehension in Python](https://www.geeksforgeeks.org/python-list-comprehension/)
+* [Python's filter(): Extract Values From Iterables](https://realpython.com/python-filter-function/)
+* [Python's map(): Processing Iterables Without a Loop](https://realpython.com/python-map-function/)

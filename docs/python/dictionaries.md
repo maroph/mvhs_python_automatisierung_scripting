@@ -296,6 +296,64 @@ Ein einfaches Beispiel hierzu ist in der Source
 [dict_func.py]: https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/extras/dict_funcs.py
 abgelegt.
 
+## Dictionary Comprehension
+Dictionary Comprehension bietet eine verkürzte Syntax zur
+Erzeugung, Transformation und Filterung von Dictionaries.
+
+Beispiel: Erzeuge ein Dictionary, das als Schlüssel (Key)
+die Werte 1 bis 10 enthält. Die zugehörigen Werte 
+(Values) sollen die jeweilige Zweierpotenz sein.
+
+```
+zweier_potenzen = {}
+
+for n in range(1, 11):
+    zweier_potenzen[n] = 2**n
+
+zweier_potenzen
+## {1: 2, 2: 4, 3: 8, 4: 16, 5: 32, 6: 64, 7: 128, 8: 256, 9: 512, 10: 1024}
+```
+
+Beispiel: ein Dictionary enthält als Schlüssel englische 
+Wörter und als Wert die jeweilige deutsche Übersetzung.
+
+Nutze dieses Dictionary um einen englischen Satz Wort für
+Wort ins Deutsche zu übersetzen. Ist ein englisches Wort
+nicht bekannt, wird "???" ausgegeben.
+
+```
+woerterbuch = {
+    'we':'wir',
+    'they':'sie',
+    'love':'lieben',
+    'drink':'trinken',
+    'eat':'essen',
+    'cake':'kuchen',
+    'pears':'birnen',
+    'juice':'saft'
+}
+
+satz = "we love cake"
+" ".join(list(map(lambda w: woerterbuch.get(w, "???"), satz.split())))
+## wir lieben kuchen
+
+satz = "they eat pears"
+" ".join(list(map(lambda w: woerterbuch.get(w, "???"), satz.split())))
+## sie essen birnen
+```
+
+Beispiel: Spiegel den Inhalt eines Dictionaries. D.h.: die 
+Schlüssel werden zu Werten und die Werte zu Schlüsseln.
+
+```
+d = {'a':1, 'b':2, 'c':3}
+d
+## {'a': 1, 'b': 2, 'c': 3}
+d_gespiegelt = { val:key for key,val in d.items() }
+d_gespiegelt
+## {1: 'a', 2: 'b', 3: 'c'}
+```
+
 ---
 
 ## Weiterführende Links

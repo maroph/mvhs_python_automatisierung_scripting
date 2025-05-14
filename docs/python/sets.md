@@ -211,6 +211,30 @@ Funktion __frozenset__ werden Sets
     type(myset_frozen)
     ## class 'frozenset'>
 
+## Set Comprehension
+Set Comprehension bietet eine verkürzte Syntax zur
+Erzeugung und Manipulation von Python Sets.
+
+Beispiel: Ein Set enthält Mailadressen. Bilde ein neues
+Set, dass nur die Mailadressen enthält, die auf ".com"
+enden.
+
+```
+emails_set = {
+    "alice@example.org",
+    "bob@example.com",
+    "johndoe@example.com",
+    "charlie@example.com",
+    "david@example.net",
+}
+emails_set
+## {'alice@example.org', 'david@example.net', 'charlie@example.com', 'johndoe@example.com', 'bob@example.com'}
+
+emails_com_set = {email for email in emails_set if email.endswith(".com")}
+emails_com_set
+## {'johndoe@example.com', 'bob@example.com', 'charlie@example.com'}
+```
+
 ---
 
 ## Weiterführende Links
