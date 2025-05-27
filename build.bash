@@ -7,10 +7,12 @@
 # This work is licensed under a CC-BY 4.0 License. #
 # https://creativecommons.org/licenses/by/4.0/     #
 ####################################################
+COPYRIGHT="Copyright (C) 2025 Manfred Rosenboom."
+LICENSE="License: CC-BY 4.0 <https://creativecommons.org/licenses/by/4.0/>"
 #
 declare -r SCRIPT_NAME=$(basename $0)
 declare -r VERSION="0.1.0"
-declare -r VERSION_DATE="07-MAY-2025"
+declare -r VERSION_DATE="27-MAY-2025"
 declare -r VERSION_STRING="${SCRIPT_NAME}  ${VERSION}  (${VERSION_DATE})"
 #
 ###############################################################################
@@ -43,7 +45,7 @@ print_usage() {
     cat - <<EOT
 
 Usage: ${SCRIPT_NAME} [option(s)] [venv|venv-all|deploy|serve]
-       Call mkdocs to build the site related files
+       Call mkdocs to build the web site related files
 
 Options:
   -h|--help       : show this help and exit
@@ -77,6 +79,8 @@ do
             ;;
         -V | --version)
             echo ${VERSION_STRING}
+            echo "${COPYRIGHT}"
+            echo "${LICENSE}"
             exit 0
             ;;
         -c | --check-only)
@@ -174,12 +178,9 @@ then
 #
     echo "${SCRIPT_NAME}: python -m pip install --upgrade requests"
     python -m pip install --upgrade requests || exit 1
-fi
 #
 ###############################################################################
 #
-if [ "$1" = "venv-all" ]
-then
     echo "${SCRIPT_NAME}: python -m pip install --upgrade pytest"
     python -m pip install --upgrade pytest || exit 1
 #
@@ -221,7 +222,8 @@ then
         echo "${SCRIPT_NAME}: script ${SCRIPT_DIR}/venv/bin/activate missing"
         exit 1
     fi
-    . ${SCRIPT_DIR}/venv/bin/activate
+    echo "${SCRIPT_NAME}: use local venv directory as virtual environment"
+    source ${SCRIPT_DIR}/venv/bin/activate
 fi
 #
 ###############################################################################
