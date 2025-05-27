@@ -79,7 +79,7 @@ ausgeben.
 [version.py]: https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/version.py
 
 
-#### Debian 12.10
+#### Debian 12.11
 ```
 $ python3 version.py
 3.11.2 (main, Nov 30 2024, 21:22:50) [GCC 12.2.0]
