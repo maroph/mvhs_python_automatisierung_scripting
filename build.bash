@@ -12,7 +12,7 @@ LICENSE="License: CC-BY 4.0 <https://creativecommons.org/licenses/by/4.0/>"
 #
 declare -r SCRIPT_NAME=$(basename $0)
 declare -r VERSION="0.1.0"
-declare -r VERSION_DATE="27-MAY-2025"
+declare -r VERSION_DATE="06-JUN-2025"
 declare -r VERSION_STRING="${SCRIPT_NAME}  ${VERSION}  (${VERSION_DATE})"
 #
 ###############################################################################
@@ -173,6 +173,9 @@ then
     echo "${SCRIPT_NAME}: python -m pip install --upgrade beautifulsoup4"
     python -m pip install --upgrade beautifulsoup4 || exit 1
 #
+    echo "${SCRIPT_NAME}: python -m pip install --upgrade lxml"
+    python -m pip install --upgrade lxml || exit 1
+#
     echo "${SCRIPT_NAME}: python -m pip install --upgrade python-dateutil"
     python -m pip install --upgrade python-dateutil || exit 1
 #
@@ -198,7 +201,7 @@ then
     echo ""
     echo ""
     echo "----------"
-    grep -E 'mkdocs|beautifulsoup4|python-dateutil|requests|pytest' ${SCRIPT_DIR}/venv/requirements.txt
+    grep -E 'mkdocs|beautifulsoup4|lxml|python-dateutil|requests|pytest' ${SCRIPT_DIR}/venv/requirements.txt | sort
     echo "----------"
     echo ""
 #
