@@ -30,6 +30,8 @@ Kurs.
 ## Automation
 * [Automate the Boring Stuff with Python](https://automatetheboringstuff.com)  
   Webseite zum gleichnamigen Buch.
+* [Faker](https://faker.readthedocs.io/en/master/)  
+  Faker ist ein Python Package, dass Testdaten generiert.
 
 ### Aufruf von Programmen
 * [The subprocess Module: Wrapping Programs With Python](https://realpython.com/python-subprocess)
@@ -91,5 +93,5 @@ Account abgelegt.
 
 * [Web: Python](https://raindrop.io/maroph/python-53672887)
 * [RSS: Python](https://bg.raindrop.io/rss/public/53672887)
-* [Web: Workshop Automatisierung/Scripting](https://raindrop.io/maroph/workshop-automatisierung-scripting-53914003)
-* [RSS: Workshop Automatisierung/Scripting](https://bg.raindrop.io/rss/public/53914003)
+* [Web: Workshop Automatisierung und Scripting](https://raindrop.io/maroph/workshop-automatisierung-scripting-53914003)
+* [RSS: Workshop Automatisierung und Scripting](https://bg.raindrop.io/rss/public/53914003)
