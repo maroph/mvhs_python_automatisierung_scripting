@@ -39,6 +39,8 @@ Kurs.
 ### Beautiful Soup
 * [PyPi: beautifulsoup4](https://pypi.org/project/beautifulsoup4/)
 * [Beautiful Soup: Homepage](https://www.crummy.com/software/BeautifulSoup/)
+* [PyPi: lxml](https://pypi.org/project/lxml/)
+* [lxml: Homepage](https://lxml.de/)
 
 ### CSV
 * Python Doc: [CSV File Reading and Writing](https://docs.python.org/3.12/library/csv.html)
