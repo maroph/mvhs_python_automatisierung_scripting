@@ -12,7 +12,7 @@ LICENSE="License: CC-BY 4.0 <https://creativecommons.org/licenses/by/4.0/>"
 #
 declare -r SCRIPT_NAME=$(basename $0)
 declare -r VERSION="0.1.0"
-declare -r VERSION_DATE="06-JUN-2025"
+declare -r VERSION_DATE="07-JUN-2025"
 declare -r VERSION_STRING="${SCRIPT_NAME}  ${VERSION}  (${VERSION_DATE})"
 #
 ###############################################################################
@@ -44,7 +44,7 @@ force=0
 print_usage() {
     cat - <<EOT
 
-Usage: ${SCRIPT_NAME} [option(s)] [venv|venv-all|deploy|serve]
+Usage: ${SCRIPT_NAME} [option(s)] [build|deploy|serve|venv]
        Call mkdocs to build the web site related files
 
 Options:
@@ -55,14 +55,15 @@ Options:
   -n|--no-check   : no check for needed Python3 modules
 
   Arguments
-  venv          : create the MkDocs related virtual environment
-  venv-all      : like venv but add also the runtime related modules
+  build         : Create the site data (default)
+                  Location: site
+                  (mkdocs build)
   deploy        : create the site and push all data to branch gh-pages
                   (mkdocs gh-deploy)
-  serve         : Run the MkDocs builtin development server
+  serve         : Create the site and run the MkDocs builtin development server
                   (mkdocs serve)
-
-  Default: call 'mkdocs build'
+  venv          : create the MkDocs and runtime related virtual environment
+                  Location: venv
 
 EOT
 }
@@ -92,14 +93,6 @@ do
         -n | --no-check)
             check=0
             ;;
-        --)
-            shift 1
-            break
-            ;;
-        --*)
-            echo "${SCRIPT_NAME}: '$1' : unknown option"
-            exit 1
-            ;;
         -*)
             echo "${SCRIPT_NAME}: '$1' : unknown option"
             exit 1
@@ -115,10 +108,10 @@ done
 if [ "$1" != "" ]
 then
     case "$1" in
-        venv)     ;;
-        venv-all) ;;
+        build)     ;;
         deploy)   ;;
         serve)    ;;
+        venv)     ;;
         *)
             echo "${SCRIPT_NAME}: '$1' : unknown argument"
             exit 1
@@ -132,7 +125,7 @@ cd ${SCRIPT_DIR} || exit 1
 #
 ###############################################################################
 #
-if [ "$1" = "venv" -o "$1" = "venv-all" ]
+if [ "$1" = "venv" ]
 then
     if [ "${VIRTUAL_ENV}" != "" ]
     then
@@ -141,12 +134,16 @@ then
         exit 1
     fi
 #
+    # create the virtual environment directory venv
     rm -fr ${SCRIPT_DIR}/venv
     echo "${SCRIPT_NAME}: python3 -m venv --prompt venv venv"
     python3 -m venv --prompt venv ${SCRIPT_DIR}/venv || exit 1
+#
+    # activate the virtual environment
     echo "${SCRIPT_NAME}: . venv/bin/activate"
     . ${SCRIPT_DIR}/venv/bin/activate
 #
+    # upgrade the basic modules
     echo "${SCRIPT_NAME}: python -m pip install --upgrade pip"
     python -m pip install --upgrade pip || exit 1
     echo "${SCRIPT_NAME}: python -m pip install --upgrade setuptools"
@@ -156,6 +153,8 @@ then
 #
 ###############################################################################
 #
+# install the MkDocs related modules
+#
     echo "${SCRIPT_NAME}: python -m pip install --upgrade mkdocs-material"
     python -m pip install --upgrade mkdocs-material || exit 1
 #
@@ -164,12 +163,11 @@ then
 #
     echo "${SCRIPT_NAME}: python -m pip install --upgrade mkdocs-rss-plugin"
     python -m pip install --upgrade mkdocs-rss-plugin || exit 1
-fi
 #
 ###############################################################################
 #
-if [ "$1" = "venv-all" ]
-then
+# install the runtime related modules
+#
     echo "${SCRIPT_NAME}: python -m pip install --upgrade beautifulsoup4"
     python -m pip install --upgrade beautifulsoup4 || exit 1
 #
@@ -184,17 +182,16 @@ then
 #
 ###############################################################################
 #
+# install the pytest related modules
+#
     echo "${SCRIPT_NAME}: python -m pip install --upgrade pytest"
     python -m pip install --upgrade pytest || exit 1
 #
     echo "${SCRIPT_NAME}: python -m pip install --upgrade pytest-order"
     python -m pip install --upgrade pytest-order || exit 1
-fi
 #
 ###############################################################################
 #
-if [ "$1" = "venv" -o "$1" = "venv-all" ]
-then
     echo "${SCRIPT_NAME}: python -m pip freeze >requirements.txt"
     python -m pip freeze >${SCRIPT_DIR}/venv/requirements.txt || exit 1
 #
