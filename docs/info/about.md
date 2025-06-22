@@ -82,25 +82,27 @@ ausgeben.
 #### Debian 12.11
 ```
 $ python3 version.py
-3.11.2 (main, Nov 30 2024, 21:22:50) [GCC 12.2.0]
-sys.version_info(major=3, minor=11, micro=2, releaselevel='final', serial=0)
-major        : 3
-minor        : 11
-micro        : 2
-releaselevel : final
-serial       : 0
+Python Version : 3.11.2
+---
+Node           : myhost
+System         : Linux
+Release        : 5.15.167.4-microsoft-standard-WSL2
+Version        : #1 SMP Tue Nov 5 00:21:55 UTC 2024
+Machine        : x86_64
+Processor      : 
 ```
 
 #### Windows 11 24H2
 ```
 > python.exe version.py
-3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]
-sys.version_info(major=3, minor=13, micro=2, releaselevel='final', serial=0)
-major        : 3
-minor        : 13
-micro        : 2
-releaselevel : final
-serial       : 0
+Python Version : 3.13.2
+---
+Node      : myhost
+System    : Windows
+Release   : 11
+Version   : 10.0.26100
+Machine   : AMD64
+Processor : AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
 ```
 
 ### Python Virtual Environment
