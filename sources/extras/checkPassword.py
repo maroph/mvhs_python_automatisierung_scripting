@@ -114,7 +114,7 @@ def check_password(password: str) -> int:
             return 0
         # print(match.group(0))
         # print('---')
-        (r, count) = match.group(0).split(':')
+        r, count = match.group(0).split(':')
         # print(f"rest: {r} - count: {count}")
         return int(count)
     except Exception as ex:
