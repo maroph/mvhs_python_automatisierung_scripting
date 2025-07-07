@@ -396,6 +396,26 @@ send2trash(['some_file1', 'some_file2'])
 | sys.path                          | Liste der Modul Suchpfade         |
 | sys.stdin, sys.stdout, sys.stderr | Zugriff auf die Ein-Ausgabestream |
 
-#### Beispiel
+Beispiel:
 
 * [sys_beispiel.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag1/sys_beispiel.py)
+
+
+### Modul arparse
+CLI (Command Line Interface) Tools können eine Reihe von Optionen
+und Argumenten haben. D.h. das Parsen von sys.argv kann sehr
+aufwendig sein.
+
+Diese Arbeit kann man sich vom Modul
+[argparse](https://docs.python.org/3/library/argparse.html)
+abnehmen lassen. In der Python Dokumentation gibt es das
+[Argparse Tutorial](https://docs.python.org/3/howto/argparse.html),
+das eine Reihe von Beispielen enthält.
+
+Zusätzlich sind im Artikel
+[Build Command-Line Interfaces With Python's argparse](https://realpython.com/command-line-interfaces-python-argparse/)
+eine Reihe von Einsatzfällen beschrieben.
+
+Beispiel:
+
+* [script_argparse_template.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/extras/script_argparse_template.py)
