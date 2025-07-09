@@ -32,6 +32,9 @@ Kurs.
   Webseite zum gleichnamigen Buch.
 * [Faker](https://faker.readthedocs.io/en/master/)  
   Faker ist ein Python Package, dass Testdaten generiert.
+* [Python Beginners](https://python-adv-web-apps.readthedocs.io/en/latest/index.html)  
+  Eigentlich eine allgemeine Einführung in Python. Alle Themen
+  des Workshops werden jedoch auch hier behandelt.
 
 ### Aufruf von Programmen
 * [The subprocess Module: Wrapping Programs With Python](https://realpython.com/python-subprocess)
