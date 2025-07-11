@@ -536,6 +536,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Tag 2
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="tag2.html" class="md-nav__link md-nav__link--active">
         
   
@@ -547,6 +560,97 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#csv-dateien" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSV Dateien
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CSV Dateien">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csv-lesen" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSV Lesen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CSV Lesen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-beispiele" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Beispiele
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv-schreiben" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSV Schreiben
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CSV Schreiben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-beispiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Beispiel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-dateien" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Dateien
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -755,6 +859,86 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#csv-dateien" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSV Dateien
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CSV Dateien">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csv-lesen" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSV Lesen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CSV Lesen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-beispiele" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Beispiele
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv-schreiben" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSV Schreiben
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CSV Schreiben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-beispiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Beispiel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-dateien" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Dateien
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -786,6 +970,258 @@
 
 
 <h1 id="tag-2-10072025">Tag 2 (10.07.2025)</h1>
+<h2 id="csv-dateien">CSV Dateien</h2>
+<p><a href="https://de.wikipedia.org/wiki/CSV_(Dateiformat)">Wikipedia: CSV (Dateiformat)</a>:
+Das Dateiformat CSV steht für englisch "Comma-separated values" 
+und beschreibt den Aufbau einer Textdatei zur Speicherung oder 
+zum Austausch einfach strukturierter Daten.</p>
+<p>Jede Zeile in einer CSV-Datei entspricht einer Zeile in einer
+Tabelle. Die einzelnen Spalten werden durch ein Komma (',')
+voneinander getrennt.</p>
+<p>Beispiel:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Name,Vorname,Straße,PLZ,Ort
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Maier,Anne,Dorfstraße,12345,Dorf
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Müller,David,Ortstraße,54321,Ort
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Muster,Mila,Stadtstraße,13524,Stadt
+</span></code></pre></div></p>
+<p>Für das Lesen/Schreiben von CSV-Dateien kann man das Modul 
+<a href="https://docs.python.org/3/library/csv.html">csv</a>
+verwenden.</p>
+<h3 id="csv-lesen">CSV Lesen</h3>
+<p>Beispiel:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>import csv
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>with open (csv_file, encoding=&#39;utf-8&#39;, newline=&#39;&#39;) as f:
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    reader = csv.reader(f)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    for row in reader:
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        print(row)
+</span></code></pre></div>
+<p>Das obige Programm erzeugt die folgende Ausgabe: </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[&#39;Name&#39;, &#39;Vorname&#39;, &#39;Straße&#39;, &#39;PLZ&#39;, &#39;Ort&#39;]
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>[&#39;Maier&#39;, &#39;Anne&#39;, &#39;Dorfstraße&#39;, &#39;12345&#39;, &#39;Dorf&#39;]
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>[&#39;Müller&#39;, &#39;David&#39;, &#39;Ortstraße&#39;, &#39;54321&#39;, &#39;Ort&#39;]
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>[&#39;Muster&#39;, &#39;Mila&#39;, &#39;Stadtstraße&#39;, &#39;13524&#39;, &#39;Stadt&#39;]
+</span></code></pre></div>
+<p><strong>Hinweis</strong>:<br />
+Das <em>open</em> Argument</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>newline=&#39;&#39;
+</span></code></pre></div>
+<p>sollte man beim Arbeiten mit CSV-Dateien immer angeben, da sowohl
+<em>open</em> als auch <em>csv.writer</em> versuchen, Zeilenumbrüche zu 
+handhaben.</p>
+<p>Beispiel: Ausgabe einzelner Felder/Spalten</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>with open (csv_file, encoding=&#39;utf-8&#39;, newline=&#39;&#39;) as f:
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    reader = csv.reader(f)
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    next(reader)
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    for row in reader:
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        print(f&#39;{row[1]:&lt;5} {row[0]}&#39;)
+</span></code></pre></div>
+<p>Ausgabe</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Anne  Maier
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>David Müller
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Mila  Muster
+</span></code></pre></div>
+<p>Mit dem Attribut <em>line_num</em> erhält man die jeweilige
+Zeilennummer in der CSV-Datei.</p>
+<p>Beispiel: 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>with open (csv_file, encoding=&#39;utf-8&#39;, newline=&#39;&#39;) as f:
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    reader = csv.reader(f)
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    next(reader)
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    for row in reader:
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        print(f&#39;{reader.line_num} : {row[1]:&lt;5} {row[0]}&#39;)
+</span></code></pre></div></p>
+<p>Ausgabe</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>2 : Anne  Maier
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>3 : David Müller
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>4 : Mila  Muster
+</span></code></pre></div>
+<p>Neben dem 
+<a href="https://docs.python.org/3/library/csv.html#csv.reader">reader</a> 
+kann man auch einen
+<a href="https://docs.python.org/3/library/csv.html#csv.DictReader">DictReader</a>
+verwenden.</p>
+<p>Der <em>DictReader</em> liest die erste Zeile als Header Zeile ein und 
+erzeugt für jede weitere Zeile ein Dictionary mit dem Spaltennamen
+als Key und dem Inhalt als Value.</p>
+<p>Zusätzlich zum Attribut <em>line_num</em> hat ein <em>DictReader</em> das
+Attribut <em>fieldNames</em>. Dieses Attribut gibt die Namen der
+Spalten/Felder als Liste zurück.</p>
+<p>Beispiel: </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>with open (csv_file, encoding=&#39;utf-8&#39;, newline=&#39;&#39;) as f:
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    reader = csv.DictReader(f)
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    print(&#39;Fieldnames:&#39;, reader.fieldnames)
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    for row in reader:
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        print(f&#39;{reader.line_num} : {row[&#39;Vorname&#39;]:5} {row[&#39;Name&#39;]}&#39;)
+</span></code></pre></div>
+<p>Ausgabe:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Fieldnames: [&#39;Name&#39;, &#39;Vorname&#39;, &#39;Straße&#39;, &#39;PLZ&#39;, &#39;Ort&#39;]
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>2 : Anne  Maier
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>3 : David Müller
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>4 : Mila  Muster
+</span></code></pre></div>
+<p>Enthät die CSV-Datei keine Headerzeile, kann man die Namen
+als Liste übergeben.</p>
+<p>Beispiel:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>with open (csv_file, encoding=&#39;utf-8&#39;, newline=&#39;&#39;) as f:
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    reader = csv.DictReader(f, fieldnames=(&#39;COL1&#39;, &#39;COL2&#39;, &#39;COL3&#39;, &#39;COL4&#39;, &#39;COL5&#39;))
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    print(&#39;Fieldnames:&#39;, reader.fieldnames)
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    for row in reader:
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>        print(f&#39;{reader.line_num} : {row[&#39;COL2&#39;]:5} {row[&#39;COL1&#39;]}&#39;)
+</span></code></pre></div>
+<p>Ausgabe:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Fieldnames: (&#39;COL1&#39;, &#39;COL2&#39;, &#39;COL3&#39;, &#39;COL4&#39;, &#39;COL5&#39;)
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>1 : Vorname Name
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>2 : Anne  Maier
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>3 : David Müller
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>4 : Mila  Muster
+</span></code></pre></div>
+<p>Da der <em>DictReader</em> in diesem Fall keine Headerzeile erwartet,
+wird im obigen Beispiel diese Zeile mit ausgegeben. Mit dem Aufruf
+<em>next(reader)</em> vor der <em>for</em> Schleife kann man diese Zeile
+überspringen.</p>
+<h4 id="code-beispiele">Code Beispiele</h4>
+<ul>
+<li><a href="https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/csv_lesen.py">csv_lesen.py</a></li>
+<li><a href="https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/regional_averages_tm_year.py">regional_averages_tm_year.py</a></li>
+<li><a href="https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/csv_import_to_sqlite.py">csv_import_to_sqlite.py</a></li>
+</ul>
+<h3 id="csv-schreiben">CSV Schreiben</h3>
+<p>Zum Schreiben einer CSV-Datei kann man einen 
+<a href="https://docs.python.org/3/library/csv.html#csv.writer">writer</a> 
+oder auch einen
+<a href="https://docs.python.org/3/library/csv.html#csv.DictWriter">DictWriter</a>
+verwenden.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>with open(&#39;output.csv&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;, newline=&#39;&#39;) as f:
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    writer = csv.writer(f)
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    writer.writerow([&#39;Datum&#39;, &#39;Äpfel&#39;, &#39;Bananen&#39;, &#39;Kiwi&#39;])
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    writer.writerow([&#39;2025-07-03&#39;, &#39;2&#39;, &#39;4&#39;, &#39;0&#39;])
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    writer.writerow([&#39;2025-07-07&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;])
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>with open(&#39;output.csv&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;, newline=&#39;&#39;) as f:
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    fieldnames = [&#39;Datum&#39;, &#39;Äpfel&#39;, &#39;Bananen&#39;, &#39;Kiwi&#39;]
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    dict_writer = csv.DictWriter(f, fieldnames=fieldnames)
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    dict_writer.writeheader()
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    dict_writer.writerow({&#39;Datum&#39;: &#39;2025-07-03&#39;, &#39;Äpfel&#39;: &#39;2&#39;, &#39;Bananen&#39;: &#39;4&#39;, &#39;Kiwi&#39;: &#39;0&#39;})
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    dict_writer.writerow({&#39;Datum&#39;: &#39;2025-07-07&#39;, &#39;Äpfel&#39;: &#39;3&#39;, &#39;Bananen&#39;: &#39;2&#39;, &#39;Kiwi&#39;: &#39;0&#39;})
+</span></code></pre></div>
+<h4 id="code-beispiel">Code Beispiel</h4>
+<ul>
+<li><a href="https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/csv_schreiben.py">csv_schreiben.py</a></li>
+</ul>
+<h2 id="json-dateien">JSON Dateien</h2>
+<p><a href="https://de.wikipedia.org/wiki/JSON">Wikipedia: JSON</a>: 
+Die JavaScript Object Notation (JSON) ist ein kompaktes
+Datenformat in einer einfach lesbaren Textform für den
+Datenaustausch zwischen Anwendungen. JSON ist von
+Programmiersprachen unabhängig. Parser und Generatoren
+existieren in den meisten verbreiteten Sprachen.</p>
+<p>Es wird eine Schlüssel-Wert-Struktur (ähnlich wie in Python
+Dictionaries) verwendet.</p>
+<p>Die folgenden beiden Quellen geben eine gute Übersicht zur
+JSON Syntax:</p>
+<ul>
+<li><a href="https://www.json.org/json-en.html">Introducing JSON</a></li>
+<li><a href="https://ecma-international.org/publications-and-standards/standards/ecma-404/">ECMA-404: The JSON Data
+Interchange Syntax</a><ul>
+<li><a href="ECMA-404_2nd_edition_december_2017.pdf">ECMA-404: lokale Kopie</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>JSON Beispiel</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>{
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  &quot;name&quot;: &quot;Anna&quot;,
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>  &quot;alter&quot;: 25,
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>  &quot;hobbys&quot;: [&quot;lesen&quot;, &quot;reisen&quot;]
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>}
+</span></code></pre></div>
+<p><strong>JSON Datentypen</strong>  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">JSON Datentyp</th>
+<th style="text-align: left;">Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">object</td>
+<td style="text-align: left;">Eine Sammlung von Key-Value Paren innerhalb von geschwungenen Klammern ({})</td>
+</tr>
+<tr>
+<td style="text-align: left;">array</td>
+<td style="text-align: left;">Eine Liste von Werten, innerhalb eckiger Klammern ([])</td>
+</tr>
+<tr>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Text innerhalb vcn Anführungszeichen ("")</td>
+</tr>
+<tr>
+<td style="text-align: left;">number</td>
+<td style="text-align: left;">Ganze Zahlen oder Dezimalzahlen</td>
+</tr>
+<tr>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;">Entweder true oder false - ohne Anführungszeichen</td>
+</tr>
+<tr>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;">Repräsentiert einen Null Wert. Wird null geschrieben</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Python vs JSON</strong>  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Python</th>
+<th style="text-align: left;">JSON</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">dict</td>
+<td style="text-align: left;">object</td>
+</tr>
+<tr>
+<td style="text-align: left;">list</td>
+<td style="text-align: left;">array</td>
+</tr>
+<tr>
+<td style="text-align: left;">tuple</td>
+<td style="text-align: left;">array</td>
+</tr>
+<tr>
+<td style="text-align: left;">str</td>
+<td style="text-align: left;">string</td>
+</tr>
+<tr>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;">number</td>
+</tr>
+<tr>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">number</td>
+</tr>
+<tr>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">true</td>
+</tr>
+<tr>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">false</td>
+</tr>
+<tr>
+<td style="text-align: left;">None</td>
+<td style="text-align: left;">null</td>
+</tr>
+</tbody>
+</table>
+<p>Zur Bearbeitung von JSON Daten kann das Modul
+<a href="https://docs.python.org/3/library/json.html">json</a>
+verwendet werden.</p>
+<p>Eine gute Übersicht zur Verwendung von JSON in Python 
+findet man im Artikel 
+<a href="https://realpython.com/python-json/">Working With JSON Data in Python</a>.</p>
 
 
 
@@ -806,7 +1242,7 @@
     <span class="md-icon" title="Letztes Update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="4. April 2025 11:34:31 CEST">2025-04-04 11:34:31</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="11. Juli 2025 17:12:02 CEST">2025-07-11 17:12:02</span>
   </span>
 
     
