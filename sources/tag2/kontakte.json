@@ -1,0 +1,52 @@
+{
+  "kontakte": [
+    {
+      "name": {
+        "vorname": "Anne",
+        "nachname": "Maier"
+      },
+      "adresse": {
+        "strasse": "Dorfstraße 1",
+        "plz": "12345",
+        "ort": "Dorf"
+      },
+      "telefon": {
+        "privat": "0123-456789",
+        "mobil": "0700-1234567"
+      },
+      "email": "anne.maier@example.com"
+    },
+    {
+      "name": {
+        "vorname": "David",
+        "nachname": "Müller"
+      },
+      "adresse": {
+        "strasse": "Ortstraße 12",
+        "plz": "54321",
+        "ort": "Ort"
+      },
+      "telefon": {
+        "privat": null,
+        "mobil": "0700-7654321"
+      },
+      "email": "david.mueller@example.com"
+    },
+    {
+      "name": {
+        "vorname": "Mila",
+        "nachname": "Muster"
+      },
+      "adresse": {
+        "strasse": "Stadtstraße 123",
+        "plz": "13524",
+        "ort": "Stadt"
+      },
+      "telefon": {
+        "privat": null,
+        "mobil": "0700-1237654"
+      },
+      "email": "mila.muster@example.com"
+    }
+  ]
+}

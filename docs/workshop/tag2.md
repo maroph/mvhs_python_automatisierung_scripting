@@ -211,9 +211,56 @@ Interchange Syntax](https://ecma-international.org/publications-and-standards/st
 
 ```
 {
-  "name": "Anna",
-  "alter": 25,
-  "hobbys": ["lesen", "reisen"]
+  "kontakte": [
+    {
+      "name": {
+        "vorname": "Anne",
+        "nachname": "Maier"
+      },
+      "adresse": {
+        "strasse": "Dorfstraße 1",
+        "plz": "12345",
+        "ort": "Dorf"
+      },
+      "telefon": {
+        "privat": "0123-456789",
+        "mobil": "0700-1234567"
+      },
+      "email": "anne.maier@example.com"
+    },
+    {
+      "name": {
+        "vorname": "David",
+        "nachname": "Müller"
+      },
+      "adresse": {
+        "strasse": "Ortstraße 12",
+        "plz": "54321",
+        "ort": "Ort"
+      },
+      "telefon": {
+        "privat": null,
+        "mobil": "0700-7654321"
+      },
+      "email": "david.mueller@example.com"
+    },
+    {
+      "name": {
+        "vorname": "Mila",
+        "nachname": "Muster"
+      },
+      "adresse": {
+        "strasse": "Stadtstraße 123",
+        "plz": "13524",
+        "ort": "Stadt"
+      },
+      "telefon": {
+        "privat": null,
+        "mobil": "0700-1237654"
+      },
+      "email": "mila.muster@example.com"
+    }
+  ]
 }
 ```
 
@@ -231,17 +278,17 @@ Interchange Syntax](https://ecma-international.org/publications-and-standards/st
 
 **Python vs JSON**  
 
-| Python       | JSON   |
-|:-------------|:-------|
-| dict | object |
-| list | array  |
-| tuple | array  |
-| str | string |
-| int | number |
-| float | number |
-| True | true |
-| False | false |
-| None | null |
+| Python | JSON   |
+|:-------|:-------|
+| dict   | object |
+| list   | array  |
+| tuple  | array  |
+| str    | string |
+| int    | number |
+| float  | number |
+| True   | true   |
+| False  | false  |
+| None   | null   |
 
 Zur Bearbeitung von JSON Daten kann das Modul
 [json](https://docs.python.org/3/library/json.html)
@@ -250,3 +297,15 @@ verwendet werden.
 Eine gute Übersicht zur Verwendung von JSON in Python 
 findet man im Artikel 
 [Working With JSON Data in Python](https://realpython.com/python-json/).
+
+Es gibt - ähnlich zu 
+[XML Schema](https://de.wikipedia.org/wiki/XML_Schema) - 
+eine 
+[JSON Schema](https://json-schema.org/) 
+Spezifikation.
+
+#### Code Beispiel
+* [kontakte.json](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/kontakte.json)
+* [kontakte_schema.json](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/kontakte_schema.json)
+* [json_lesen.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_lesen.py)
+* [json_schreiben.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_schreiben.py)

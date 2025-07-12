@@ -7,5 +7,6 @@ sources/tmp
 mkdocs.shut
 *.db
 *.out.csv
+*.out.json
 *.out.txt
 sources/tag1/images/*

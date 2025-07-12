@@ -1,6 +1,15 @@
 from email.message import EmailMessage
 import smtplib
 
+# Einige SMTP Server
+# ------------------
+# mail.gmx.net
+# posteo.de
+# securesmtp.t-online.de
+# smtp.gmail.com
+# smtp.ionos.de (smtp.1und1.de)
+# smtp.web.de
+#
 smtp_host = 'smtp_host'
 smtp_user = 'smtp_user_name'
 smtp_password = 'smtp_user_password'

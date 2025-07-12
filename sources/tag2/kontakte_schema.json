@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/maroph/kontakte.schema.json",
+  "title": "Kontake",
+  "description": "Schema für die SON-Daten in der Datei kontakte.json",
+  "type": "object",
+  "properties": {
+    "kontakte": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "object",
+            "properties": {
+              "vorname": { "type": "string" },
+              "nachname": { "type": "string" }
+            },
+            "required": ["vorname", "nachname"]
+          },
+          "adresse": {
+            "type": "object",
+            "properties": {
+              "strasse": { "type": "string" },
+              "plz": {
+                "type": "string",
+                "pattern": "^[0-9]{5}$"
+              },
+              "ort": { "type": "string" }
+            },
+            "required": ["strasse", "plz", "ort"]
+          },
+          "telefon": {
+            "type": "object",
+            "properties": {
+              "privat": {
+                "type": ["string", "null"]
+              },
+              "mobil": { "type": "string" }
+            },
+            "required": ["privat", "mobil"]
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          }
+        },
+        "required": ["name", "adresse", "telefon", "email"]
+      }
+    }
+  },
+  "required": ["kontakte"]
+}
