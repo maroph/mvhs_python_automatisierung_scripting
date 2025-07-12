@@ -646,6 +646,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="JSON Dateien">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-beispiel_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Beispiel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -935,6 +950,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="JSON Dateien">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-beispiel_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Beispiel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1129,10 +1159,57 @@ Interchange Syntax</a><ul>
 </ul>
 <p><strong>JSON Beispiel</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>{
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  &quot;name&quot;: &quot;Anna&quot;,
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>  &quot;alter&quot;: 25,
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>  &quot;hobbys&quot;: [&quot;lesen&quot;, &quot;reisen&quot;]
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>}
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  &quot;kontakte&quot;: [
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    {
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>      &quot;name&quot;: {
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>        &quot;vorname&quot;: &quot;Anne&quot;,
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>        &quot;nachname&quot;: &quot;Maier&quot;
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>      },
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>      &quot;adresse&quot;: {
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>        &quot;strasse&quot;: &quot;Dorfstraße 1&quot;,
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>        &quot;plz&quot;: &quot;12345&quot;,
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>        &quot;ort&quot;: &quot;Dorf&quot;
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>      },
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>      &quot;telefon&quot;: {
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>        &quot;privat&quot;: &quot;0123-456789&quot;,
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>        &quot;mobil&quot;: &quot;0700-1234567&quot;
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>      },
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>      &quot;email&quot;: &quot;anne.maier@example.com&quot;
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>    },
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>    {
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>      &quot;name&quot;: {
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>        &quot;vorname&quot;: &quot;David&quot;,
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>        &quot;nachname&quot;: &quot;Müller&quot;
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>      },
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>      &quot;adresse&quot;: {
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>        &quot;strasse&quot;: &quot;Ortstraße 12&quot;,
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>        &quot;plz&quot;: &quot;54321&quot;,
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>        &quot;ort&quot;: &quot;Ort&quot;
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>      },
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>      &quot;telefon&quot;: {
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>        &quot;privat&quot;: null,
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a>        &quot;mobil&quot;: &quot;0700-7654321&quot;
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a>      },
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>      &quot;email&quot;: &quot;david.mueller@example.com&quot;
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a>    },
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a>    {
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>      &quot;name&quot;: {
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a>        &quot;vorname&quot;: &quot;Mila&quot;,
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a>        &quot;nachname&quot;: &quot;Muster&quot;
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a>      },
+</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a>      &quot;adresse&quot;: {
+</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a>        &quot;strasse&quot;: &quot;Stadtstraße 123&quot;,
+</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a>        &quot;plz&quot;: &quot;13524&quot;,
+</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a>        &quot;ort&quot;: &quot;Stadt&quot;
+</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a>      },
+</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a>      &quot;telefon&quot;: {
+</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a>        &quot;privat&quot;: null,
+</span><span id="__span-14-47"><a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a>        &quot;mobil&quot;: &quot;0700-1237654&quot;
+</span><span id="__span-14-48"><a id="__codelineno-14-48" name="__codelineno-14-48" href="#__codelineno-14-48"></a>      },
+</span><span id="__span-14-49"><a id="__codelineno-14-49" name="__codelineno-14-49" href="#__codelineno-14-49"></a>      &quot;email&quot;: &quot;mila.muster@example.com&quot;
+</span><span id="__span-14-50"><a id="__codelineno-14-50" name="__codelineno-14-50" href="#__codelineno-14-50"></a>    }
+</span><span id="__span-14-51"><a id="__codelineno-14-51" name="__codelineno-14-51" href="#__codelineno-14-51"></a>  ]
+</span><span id="__span-14-52"><a id="__codelineno-14-52" name="__codelineno-14-52" href="#__codelineno-14-52"></a>}
 </span></code></pre></div>
 <p><strong>JSON Datentypen</strong>  </p>
 <table>
@@ -1222,6 +1299,18 @@ verwendet werden.</p>
 <p>Eine gute Übersicht zur Verwendung von JSON in Python 
 findet man im Artikel 
 <a href="https://realpython.com/python-json/">Working With JSON Data in Python</a>.</p>
+<p>Es gibt - ähnlich zu 
+<a href="https://de.wikipedia.org/wiki/XML_Schema">XML Schema</a> - 
+eine 
+<a href="https://json-schema.org/">JSON Schema</a> 
+Spezifikation.</p>
+<h4 id="code-beispiel_1">Code Beispiel</h4>
+<ul>
+<li><a href="https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/kontakte.json">kontakte.json</a></li>
+<li><a href="https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/kontakte_schema.json">kontakte_schema.json</a></li>
+<li><a href="https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_lesen.py">json_lesen.py</a></li>
+<li><a href="https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_schreiben.py">json_schreiben.py</a></li>
+</ul>
 
 
 
@@ -1242,7 +1331,7 @@ findet man im Artikel
     <span class="md-icon" title="Letztes Update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="11. Juli 2025 17:12:02 CEST">2025-07-11 17:12:02</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="12. Juli 2025 11:35:16 CEST">2025-07-12 11:35:16</span>
   </span>
 
     
