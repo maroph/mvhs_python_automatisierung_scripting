@@ -1,8 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/maroph/kontakte.schema.json",
-  "title": "Kontake",
-  "description": "Schema für die SON-Daten in der Datei kontakte.json",
+  "title": "Kontakte",
+  "description": "Schema für die JSON-Daten in der Datei kontakte.json",
+  "$comment": "Letzte Änderung: 13-JUL-2025",
   "type": "object",
   "properties": {
     "kontakte": {
@@ -13,20 +14,28 @@
           "name": {
             "type": "object",
             "properties": {
-              "vorname": { "type": "string" },
-              "nachname": { "type": "string" }
+              "vorname": {
+                "type": "string"
+              },
+              "nachname": {
+                "type": "string"
+              }
             },
             "required": ["vorname", "nachname"]
           },
           "adresse": {
             "type": "object",
             "properties": {
-              "strasse": { "type": "string" },
+              "strasse": {
+                "type": "string"
+              },
               "plz": {
                 "type": "string",
                 "pattern": "^[0-9]{5}$"
               },
-              "ort": { "type": "string" }
+              "ort": {
+                "type": "string"
+              }
             },
             "required": ["strasse", "plz", "ort"]
           },
@@ -36,7 +45,9 @@
               "privat": {
                 "type": ["string", "null"]
               },
-              "mobil": { "type": "string" }
+              "mobil": {
+                "type": "string"
+              }
             },
             "required": ["privat", "mobil"]
           },

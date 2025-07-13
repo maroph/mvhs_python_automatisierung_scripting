@@ -304,8 +304,9 @@ eine
 [JSON Schema](https://json-schema.org/) 
 Spezifikation.
 
-#### Code Beispiel
+#### Code Beispiele
 * [kontakte.json](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/kontakte.json)
 * [kontakte_schema.json](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/kontakte_schema.json)
 * [json_lesen.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_lesen.py)
 * [json_schreiben.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_schreiben.py)
+* [json_path_sample.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_path_sample.py)
