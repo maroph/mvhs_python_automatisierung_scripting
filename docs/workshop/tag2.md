@@ -302,7 +302,9 @@ Es gibt - ähnlich zu
 [XML Schema](https://de.wikipedia.org/wiki/XML_Schema) - 
 eine 
 [JSON Schema](https://json-schema.org/) 
-Spezifikation.
+Spezifikation. Das Tool
+[jsonschema](https://github.com/sourcemeta/jsonschema)
+kann man zur Validierung verwenden.
 
 #### Code Beispiele
 * [kontakte.json](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/kontakte.json)
