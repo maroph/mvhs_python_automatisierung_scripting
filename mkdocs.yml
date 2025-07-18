@@ -72,6 +72,7 @@ nav:
         - Tag 1: workshop/tag1.md
         - Tag 2: workshop/tag2.md
         - Tag 3: workshop/tag3.md
+        - Schlusswort: workshop/summary.md
     - Python:
         - python.md
         - Links: python/links.md
@@ -88,7 +89,6 @@ nav:
         - Lizenz: info/license.md
         - DSGVO: info/gdpr.md
         - Quellen: info/sources.md
-    - Blog: blog/index.md
 
 docs_dir: docs
 site_dir: site
@@ -132,53 +132,6 @@ plugins:
     - search:
           enabled: true
           lang: de
-# https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#writing-your-first-post
-# https://squidfunk.github.io/mkdocs-material/plugins/blog/
-    - blog:
-        enabled: true
-        authors: true
-        blog_dir: blog
-        blog_toc: true
-        draft: false
-        draft_on_serve: false
-        draft_if_future_date: false
-        pagination: true
-        pagination_per_page: 10
-        pagination_url_format: "page/{page}"
-# https://babel.pocoo.org/en/latest/dates.html#pattern-syntax
-        post_date_format: "dd. MMMM YYYY, H:mm"
-        pagination_if_single_page: false
-        post_excerpt: optional
-        post_excerpt_separator: "<!-- more -->"
-        post_readtime: false
-        archive: true
-        archive_name: Archiv
-        archive_date_format: yyyy
-        archive_url_format: "archiv/{date}"
-        archive_toc: true
-        categories: false
-
-# https://guts.github.io/mkdocs-rss-plugin/configuration/
-    - rss:
-        enabled: true
-        match_path: "blog/posts/.*"
-        abstract_chars_count: 160
-        abstract_delimiter: "<!-- more -->"
-        date_from_meta:
-            as_creation: "date"
-            as_update: "updated"
-            datetime_format: "%Y-%m-%d %H:%M"
-            default_time: "12:00"
-            default_timezone: Europe/Berlin
-        feed_description: Mein Blog zum MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben
-        feed_title: Blog
-        feed_ttl: 1440
-#    logo: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Feed-icon.svg/128px-Feed-icon.svg.png
-        image: https://maroph.github.io/blog/assets/128px-Feed-icon.svg.png
-        json_feed_enabled: false
-        length: 10
-        use_git: false
-        use_material_blog: true
 
 extra:
     generator: true

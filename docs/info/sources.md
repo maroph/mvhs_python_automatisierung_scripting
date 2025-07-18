@@ -11,3 +11,8 @@ assets ist von der Site [favicon.cc](https://www.favicon.cc/).
   in der _README.md_ Datei des Repositories
   verwende, habe ich im folgenden Blog Post gefunden: 
   [Adding a badge to your project](https://squidfunk.github.io/mkdocs-material/blog/2023/11/30/adding-a-badge-to-your-project/).
+* Das Bild [THHGTTG_122x112.png](../assets/THHGTTG_122x112.png)
+basiert auf dem Bild 
+[hhgttgfront.jpg](http://www.infocom-if.org/games/hhgttg/hhgttgfront.jpg) auf der 
+[infocom-if](http://www.infocom-if.org/index2.html)
+Site.

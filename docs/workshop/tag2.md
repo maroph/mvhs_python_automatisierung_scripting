@@ -126,7 +126,7 @@ Fieldnames: ['Name', 'Vorname', 'Straße', 'PLZ', 'Ort']
 4 : Mila  Muster
 ```
 
-Enthät die CSV-Datei keine Headerzeile, kann man die Namen
+Enthält die CSV-Datei keine Headerzeile, kann man die Namen
 als Liste übergeben.
 
 Beispiel:
@@ -184,8 +184,10 @@ with open('output.csv', 'w', encoding='utf-8', newline='') as f:
     dict_writer.writerow({'Datum': '2025-07-07', 'Äpfel': '3', 'Bananen': '2', 'Kiwi': '0'})
 ```
 
-#### Code Beispiel
+#### Code Beispiele
+* [csv_bereinigen.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/csv_bereinigen.py)
 * [csv_schreiben.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/csv_schreiben.py)
+* [highscore_csv_schreiben.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/highscore_csv_schreiben.py)
 
 
 ## JSON Dateien
@@ -312,3 +314,4 @@ kann man zur Validierung verwenden.
 * [json_lesen.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_lesen.py)
 * [json_schreiben.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_schreiben.py)
 * [json_path_sample.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_path_sample.py)
+* [wetter_lesen.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/wetter_lesen.py)

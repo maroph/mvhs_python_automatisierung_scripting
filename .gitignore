@@ -9,4 +9,5 @@ mkdocs.shut
 *.out.csv
 *.out.json
 *.out.txt
-sources/tag1/images/*
+sources/tag1/images/
+sources/tag2/csv-output/

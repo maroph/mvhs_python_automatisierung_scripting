@@ -35,6 +35,8 @@ print(f"{variable =}")
 
 dp = 42
 print(f"dp : {dp:08}")
+print(f"dp : {dp:*>8}")
+print(f"dp : {dp:#<8}")
 
 from math import pi
 print(f"pi : {pi}")

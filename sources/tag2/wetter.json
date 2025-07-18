@@ -1,0 +1,9 @@
+{
+  "stadt": "Berlin",
+  "temperatur": {
+    "aktuell": 18,
+    "min": 12,
+    "max": 21
+  },
+  "wetter": "bewölkt"
+}
