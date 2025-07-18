@@ -12,7 +12,7 @@ LICENSE="License: CC-BY 4.0 <https://creativecommons.org/licenses/by/4.0/>"
 #
 declare -r SCRIPT_NAME=$(basename $0)
 declare -r VERSION="0.1.0"
-declare -r VERSION_DATE="07-JUN-2025"
+declare -r VERSION_DATE="18-JUL-2025"
 declare -r VERSION_STRING="${SCRIPT_NAME}  ${VERSION}  (${VERSION_DATE})"
 #
 ###############################################################################
@@ -161,9 +161,6 @@ then
     echo "${SCRIPT_NAME}: python -m pip install --upgrade mkdocs-git-revision-date-localized-plugin"
     python -m pip install --upgrade mkdocs-git-revision-date-localized-plugin || exit 1
 #
-    echo "${SCRIPT_NAME}: python -m pip install --upgrade mkdocs-rss-plugin"
-    python -m pip install --upgrade mkdocs-rss-plugin || exit 1
-#
 ###############################################################################
 #
 # install the runtime related modules
@@ -255,16 +252,6 @@ then
     if [ $? -ne 0 ]
     then
         echo "${SCRIPT_NAME}: Python module mkdocs-git-revision-date-localized-plugin not available"
-        exit 1
-    fi
-    echo ${data} | awk '{ printf "%s %s\n%s %s\n", $1, $2, $3, $4;}'
-    echo "----------"
-    echo ""
-#
-    data=$(python -m pip show mkdocs-rss-plugin 2>/dev/null)
-    if [ $? -ne 0 ]
-    then
-        echo "${SCRIPT_NAME}: Python module mkdocs-rss-plugin not available"
         exit 1
     fi
     echo ${data} | awk '{ printf "%s %s\n%s %s\n", $1, $2, $3, $4;}'
