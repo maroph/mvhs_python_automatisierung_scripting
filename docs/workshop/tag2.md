@@ -304,9 +304,24 @@ Es gibt - ähnlich zu
 [XML Schema](https://de.wikipedia.org/wiki/XML_Schema) - 
 eine 
 [JSON Schema](https://json-schema.org/) 
-Spezifikation. Das Tool
+Spezifikation. Das Standalone Tool
 [jsonschema](https://github.com/sourcemeta/jsonschema)
 kann man zur Validierung verwenden.
+
+In Python kann man das Package _jsonschema_
+verwenden:
+
+* [PyPi: jsonschema](https://pypi.org/project/jsonschema/)
+* [jsonschema](https://python-jsonschema.readthedocs.io/en/latest/)
+
+```
+import jsonschema
+
+try:
+    jsonschema.validate(instance=json_object, schema=json_schema)
+except jsonschema.ValidationError as e:
+    print(f'Validation Error: {e}')
+```
 
 #### Code Beispiele
 * [kontakte.json](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/kontakte.json)
@@ -314,4 +329,5 @@ kann man zur Validierung verwenden.
 * [json_lesen.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_lesen.py)
 * [json_schreiben.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_schreiben.py)
 * [json_path_sample.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_path_sample.py)
+* [json_schema_validation.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/json_schema_validation.py)
 * [wetter_lesen.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag2/wetter_lesen.py)
