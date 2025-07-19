@@ -131,12 +131,14 @@ Für die Beispiele werden zusätzlich die
 folgenden Python Module benötigt:
 
 * [beautifulsoup4](https://pypi.org/project/beautifulsoup4/)
+* [jsonschema](https://pypi.org/project/jsonschema/)
 * [lxml](https://pypi.org/project/lxml/)
 * [python-dateutil](https://pypi.org/project/python-dateutil/)
 * [requests](https://pypi.org/project/requests/)
 
 ```
 python -m pip install beautifulsoup4
+python -m pip install jsonschema
 python -m pip install lxml
 python -m pip install python-dateutil
 python -m pip install requests
