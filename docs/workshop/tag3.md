@@ -31,6 +31,7 @@ for name, val in res.headers.items():
 ### Links
 * [PyPi: requests](https://pypi.org/project/requests/)
 * [Requests](https://requests.readthedocs.io/en/latest/)
+* [Python's Requests Library (Guide)](https://realpython.com/python-requests/)
 
 ### Code Beispiele
 

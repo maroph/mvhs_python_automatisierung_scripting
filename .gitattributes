@@ -17,11 +17,15 @@
 *.py      text
 *.sh      text eol=lf
 *.sql     text
+*.svg     text
+*.toml    text
 *.txt     text
 *.xml     text
+*.yaml    text
 *.yml     text
 #
 *.class binary
+*.ear   binary
 *.exe   binary
 *.gif   binary
 *.gz    binary
@@ -31,5 +35,8 @@
 *.pdf   binary
 *.png   binary
 *.rar   binary
+*.ttf   binary
 *.war   binary
+*.woff  binary
+*.woff2 binary
 *.zip   binary
