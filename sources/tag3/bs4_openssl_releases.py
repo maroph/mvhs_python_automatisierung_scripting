@@ -1,5 +1,7 @@
 # List the 10 most recent OpenSSL release versions
+# python3 -m pip install beautifulsoup4
 from bs4 import BeautifulSoup
+# python3 -m pip install requests
 import requests
 import sys
 
@@ -12,11 +14,11 @@ except Exception as e:
     sys.exit(1)
 
 # each <section> describes a version
-div_releases = soup.select("div[data-hpc] section")
-# print(f"div_releases: {div_releases}")
+release_sections = soup.select("div[data-hpc] section")
+# print(f"release_sections: {release_sections}")
 
 count = 0
-for rel in div_releases:
+for rel in release_sections:
     # <h2>: version name
     # <relative-time datetime="...">: release datetime
     # https://github.com/github/relative-time-element
