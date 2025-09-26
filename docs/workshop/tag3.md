@@ -74,6 +74,8 @@ soup = BeautifulSoup(res.text, 'html.parser')
 
 ### Code Beispiele
 
+* [bs4_get_current_cacert_version.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag3/bs4_get_current_cacert_version.py)
+* [bs4_openssl_releases.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag3/bs4_openssl_releases.py)
 * [bs4_python_blog.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag3/bs4_python_blog.py)
 * [bs4_sample.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag3/bs4_sample.py)
 * [bs4_wikipedia.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag3/bs4_wikipedia.py)
