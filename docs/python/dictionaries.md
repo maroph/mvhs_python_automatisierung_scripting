@@ -9,7 +9,6 @@ und nicht, wie bei Listen, über einen Index.
 
 * Die Datentypen für den Key müssen [hashable](./hashable.md) sein.
 
-
 Bis einschließlich der Python Version 3.6 gab es 
 für die Key/Value Paare eines Dictionaries keine
 feste Reihenfolge. D.h.: hat man in einer for
@@ -110,6 +109,8 @@ gibt, wird ein KeyError geworfen.
 
     value = dict.pop(key)
 
+    dict = {'key1': 'val1', 'key2': 'val2'}
+    ## {'key1': 'val1', 'key2': 'val2'}
     value = dict.pop("key2")
     ## val2
     dict
@@ -118,7 +119,7 @@ gibt, wird ein KeyError geworfen.
 Greift man auf einen Key zu, den es im Dictionary
 nicht gibt, wird ein KeyError geworfen. 
 
-Man kann abeim Auruf auch einen Defaultwert angeben,
+Man kann beim Aufruf auch einen Defaultwert angeben,
 der zurückgegeben wird, wenn der Key im Dictionary
 nicht gefunden wird
 

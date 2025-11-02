@@ -46,6 +46,27 @@ with open('text.txt', 'r', encoding='utf-8') as f:
     content = f.read()
 print(content)
 ```
+
+#### Datei zeilenweise einlesen
+
+```
+with open('text.txt', 'r', encoding='utf-8') as f:
+    for line in f:
+        line = line.strip()
+        print(line)
+```
+
+#### Daten zeilenweise in einer Liste ablegen
+
+```
+with open('text.txt', 'r', encoding='utf-8') as f:
+    lines = f.readlines()
+
+for line in lines:
+    line = line.strip()
+    print(line)
+```
+
 Beispiele:  
 
 * [lesen.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag1/lesen.py)

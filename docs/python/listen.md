@@ -1,8 +1,9 @@
 # Listen
 Eine Liste ist eine Sammlung von Elementen, die in einer festen Reihenfolge
 abgelegt werden. Der Datentyp der Elemente kann beliebig sein. Der Zugriff erfolgt 
-über den Index, der die Position des Elements in der Liste bestimmt. Indizes 
-beginnen mit 0 und nicht mit 1!
+über den Index, der die Position des Elements in der Liste bestimmt.
+
+**Indizes beginnen mit 0 und nicht mit 1!**
 
 ## Anlegen einer Liste
 Man kann entweder ein leere Liste anlegen
@@ -53,7 +54,7 @@ Auf die Werte in einer Liste kann mit dem Index zugegriffen werden
     ...
 
 ### Slicing
-Man kann auch eine Liste mit einem zusammenhängenden
+Man kann eine neue Liste aus einem zusammenhängenden
 Teil einer Liste erzeugen:
 
     liste = [i for i in range(1, 11)]
@@ -138,6 +139,18 @@ Teil einer Liste erzeugen:
     del(liste[3])
     liste
     ## [1, 2, 3, 5, 6, 7, 8, 9, 10]
+
+## Slice aus einer Liste löschen
+
+    del(liste[start:stop])
+    oder 
+    del liste[start:stop]
+    
+    liste
+    ## [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    del(liste[3:5])
+    liste
+    ## [1, 2, 3, 6, 7, 8, 9, 10]
 
 ## Letzten Wert lesen und aus der Liste löschen
 
@@ -265,6 +278,10 @@ Python Dokumentation.
     oder
     del liste[:]
 
+## Liste löschen
+
+    del liste
+
 ## Umkehr der Reihenfolge in einer Liste
 
     liste.reverse()
@@ -315,7 +332,7 @@ Aufruf
 ## Prüfen, ob alle Listenelemente vom gleichen Datentyp sind.
 
 Im Beispiel wird geprüft, ob alle Elemente in der
-Liste vom Datentyp str sind.
+Liste vom Datentyp _str_ sind.
 
     def is_list_of_strings(lst):
         return lst and isinstance(lst, list) and all(isinstance(item, str) for item in lst)
@@ -382,6 +399,36 @@ liste_orte = [
 liste_gesuchte_orte = list(filter(lambda ort: ort[0] == "B" and len(ort) <= 6, liste_orte))
 ```
 
+Beispiel: Gebe die Zahlen von 1 bis 100 aus und 
+markiere die Zahlen, die durch 3 und/oder 5
+teilbar sind.
+
+```
+lst = [
+    str(n) + " (teilbar durch 3 und 5)" if n % 3 == 0 and n % 5 == 0
+    else str(n) + " (teilbar durch 3)" if n % 3 == 0
+    else str(n) + " (teilbar durch 5)" if n % 5 == 0
+    else str(n)
+    for n in range(1, 101)
+]
+print("\n".join(lst))
+```
+
+Beispiel: [Transposition](https://de.wikipedia.org/wiki/Transponierte_Matrix#Transpositionsabbildung) 
+einer Matrix
+```
+matrix = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+]
+print(matrix)
+[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+
+print([[row[i] for row in matrix] for i in range(4)])
+[[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]
+```
+
 ---
 
 ## Weiterführende Links
@@ -394,5 +441,6 @@ liste_gesuchte_orte = list(filter(lambda ort: ort[0] == "B" and len(ort) <= 6, l
 * [When to Use a List Comprehension in Python](https://realpython.com/list-comprehension-python/)
 * [Python - List Comprehension](https://www.w3schools.com/python/python_lists_comprehension.asp)
 * [List Comprehension in Python](https://www.geeksforgeeks.org/python-list-comprehension/)
+* [Nested list comprehensions](https://www.pythonmorsels.com/nested-list-comprehensions/)
 * [Python's filter(): Extract Values From Iterables](https://realpython.com/python-filter-function/)
 * [Python's map(): Processing Iterables Without a Loop](https://realpython.com/python-map-function/)

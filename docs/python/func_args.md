@@ -6,7 +6,7 @@ alle Parameter angegeben, z.B.:
 def func_sample(arg1, arg2, arg3):
 ```
 
-Es gibt aber auch die Möglichkeit, eine  nicht
+Es gibt aber auch die Möglichkeit, eine nicht
 festgelegte Anzahl von Parametern zu verwenden.
 
 ```
@@ -18,7 +18,7 @@ Hier werden die Argumente als Tupel an die Funktion
 ```
 def func_sample(**kwargs):
 ```
-In diesem Fall werden die Argumente als Dicitonary
+In diesem Fall werden die Argumente als Dictonary
 an die Funktion übergeben.
 
 Ein Beispiel hierzu ist in der Source 

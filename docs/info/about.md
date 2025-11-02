@@ -69,7 +69,7 @@ Die Python Dateien sind im Verzeichnis
 des Repositories abgelegt.
 
 ### Python Version und Betriebssysteme
-Die Python Programme habe ich unter __Debian 12__
+Die Python Programme habe ich unter __Debian 13__
 und __Windows 11__ getestet.  
 
 Die jeweils verwendete Python Version kann man mit
@@ -79,17 +79,17 @@ ausgeben.
 [version.py]: https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/version.py
 
 
-#### Debian 12.11
+#### Debian 13.1
 ```
 $ python3 version.py
-Python Version : 3.11.2
+Python Version : 3.13.5
 ---
-Node           : myhost
-System         : Linux
-Release        : 5.15.167.4-microsoft-standard-WSL2
-Version        : #1 SMP Tue Nov 5 00:21:55 UTC 2024
-Machine        : x86_64
-Processor      : 
+Name      : zwijger
+System    : Linux
+Release   : 5.15.167.4-microsoft-standard-WSL2
+Version   : #1 SMP Tue Nov 5 00:21:55 UTC 2024
+Machine   : x86_64
+Processor :
 ```
 
 #### Windows 11 24H2
