@@ -16,7 +16,7 @@ def dividieren(n1: int, n2: int, op_code: str = None) -> float:
     return float(n1) / float(n2)
 
 def noop(n1 = None, n2 = None, op_code: str = None) -> str:
-    if op:
+    if op_code:
         return f"Operation '{op_code}' nicht unterstützt"
     return "Operation nicht unterstützt"
 
