@@ -8,24 +8,27 @@
 # https://creativecommons.org/licenses/by/4.0/     #
 ####################################################
 #
-# 24-SEP-2025
+# 11-OCT-2025
 #
 from datetime import datetime
 # python3 -m pip install beautifulsoup4
 from bs4 import BeautifulSoup
 # python3 -m pip install requests
 import requests
+from sys import stderr
 
 
-def print_releases(repository: str = None, max_versions: int = 1) -> None:
+def print_releases(repository: str = None, max_versions: int = 1, max_mark_days: int = 0) -> None:
     """
     List the most recent GitHub repository release versions to stdout.
 
     Parameters:
-        repository (str):   Name of the GitHub Repository (user/repository).
-                            Example: "openssl/openssl"
-        max_versions (int): Maximum number of GitHub repository release versions to print.
-                            Default: 1
+        repository (str):    Name of the GitHub Repository (user/repository).
+                             Example: "openssl/openssl"
+        max_versions (int):  Maximum number of GitHub repository release versions to print.
+                             Default: 1
+        max_mark_days (int): Maximum number days to mark ('**') a release as new.
+                             Default: 0 (no marking)
 
     Returns:
         None.
@@ -47,14 +50,38 @@ def print_releases(repository: str = None, max_versions: int = 1) -> None:
         print("max_versions is None")
         return
     if not isinstance(max_versions, int):
-        print("max_versions is not of type str")
+        print("max_versions is not of type int")
         return
     if max_versions < 1:
         print(f"max_versions < 1 [{max_versions}]")
         return
 
+    if max_mark_days is None:
+        print("mark_days is None")
+        return
+    if not isinstance(max_mark_days, int):
+        print("mark_days is not of type int")
+        return
+
     try:
-        response = requests.get(url_release_page)
+        # Will also work
+        # response = requests.get(url_release_page)
+        headers = {
+            "Host": "github.com",
+            "User-Agent": "github_repository_releases/1.0",
+            "Connection": "close"
+        }
+        response = requests.get(url_release_page, headers=headers)
+        if response is None:
+            print("Got None as response", file=stderr)
+            return
+        if not response.ok:
+            try:
+                response.raise_for_status()
+            except Exception as ex:
+                print(f"Got an error for accessing the URL {url_release_page}", file=stderr)
+                print(str(ex), file=stderr)
+                return
         soup = BeautifulSoup(response.text, "html.parser")
     except Exception as e:
         print(e)
@@ -84,34 +111,42 @@ def print_releases(repository: str = None, max_versions: int = 1) -> None:
             continue
 
         mark = False
-        if version_date is not None and len(version_date) > 0:
-            try:
-                dt = datetime.strptime(version_date, '%Y-%m-%dT%H:%M:%S%z')
-                days = (dt.date().today() - dt.date()).days + 1
-                if days < 31:
-                    mark = True
-            except Exception as e:
-                pass
+        if max_mark_days > 0:
+            if version_date is not None and len(version_date) > 0:
+                try:
+                    dt = datetime.strptime(version_date, '%Y-%m-%dT%H:%M:%S%z')
+                    days = (dt.date().today() - dt.date()).days + 1
+                    if days < max_mark_days:
+                        mark = True
+                except Exception as e:
+                    pass
 
         if mark:
-            print(f"** {version} - {version_date}")
-        else:
-            print(f"{version} - {version_date}")
+            print("** ", end='')
+        print(f"{version} - {version_date}")
         count += 1
         if count >= max_versions:
             break
 
 if __name__ == "__main__":
-    print_releases("curl/curl")
+    print_releases("curl/curl", max_mark_days=15)
     print('----------')
-    print_releases("gohugoio/hugo")
+    print_releases("denoland/deno", max_mark_days=15)
     print('----------')
-    print_releases("microsoft/edit")
+    print_releases("gohugoio/hugo", max_mark_days=15)
     print('----------')
-    print_releases("mkdocs/mkdocs")
+    print_releases("microsoft/edit", max_mark_days=15)
     print('----------')
-    print_releases("squidfunk/mkdocs-material")
+    print_releases("sourcemeta/jsonschema", max_mark_days=15)
     print('----------')
-    print_releases("jgm/pandoc")
+    print_releases("mkdocs/mkdocs", max_mark_days=15)
     print('----------')
-    print_releases("openssl/openssl", max_versions=8)
+    print_releases("squidfunk/mkdocs-material", max_mark_days=15)
+    print('----------')
+    print_releases("zensical/zensical", max_mark_days=15)
+    print('----------')
+    print_releases("jgm/pandoc", max_mark_days=15)
+    print('----------')
+    print_releases("openssl/openssl", max_versions=8, max_mark_days=15)
+    print('----------')
+    print_releases("testssl/testssl.sh", max_mark_days=15)
