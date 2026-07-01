@@ -29,7 +29,3 @@ effizient automatisiert.
 * Donnerstag, 03.07.2025, 18:00 – 21:00 Uhr
 * Donnerstag, 10.07.2025, 18:00 – 21:00 Uhr
 * Donnerstag, 17.07.2025, 18:00 – 21:00 Uhr
-
----
-
-[![Erzeugt mit Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?style=for-the-badge&logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/)

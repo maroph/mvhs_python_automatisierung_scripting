@@ -1,6 +1,7 @@
 .cache/
 .idea/
 site/
+.venv/
 venv/
 __pycache__
 sources/tmp

@@ -14,7 +14,7 @@ Im Branch
 des Repositories befinden sich die folgenden
 Dateien und Verzeichnisse:
 
-* .github/workflows/ci.yml  
+* .github/workflows/zensical_docs.yml  
   GitHub Actions Konfigurationsdatei.  
   Diese Konfigurationsdatei sorgt dafür, dass bei
   jedem commit im Branch main, der den Inhalt der
@@ -32,8 +32,8 @@ Dateien und Verzeichnisse:
   Linux build Skript.  
   Mit diesem Skript kann man lokal die HTML Seiten
   auf einem Linux System erzeugen.
-* mkdocs.yml  
-  [MkDocs](https://www.mkdocs.org/) 
+* zensical.toml  
+  [Zensical](https://zensical.org/) 
   Konfigurationsdatei
 
 Änderungen/Erweiterungen committe ich zuerst im 
@@ -48,12 +48,8 @@ abgelegt.
 
 Die Webseiten erzeuge ich aus den Markdown
 Dateien mit dem  
-[MkDocs](https://www.mkdocs.org/) 
-Static Site Generator und dem darauf aufbauenden 
-[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). Die erzeugten Webseiten
-werden im Branch 
-[gh-pages](https://github.com/maroph/mvhs_python_automatisierung_scripting/tree/gh-pages)
-abgelegt.
+[Zensical](https://zensical.org/) 
+Static Site Generator.
 
 Für den Aufruf der benötigten Python Module 
 nutze ich ein Python Virtual Environment.
@@ -70,7 +66,7 @@ des Repositories abgelegt.
 
 ### Python Version und Betriebssysteme
 Die Python Programme habe ich unter __Debian 13__
-und __Windows 11__ getestet.  
+und __Windows 11__ mit __Python 3.13__. getestet.     
 
 Die jeweils verwendete Python Version kann man mit
 dem Programm 
@@ -78,8 +74,7 @@ dem Programm
 ausgeben.
 [version.py]: https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/version.py
 
-
-#### Debian 13.1
+#### Debian 13.5
 ```
 $ python3 version.py
 Python Version : 3.13.5
@@ -92,26 +87,24 @@ Machine   : x86_64
 Processor :
 ```
 
-#### Windows 11 24H2
+#### Windows 11 25H2
 ```
 > python.exe version.py
 Python Version : 3.13.2
 ---
-Node      : myhost
+Name      : zwijger
 System    : Windows
 Release   : 11
-Version   : 10.0.26100
+Version   : 10.0.26200
 Machine   : AMD64
 Processor : AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
 ```
 
 ### Python Virtual Environment
-Zur Erzeugung der Webseiten verwende ich die 
-folgenden Python Module
+Zur Erzeugung der Webseiten verwende ich das 
+folgenden Python Modul
 
-* [mkdocs-material](https://pypi.org/project/mkdocs-material/)  
-  Das Modul [mkdocs](https://pypi.org/project/mkdocs/) wird dabei mitinstalliert.
-* [mkdocs-git-revision-date-localized-plugin](https://pypi.org/project/mkdocs-git-revision-date-localized-plugin/)
+* [zensical](https://pypi.org/project/zensical/)  
 
 Für die benötigten Python Module verwende ich das
 folgende Virtual Environment:
@@ -122,8 +115,7 @@ source venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install --upgrade setuptools
 python -m pip install --upgrade wheel
-python -m pip install mkdocs-material
-python -m pip install mkdocs-git-revision-date-localized-plugin
+python -m pip install zensical
 ```
 
 ### Python Virtual Environment (Ergänzung: Runtime)
