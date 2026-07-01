@@ -1,11 +1,9 @@
 .cache/
 .idea/
 site/
-.venv/
 venv/
 __pycache__
 sources/tmp
-mkdocs.shut
 *.db
 *.out.csv
 *.out.json

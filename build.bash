@@ -1,18 +1,16 @@
 #!/bin/bash
 #
 ####################################################
-# Copyright (c) 2025 by Manfred Rosenboom          #
+# Copyright (c) 2026 by Manfred Rosenboom          #
 # https://maroph.github.io/ (maroph@pm.me)         #
 #                                                  #
 # This work is licensed under a CC-BY 4.0 License. #
 # https://creativecommons.org/licenses/by/4.0/     #
 ####################################################
-COPYRIGHT="Copyright (C) 2025 Manfred Rosenboom."
-LICENSE="License: CC-BY 4.0 <https://creativecommons.org/licenses/by/4.0/>"
 #
 declare -r SCRIPT_NAME=$(basename $0)
 declare -r VERSION="0.1.0"
-declare -r VERSION_DATE="19-JUL-2025"
+declare -r VERSION_DATE="01-JUL-2026"
 declare -r VERSION_STRING="${SCRIPT_NAME}  ${VERSION}  (${VERSION_DATE})"
 #
 ###############################################################################
@@ -33,37 +31,56 @@ declare -r SCRIPT_DIR
 #
 ###############################################################################
 #
+if [ -d ${SCRIPT_DIR}/.git ]
+then
+    gitrepo=1
+else
+    gitrepo=0
+fi
+#
+GHP_IMPORT=""
+if [ -x $HOME/bin/ghp-import.bash ]
+then
+    GHP_IMPORT="$HOME/bin/ghp-import.bash"
+fi
+
+#
+###############################################################################
+#
 export LANG="en_US.UTF-8"
 #
 check=1
 checkOnly=0
 force=0
+port=8000
 #
 ###############################################################################
 #
 print_usage() {
     cat - <<EOT
 
-Usage: ${SCRIPT_NAME} [option(s)] [build|deploy|serve|venv]
-       Call mkdocs to build the web site related files
+Usage: ${SCRIPT_NAME} [option(s)] [venv|deploy|serve|shut]
+       Call zensical to build the site related files
+       https://zensical.org/
 
 Options:
-  -h|--help       : show this help and exit
-  -V|--version    : show version information and exit
-  -c|--check-only : check for MkDocs needed Python3 modules and exit
-  -f|--force      : use option --no-strict for mkdocs build
-  -n|--no-check   : no check for needed Python3 modules
+  -h|--help        : show this help and exit
+  -V|--version     : show version information and exit
+  -c|--check-only  : check for needed Python3 modules and exit
+  -f|--force       : don't use option --strict for zensical build
+  -n|--no-check    : no check for needed Python3 modules
+  -p|--port <port> : change port (default: ${port})
 
   Arguments
-  build         : Create the site data (default)
-                  Location: site
-                  (mkdocs build)
-  deploy        : create the site and push all data to branch gh-pages
-                  (mkdocs gh-deploy)
-  serve         : Create the site and run the MkDocs builtin development server
-                  (mkdocs serve)
-  venv          : create the MkDocs and runtime related virtual environment
-                  Location: venv
+  venv   : create the required virtual environment and exit
+  deploy : create the site and push all data to branch gh-pages
+           (zensical build ; ghp-import)
+  serve  : Run the Zensical builtin development server
+           (zensical serve)
+           Default URL: http://localhost:${port}
+  shut   : shutdown Zensical development web server
+
+  Default: call 'zensical build'
 
 EOT
 }
@@ -80,8 +97,6 @@ do
             ;;
         -V | --version)
             echo ${VERSION_STRING}
-            echo "${COPYRIGHT}"
-            echo "${LICENSE}"
             exit 0
             ;;
         -c | --check-only)
@@ -93,8 +108,26 @@ do
         -n | --no-check)
             check=0
             ;;
+        -p | --port)
+            shift
+            if [ "$1" = "" ]
+            then
+                echo "${SCRIPT_NAME}: option ${option} : port number missing"
+                exit 1
+            fi
+            if ! [[ "$1" =~ ^[1-9][0-9]*$ ]]
+            then
+                echo "${SCRIPT_NAME}: option ${option}: value is not a positive integer number"
+                exit 1
+            fi
+            port=$1
+            ;;
+        --)
+            shift 1
+            break
+            ;;
         -*)
-            echo "${SCRIPT_NAME}: '$1' : unknown option"
+            echo "${SCRIPT_NAME}: '${option}' : unknown option"
             exit 1
             ;;
         *)  break;;
@@ -108,10 +141,14 @@ done
 if [ "$1" != "" ]
 then
     case "$1" in
-        build)     ;;
-        deploy)   ;;
-        serve)    ;;
-        venv)     ;;
+        venv)   ;;
+        deploy) ;;
+        serve)  ;;
+        shut)
+            echo "${SCRIPT_NAME}: shutdown Zensical development web server"
+            pkill -15 zensical || exit 1
+            exit 0
+            ;;
         *)
             echo "${SCRIPT_NAME}: '$1' : unknown argument"
             exit 1
@@ -134,16 +171,12 @@ then
         exit 1
     fi
 #
-    # create the virtual environment directory venv
     rm -fr ${SCRIPT_DIR}/venv
     echo "${SCRIPT_NAME}: python3 -m venv --prompt venv venv"
     python3 -m venv --prompt venv ${SCRIPT_DIR}/venv || exit 1
-#
-    # activate the virtual environment
     echo "${SCRIPT_NAME}: . venv/bin/activate"
     . ${SCRIPT_DIR}/venv/bin/activate
 #
-    # upgrade the basic modules
     echo "${SCRIPT_NAME}: python -m pip install --upgrade pip"
     python -m pip install --upgrade pip || exit 1
     echo "${SCRIPT_NAME}: python -m pip install --upgrade setuptools"
@@ -153,13 +186,11 @@ then
 #
 ###############################################################################
 #
-# install the MkDocs related modules
+    echo "${SCRIPT_NAME}: python -m pip install --upgrade zensical"
+    python -m pip install --upgrade zensical || exit 1
 #
-    echo "${SCRIPT_NAME}: python -m pip install --upgrade mkdocs-material"
-    python -m pip install --upgrade mkdocs-material || exit 1
-#
-    echo "${SCRIPT_NAME}: python -m pip install --upgrade mkdocs-git-revision-date-localized-plugin"
-    python -m pip install --upgrade mkdocs-git-revision-date-localized-plugin || exit 1
+    echo "${SCRIPT_NAME}: python -m pip install --upgrade ghp-import"
+    python -m pip install --upgrade ghp-import || exit 1
 #
 ###############################################################################
 #
@@ -198,7 +229,7 @@ then
     echo ""
     echo ""
     echo "----------"
-    grep -E 'mkdocs|beautifulsoup4|jsonschema|lxml|python-dateutil|requests|pytest' ${SCRIPT_DIR}/venv/requirements.txt | sort
+    cat ${SCRIPT_DIR}/venv/requirements.txt | sort
     echo "----------"
     echo ""
 #
@@ -222,8 +253,7 @@ then
         echo "${SCRIPT_NAME}: script ${SCRIPT_DIR}/venv/bin/activate missing"
         exit 1
     fi
-    echo "${SCRIPT_NAME}: use local venv directory as virtual environment"
-    source ${SCRIPT_DIR}/venv/bin/activate
+    . ${SCRIPT_DIR}/venv/bin/activate
 fi
 #
 ###############################################################################
@@ -233,28 +263,19 @@ then
 #
     echo "${SCRIPT_NAME}: check for needed Python modules"
     echo "----------"
-    data=$(python -m pip show mkdocs 2>/dev/null)
+    data=$(python -m pip show zensical 2>/dev/null)
     if [ $? -ne 0 ]
     then
-        echo "${SCRIPT_NAME}: Python module mkdocs not available"
+        echo "${SCRIPT_NAME}: Python module zensical not available"
         exit 1
     fi
     echo ${data} | awk '{ printf "%s %s\n%s %s\n", $1, $2, $3, $4;}'
     echo ""
 #
-    data=$(python -m pip show mkdocs-material 2>/dev/null)
+    data=$(python -m pip show ghp-import 2>/dev/null)
     if [ $? -ne 0 ]
     then
-        echo "${SCRIPT_NAME}: Python module mkdocs-material not available"
-        exit 1
-    fi
-    echo ${data} | awk '{ printf "%s %s\n%s %s\n", $1, $2, $3, $4;}'
-    echo ""
-#
-    data=$(python -m pip show mkdocs-git-revision-date-localized-plugin 2>/dev/null)
-    if [ $? -ne 0 ]
-    then
-        echo "${SCRIPT_NAME}: Python module mkdocs-git-revision-date-localized-plugin not available"
+        echo "${SCRIPT_NAME}: Python module ghp-import not available"
         exit 1
     fi
     echo ${data} | awk '{ printf "%s %s\n%s %s\n", $1, $2, $3, $4;}'
@@ -272,8 +293,41 @@ fi
 #
 if [ "$1" = "deploy" ]
 then
-    echo "${SCRIPT_NAME}: mkdocs gh-deploy"
-    mkdocs gh-deploy || exit 1
+    if [ ${gitrepo} -eq 0 ]
+    then
+        echo "${SCRIPT_NAME}: current directory is not a Git repository"
+        exit 1
+    fi
+#
+    if [ "${GHP_IMPORT}" = "" ]
+    then
+        python3 -m pip show ghp-import >/dev/null 2>/dev/null
+        if [ $? -ne 0 ]
+        then
+            echo "${SCRIPT_NAME}: Python module ghp-import not available"
+            exit 1
+        fi
+
+#
+        GHP_IMPORT="ghp-import"
+    fi
+#
+    echo "${SCRIPT_NAME}: zensical build --clean --strict"
+    zensical build --clean --strict || exit 1
+    echo ""
+#
+    if [ -d docs/.well-known ]
+    then
+        if [ ! -d site/.well-known ]
+        then
+            cp -rp docs/.well-known site || exit 1
+        else
+            cp -p --update=older docs/.well-known/security*.txt site/.wel-known || exit 1
+        fi
+    fi
+#
+    echo "${SCRIPT_NAME}: ghp-import --no-jekyll --push --no-history ./site"
+    ${GHP_IMPORT} --no-jekyll --push --no-history ./site || exit 1
     echo ""
     exit 0
 fi
@@ -282,22 +336,28 @@ fi
 #
 if [ "$1" = "serve" ]
 then
-    if [ ${force} -eq 1 ]
-    then
-        echo "${SCRIPT_NAME}: mkdocs serve --no-strict ..."
-        mkdocs serve --no-strict &
-    else
-        echo "${SCRIPT_NAME}: mkdocs serve ..."
-        mkdocs serve &
-    fi
-    echo "#!/bin/bash" >./mkdocs.shut
-    echo "kill -15 $!" >>./mkdocs.shut
-    echo "rm ./mkdocs.shut" >>./mkdocs.shut
-    chmod 700 ./mkdocs.shut
-    sleep 1
-    echo ""
-    echo "shutdown MkDocs server: ./mkdocs.shut"
-    echo ""
+    # File Watcher
+    # see: https://github.com/zensical/zensical/releases/tag/v0.0.28
+    #
+    # You can now opt into using a polling-based file watcher, 
+    # which is particularly useful when running Docker on 
+    # Windows, where filesystem event limitations (e.g., inotify 
+    # constraints) can cause issues.
+    ##### export ZENSICAL_POLL_WATCHER=1
+    # The polling interval is configurable and defaults to 
+    # 500 milliseconds (aligned with MkDocs behavior)
+    ##### export ZENSICAL_POLL_INTERVAL=500
+    #
+    echo "${SCRIPT_NAME}: zensical serve --dev-addr "localhost:${port}" ..."
+    zensical serve --dev-addr "localhost:${port}" &
+    # echo "#!/bin/bash" >./zensical.shut
+    # echo "kill -15 $!" >>./zensical.shut
+    # echo "rm ./zensical.shut" >>./zensical.shut
+    # chmod 700 ./zensical.shut
+    # sleep 1
+    # echo ""
+    # echo "shutdown Zensical server: ./zensical.shut"
+    # echo ""
     exit 0
 fi
 #
@@ -305,13 +365,26 @@ fi
 #
 if [ ${force} -eq 1 ]
 then
-    echo "${SCRIPT_NAME}: mkdocs build --clean --no-strict"
-    mkdocs build --clean --no-strict || exit 1
+    echo "${SCRIPT_NAME}: zensical build --clean"
+    zensical build --clean || exit 1
 else
-    echo "${SCRIPT_NAME}: mkdocs build --clean"
-    mkdocs build --clean || exit 1
+    echo "${SCRIPT_NAME}: zensical build --clean --strict"
+    zensical build --clean --strict || exit 1
 fi
 echo ""
+#
+touch site/.nojekyll
+chmod 640 site/.nojekyll
+#
+if [ -d docs/.well-known ]
+then
+    if [ ! -d site/.well-known ]
+    then
+        cp -rp docs/.well-known site || exit 1
+    else
+        cp -p --update=older docs/.well-known/security*.txt site/.wel-known || exit 1
+    fi
+fi
 #
 if [ -d ${SCRIPT_DIR}/.git ]
 then
@@ -322,3 +395,4 @@ fi
 ###############################################################################
 #
 exit 0
+
