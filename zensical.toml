@@ -1,9 +1,8 @@
-# 01-JUL-2026
+# 21-SEP-2026
 # Zensical Documentation:
 # https://zensical.org/docs/
-# Zensical >= 0.0.40
+# Zensical >= 0.0.58
 [project]
-validation = true
 dev_addr = "localhost:8000"
 
 site_name = "MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben"
@@ -54,15 +53,27 @@ nav = [
   ]}
 ]
 
+[project.validation]
+invalid_links = true
+invalid_link_anchors = true
+# unresolved_references: 0.0.56: deprecated, will be remove in a future release
+unresolved_references = false
+# unresolved_footnotes = false
+# unused_definitions = false
+# unused_footnotes = false
+# shadowed_definitions = false
+# shadowed_footnotes = false
+
 [project.theme]
+font = false
 favicon = "assets/favicon.ico"
 logo = "assets/python-logo-only2.png"
 language = "en"
 direction = "ltr"
 features = [
     "announce.dismiss",
-    "content.action.edit",
-    "content.action.view",
+    # "content.action.edit",
+    # "content.action.view",
     "content.code.annotate",
     "content.code.copy",
     "content.code.select",
@@ -104,9 +115,6 @@ palette = [
 ]
 
 
-[project.theme.font]
-font = false
-
 [project.theme.icon]
 # logo = "lucide/smile"
 repo = "fontawesome/brands/github"
@@ -135,9 +143,10 @@ pygments_lang_class = "true"
 
 [project.markdown_extensions.tables]
 
-
-[project.plugins.offline]
-enabled = false
+[project.plugins.macros]
+include_yaml = ["docs/assets/variables.yml"]
+on_undefined = "strict"
+on_error_fail = true
 
 [project.extra]
 social = [

@@ -74,43 +74,19 @@ dem Programm
 ausgeben.
 [version.py]: https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/version.py
 
-#### Debian 13.5
-```
-$ python3 version.py
-Python Version : 3.13.5
----
-Name      : zwijger
-System    : Linux
-Release   : 5.15.167.4-microsoft-standard-WSL2
-Version   : #1 SMP Tue Nov 5 00:21:55 UTC 2024
-Machine   : x86_64
-Processor :
-```
-
-#### Windows 11 25H2
-```
-> python.exe version.py
-Python Version : 3.13.2
----
-Name      : zwijger
-System    : Windows
-Release   : 11
-Version   : 10.0.26200
-Machine   : AMD64
-Processor : AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
-```
-
 ### Python Virtual Environment
 Zur Erzeugung der Webseiten verwende ich das 
 folgenden Python Modul
 
 * [zensical](https://pypi.org/project/zensical/)  
 
+Derzeit verwende ich __Zensical {{ zensical_version }}__.
+
 Für die benötigten Python Module verwende ich das
 folgende Virtual Environment:
 
 ```
-python3 -m venv venv
+python3 -m venv --prompt venv venv
 source venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install --upgrade setuptools

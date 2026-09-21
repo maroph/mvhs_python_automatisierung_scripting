@@ -37,6 +37,7 @@ for name, val in res.headers.items():
 
 * [request_anfrage.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag3/request_anfrage.py)
 * [response_headers.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag3/response_headers.py)
+* [wttr.py](https://raw.githubusercontent.com/maroph/mvhs_python_automatisierung_scripting/main/sources/tag3/wttr.py)
 
 ## Beautiful Soup
 Beautiful Soup bietet dem Anwender die Möglichkeit, auf 
