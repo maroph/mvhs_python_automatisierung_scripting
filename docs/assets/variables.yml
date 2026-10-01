@@ -1,3 +1,0 @@
-# https://zensical.org/docs/setup/extensions/macros/
-# Variables are accessible as {{ variable }} in templates
-zensical_version : "0.0.63"

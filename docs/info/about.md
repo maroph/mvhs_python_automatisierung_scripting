@@ -80,8 +80,6 @@ folgenden Python Modul
 
 * [zensical](https://pypi.org/project/zensical/)  
 
-Derzeit verwende ich __Zensical {{ zensical_version }}__.
-
 Für die benötigten Python Module verwende ich das
 folgende Virtual Environment:
 

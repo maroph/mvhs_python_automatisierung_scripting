@@ -2,7 +2,8 @@
 
 ## Python Allgemein
 * [Python Homepage](https://python.org)
-* [Python Docs](https://docs.python.org/3/)
+* [Python Docs (English)](https://docs.python.org/3/)
+* [Python Docs (Deutsch)](https://docs.python.org/de/3/)
 * [Python Language Reference](https://docs.python.org/3.11/reference/index.html)
 * [Python Data model](https://docs.python.org/3.11/reference/datamodel.html)
 * [Python Built-in Types](https://docs.python.org/3.11/library/stdtypes.html)

@@ -1,4 +1,4 @@
-# 21-SEP-2026
+# 24-SEP-2026
 # Zensical Documentation:
 # https://zensical.org/docs/
 # Zensical >= 0.0.58
@@ -142,11 +142,6 @@ pygments_lang_class = "true"
 [project.markdown_extensions.pymdownx.superfences]
 
 [project.markdown_extensions.tables]
-
-[project.plugins.macros]
-include_yaml = ["docs/assets/variables.yml"]
-on_undefined = "strict"
-on_error_fail = true
 
 [project.extra]
 social = [
