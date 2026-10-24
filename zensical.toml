@@ -1,14 +1,14 @@
-# 24-SEP-2026
-# Zensical Documentation:
-# https://zensical.org/docs/
-# Zensical >= 0.0.58
+# 24-OCT-2026
+# Zensical >= 0.0.72
 [project]
 dev_addr = "localhost:8000"
 
 site_name = "MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben"
-site_description = "Meine Daten aus dem MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben"
 site_author = "Manfred Rosenboom (maroph)"
 site_url = "https://maroph.github.io/mvhs_python_automatisierung_scripting/"
+site_description = """
+Meine Daten aus dem MVHS Workshop Python für Automatisierungs- und Scripting-Aufgaben.
+"""
 
 docs_dir = "docs"
 site_dir = "site"
@@ -58,11 +58,6 @@ invalid_links = true
 invalid_link_anchors = true
 # unresolved_references: 0.0.56: deprecated, will be remove in a future release
 unresolved_references = false
-# unresolved_footnotes = false
-# unused_definitions = false
-# unused_footnotes = false
-# shadowed_definitions = false
-# shadowed_footnotes = false
 
 [project.theme]
 font = false
@@ -142,6 +137,26 @@ pygments_lang_class = "true"
 [project.markdown_extensions.pymdownx.superfences]
 
 [project.markdown_extensions.tables]
+
+
+[project.plugins.meta]
+enabled = true
+
+[project.plugins.minify]
+enabled = true
+minify_html = true
+minify_js = false
+minify_css = false
+htmlmin_opts = {
+    remove_comments = true
+}
+
+[project.plugins.privacy]
+enabled = true
+
+[project.plugins.search]
+enabled = true
+
 
 [project.extra]
 social = [

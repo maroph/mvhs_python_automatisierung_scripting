@@ -7,10 +7,12 @@
 # This work is licensed under a CC-BY 4.0 License. #
 # https://creativecommons.org/licenses/by/4.0/     #
 ####################################################
+declare -r COPYRIGHT="Copyright (C) 2026 Manfred Rosenboom"
+declare -r LICENSE="License: CC-BY 4.0 <https://creativecommons.org/licenses/by/4.0/>"
 #
 declare -r SCRIPT_NAME=$(basename $0)
 declare -r VERSION="0.1.0"
-declare -r VERSION_DATE="01-JUL-2026"
+declare -r VERSION_DATE="24-OCT-2026"
 declare -r VERSION_STRING="${SCRIPT_NAME}  ${VERSION}  (${VERSION_DATE})"
 #
 ###############################################################################
@@ -31,26 +33,41 @@ declare -r SCRIPT_DIR
 #
 ###############################################################################
 #
+# 1: show use_ values wiht option -V/--version
+declare -r show_use_variables=0
+declare -r use_markdown_exec=0
+declare -r use_ghp_import=0
+declare -r use_zensical_version=0
+#
+###############################################################################
+#
 if [ -d ${SCRIPT_DIR}/.git ]
 then
     gitrepo=1
 else
     gitrepo=0
 fi
+declare -r gitrepo
 #
 GHP_IMPORT=""
-if [ -x $HOME/bin/ghp-import.bash ]
+if [ ${use_ghp_import} -eq 1 ]
 then
-    GHP_IMPORT="$HOME/bin/ghp-import.bash"
+    if [ -x $HOME/bin/ghp-import.bash ]
+    then
+        GHP_IMPORT="$HOME/bin/ghp-import.bash"
+    fi
 fi
-
 #
 ###############################################################################
 #
 export LANG="en_US.UTF-8"
+umask 0027
+#
+###############################################################################
 #
 check=1
 checkOnly=0
+cleanup=0
 force=0
 port=8000
 #
@@ -59,30 +76,45 @@ port=8000
 print_usage() {
     cat - <<EOT
 
-Usage: ${SCRIPT_NAME} [option(s)] [venv|deploy|serve|shut]
+Usage: ${SCRIPT_NAME} [option(s)] [venv|build|deploy|serve|shut|status]
        Call zensical to build the site related files
-       https://zensical.org/
+       https://zensical.org/docs/get-started/
 
 Options:
   -h|--help        : show this help and exit
   -V|--version     : show version information and exit
   -c|--check-only  : check for needed Python3 modules and exit
+  --cleanup        : build|deploy|serve: remove from directories .cache and site
   -f|--force       : don't use option --strict for zensical build
   -n|--no-check    : no check for needed Python3 modules
-  -p|--port <port> : change port (default: ${port})
+  -p|--port <port> : serve: change port (default: ${port})
 
   Arguments
-  venv   : create the required virtual environment and exit
-  deploy : create the site and push all data to branch gh-pages
-           (zensical build ; ghp-import)
-  serve  : Run the Zensical builtin development server
-           (zensical serve)
-           Default URL: http://localhost:${port}
-  shut   : shutdown Zensical development web server
+  venv          : create the required virtual environment and exit
+  build         : create the site (default)
+                  (zensical build)
+  deploy        : create the site and push all data to branch gh-pages
+                  (zensical build ; ghp-import - similar to: mkdocs gh-deploy)
+  serve         : Run the Zensical builtin development server
+                  (zensical serve)
+                  Default URL: http://localhost:${port}
+  shut          : shutdown Zensical development web server
+  status        : show status of  Zensical development web server
 
   Default: call 'zensical build'
 
+  Trace of git commands during deploy:
+
+  GIT_TRACE=1 ${SCRIPT_NAME} deploy
+
 EOT
+}
+#
+###############################################################################
+#
+getpid() {
+    pid=$(ps -opid,cmd | grep '/zensical' | grep -v grep | awk '{ print $1; }')
+    echo "${pid}"
 }
 #
 ###############################################################################
@@ -96,11 +128,23 @@ do
             exit 0
             ;;
         -V | --version)
-            echo ${VERSION_STRING}
+            echo "${VERSION_STRING}"
+            echo "${COPYRIGHT}"
+            echo "${LICENSE}"
+            if [ ${show_use_variables} -eq 1 ]
+            then
+                echo "---"
+                echo "use_markdown_exec    : ${use_markdown_exec}"
+                echo "use_ghp_import       : ${use_ghp_import}"
+                echo "use_zensical_version : ${use_zensical_version}"
+            fi
             exit 0
             ;;
         -c | --check-only)
             checkOnly=1
+            ;;
+        --cleanup)
+            cleanup=1
             ;;
         -f | --force)
             force=1
@@ -126,8 +170,12 @@ do
             shift 1
             break
             ;;
+        --*)
+            echo "${SCRIPT_NAME}: '$1' : unknown option"
+            exit 1
+            ;;
         -*)
-            echo "${SCRIPT_NAME}: '${option}' : unknown option"
+            echo "${SCRIPT_NAME}: '$1' : unknown option"
             exit 1
             ;;
         *)  break;;
@@ -141,12 +189,29 @@ done
 if [ "$1" != "" ]
 then
     case "$1" in
-        venv)   ;;
+        venv) ;;
+        build) ;;
         deploy) ;;
-        serve)  ;;
+        serve) ;;
         shut)
-            echo "${SCRIPT_NAME}: shutdown Zensical development web server"
-            pkill -15 zensical || exit 1
+            pid=$(getpid)
+            if [ "${pid}" != "" ]
+            then
+                echo "${SCRIPT_NAME}: shutdown Zensical development web server"
+                pkill -15 zensical || exit 1
+            else
+                echo "${SCRIPT_NAME}: Zensical server not running"
+            fi
+            exit 0
+            ;;
+        status)
+            pid=$(getpid)
+            if [ "${pid}" != "" ]
+            then
+                echo "${SCRIPT_NAME}: Zensical server running, pid: ${pid}"
+            else
+                echo "${SCRIPT_NAME}: Zensical server not running"
+            fi
             exit 0
             ;;
         *)
@@ -164,6 +229,13 @@ cd ${SCRIPT_DIR} || exit 1
 #
 if [ "$1" = "venv" ]
 then
+    pid=$(getpid)
+    if [ "${pid}" != "" ]
+    then
+        echo "${SCRIPT_NAME}: Zensical server running, pid: ${pid}"
+        exit 1
+    fi
+    #
     if [ "${VIRTUAL_ENV}" != "" ]
     then
         echo "${SCRIPT_NAME}: deactivate the current virtual environment"
@@ -184,44 +256,20 @@ then
     echo "${SCRIPT_NAME}: python -m pip install --upgrade wheel"
     python -m pip install --upgrade wheel || exit 1
 #
-###############################################################################
-#
     echo "${SCRIPT_NAME}: python -m pip install --upgrade zensical"
     python -m pip install --upgrade zensical || exit 1
 #
-    echo "${SCRIPT_NAME}: python -m pip install --upgrade ghp-import"
-    python -m pip install --upgrade ghp-import || exit 1
+    if [ ${use_markdown_exec} -eq 1 ]
+    then
+        echo "${SCRIPT_NAME}: python -m pip install --upgrade markdown-exec"
+        python -m pip install --upgrade markdown-exec || exit 1
+    fi
 #
-###############################################################################
-#
-# install the runtime related modules
-#
-    echo "${SCRIPT_NAME}: python -m pip install --upgrade beautifulsoup4"
-    python -m pip install --upgrade beautifulsoup4 || exit 1
-#
-    echo "${SCRIPT_NAME}: python -m pip install --upgrade jsonschema"
-    python -m pip install --upgrade jsonschema || exit 1
-#
-    echo "${SCRIPT_NAME}: python -m pip install --upgrade lxml"
-    python -m pip install --upgrade lxml || exit 1
-#
-    echo "${SCRIPT_NAME}: python -m pip install --upgrade python-dateutil"
-    python -m pip install --upgrade python-dateutil || exit 1
-#
-    echo "${SCRIPT_NAME}: python -m pip install --upgrade requests"
-    python -m pip install --upgrade requests || exit 1
-#
-###############################################################################
-#
-# install the pytest related modules
-#
-    echo "${SCRIPT_NAME}: python -m pip install --upgrade pytest"
-    python -m pip install --upgrade pytest || exit 1
-#
-    echo "${SCRIPT_NAME}: python -m pip install --upgrade pytest-order"
-    python -m pip install --upgrade pytest-order || exit 1
-#
-###############################################################################
+    if [ ${use_ghp_import} -eq 1 ]
+    then
+        echo "${SCRIPT_NAME}: python -m pip install --upgrade ghp-import"
+        python -m pip install --upgrade ghp-import || exit 1
+    fi
 #
     echo "${SCRIPT_NAME}: python -m pip freeze >requirements.txt"
     python -m pip freeze >${SCRIPT_DIR}/venv/requirements.txt || exit 1
@@ -272,15 +320,31 @@ then
     echo ${data} | awk '{ printf "%s %s\n%s %s\n", $1, $2, $3, $4;}'
     echo ""
 #
-    data=$(python -m pip show ghp-import 2>/dev/null)
-    if [ $? -ne 0 ]
+    if [ ${use_markdown_exec} -eq 1 ]
     then
-        echo "${SCRIPT_NAME}: Python module ghp-import not available"
-        exit 1
+        data=$(python -m pip show ghp-import 2>/dev/null)
+        if [ $? -ne 0 ]
+        then
+            echo "${SCRIPT_NAME}: Python module ghp-import not available"
+            exit 1
+        fi
+        echo ${data} | awk '{ printf "%s %s\n%s %s\n", $1, $2, $3, $4;}'
+        echo "----------"
+        echo ""
     fi
-    echo ${data} | awk '{ printf "%s %s\n%s %s\n", $1, $2, $3, $4;}'
-    echo "----------"
-    echo ""
+#
+    if [ ${use_markdown_exec} -eq 1 ]
+    then
+        data=$(python -m pip show markdown-exec 2>/dev/null)
+        if [ $? -ne 0 ]
+        then
+            echo "${SCRIPT_NAME}: Python module markdown-exec not available"
+            exit 1
+        fi
+        echo ${data} | awk '{ printf "%s %s\n%s %s\n", $1, $2, $3, $4;}'
+        echo "----------"
+        echo ""
+    fi
 #
     if [ ${checkOnly} -eq 1 ]
     then
@@ -293,6 +357,12 @@ fi
 #
 if [ "$1" = "deploy" ]
 then
+    if [ ${use_ghp_import} -eq 0 ]
+    then
+        echo "${SCRIPT_NAME}: ghp-import not supported"
+        exit 1
+    fi
+#
     if [ ${gitrepo} -eq 0 ]
     then
         echo "${SCRIPT_NAME}: current directory is not a Git repository"
@@ -312,19 +382,27 @@ then
         GHP_IMPORT="ghp-import"
     fi
 #
+    pid=$(getpid)
+    if [ "${pid}" != "" ]
+    then
+        echo "${SCRIPT_NAME}: Zensical server running, pid: ${pid}"
+        exit 1
+    fi
+#
+    if [ ${cleanup} -eq 1 ]
+    then
+        rm -fr ./.cache
+        rm -fr ./site
+        mkdir ./.cache || exit 1
+        mkdir ./site || exit 1
+    fi
+#
     echo "${SCRIPT_NAME}: zensical build --clean --strict"
     zensical build --clean --strict || exit 1
     echo ""
 #
-    if [ -d docs/.well-known ]
-    then
-        if [ ! -d site/.well-known ]
-        then
-            cp -rp docs/.well-known site || exit 1
-        else
-            cp -p --update=older docs/.well-known/security*.txt site/.wel-known || exit 1
-        fi
-    fi
+    # export GIT_TRACE=1
+    # export GIT_CURL_VERBOSE=1
 #
     echo "${SCRIPT_NAME}: ghp-import --no-jekyll --push --no-history ./site"
     ${GHP_IMPORT} --no-jekyll --push --no-history ./site || exit 1
@@ -336,6 +414,13 @@ fi
 #
 if [ "$1" = "serve" ]
 then
+    pid=$(getpid)
+    if [ "${pid}" != "" ]
+    then
+        echo "${SCRIPT_NAME}: Zensical server already running, pid: ${pid}"
+        exit 1
+    fi
+    #
     # File Watcher
     # see: https://github.com/zensical/zensical/releases/tag/v0.0.28
     #
@@ -348,21 +433,59 @@ then
     # 500 milliseconds (aligned with MkDocs behavior)
     ##### export ZENSICAL_POLL_INTERVAL=500
     #
+    if [ ${cleanup} -eq 1 ]
+    then
+        rm -fr ./.cache
+        rm -fr ./site
+        mkdir ./.cache || exit 1
+        mkdir ./site || exit 1
+    fi
     echo "${SCRIPT_NAME}: zensical serve --dev-addr "localhost:${port}" ..."
     zensical serve --dev-addr "localhost:${port}" &
-    # echo "#!/bin/bash" >./zensical.shut
-    # echo "kill -15 $!" >>./zensical.shut
-    # echo "rm ./zensical.shut" >>./zensical.shut
-    # chmod 700 ./zensical.shut
-    # sleep 1
-    # echo ""
-    # echo "shutdown Zensical server: ./zensical.shut"
-    # echo ""
     exit 0
 fi
 #
 ###############################################################################
 #
+if [ ! -r data/variables.yml ]
+then
+    if [ ${use_zensical_version} -eq 1 ]
+    then
+        echo "${SCRIPT_NAME}: ERROR: missing file data/variables.yml"
+        echo "${SCRIPT_NAME}: ERROR: variable zensical_version is expected in this file"
+    fi
+else
+    grep zensical_version data/variables.yml >/dev/null 2>/dev/null
+    if [ $? -ne 0 ]
+    then
+        echo "${SCRIPT_NAME}: ERROR: variable zensical_version missing in file data/variables.yml"
+    else
+        grep zensical_version data/variables.yml | grep $(zensical --version) >/dev/null 2>/dev/null
+        if [ $? -ne 0 ]
+        then
+            echo "${SCRIPT_NAME}: WARN: update Zensical version in variable zensical_version in file data/variables.yml"
+            echo "${SCRIPT_NAME}: WARN: current Zensical version: $(zensical --version)"
+        fi
+    fi
+fi
+#
+###############################################################################
+#
+pid=$(getpid)
+if [ "${pid}" != "" ]
+then
+    echo "${SCRIPT_NAME}: Zensical server running, pid: ${pid}"
+    exit 1
+fi
+#
+#
+if [ ${cleanup} -eq 1 ]
+then
+    rm -fr ./.cache
+    rm -fr ./site
+    mkdir ./.cache || exit 1
+    mkdir ./site || exit 1
+fi
 if [ ${force} -eq 1 ]
 then
     echo "${SCRIPT_NAME}: zensical build --clean"
@@ -373,18 +496,6 @@ else
 fi
 echo ""
 #
-touch site/.nojekyll
-chmod 640 site/.nojekyll
-#
-if [ -d docs/.well-known ]
-then
-    if [ ! -d site/.well-known ]
-    then
-        cp -rp docs/.well-known site || exit 1
-    else
-        cp -p --update=older docs/.well-known/security*.txt site/.wel-known || exit 1
-    fi
-fi
 #
 if [ -d ${SCRIPT_DIR}/.git ]
 then
