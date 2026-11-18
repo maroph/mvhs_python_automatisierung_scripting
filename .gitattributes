@@ -4,6 +4,7 @@
 #
 *.asc     text
 *.bash    text eol=lf
+*.bash.config text eol=lf
 *.c       text
 *.css     text
 *.css.map text
