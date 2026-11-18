@@ -51,7 +51,7 @@ Dateien mit dem
 [Zensical](https://zensical.org/) 
 Static Site Generator.
 
-Für den Aufruf der benötigten Python Module 
+Für den Aufruf des benötigten Python Moduls 
 nutze ich ein Python Virtual Environment.
 
 Auf die Webseiten kann man über die GitHub Page 
